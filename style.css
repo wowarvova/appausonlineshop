@@ -6,11 +6,402 @@
   padding: 0;
 }
 
-html,
-body {
-  min-height: 100%;
+:root {
+  --bg: #ffffff;
+  --ink: #0c0c0c;
+  --ink-soft: rgba(12, 12, 12, 0.55);
+  --accent: #c8f135;
+  --accent-deep: #9bc40a;
+  --shop: #111111;
+  --phone: #0c0c0c;
+  --font-display: "Syne", sans-serif;
+  --font-body: "Manrope", sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: auto;
 }
 
 body {
-  background: #ffffff;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* —— Block shell —— */
+.block-intro {
+  position: relative;
+  height: 420vh;
+}
+
+.block-intro__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.stage-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(120% 80% at 50% -10%, rgba(200, 241, 53, 0.28), transparent 55%),
+    radial-gradient(80% 60% at 100% 100%, rgba(12, 12, 12, 0.04), transparent 50%),
+    var(--bg);
+  opacity: 0;
+  transform: scale(1.04);
+  transition: none;
+}
+
+.stage-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.stage-inner {
+  position: relative;
+  z-index: 1;
+  width: min(1120px, calc(100% - 3rem));
+  min-height: min(720px, 86vh);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(1rem, 2.5vh, 1.75rem);
+  padding: clamp(1.5rem, 4vh, 3rem) 0;
+}
+
+/* —— Brand —— */
+.stage-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(0.85rem, 1.4vw, 1rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(18px);
+  will-change: opacity, transform;
+}
+
+.stage-brand__mark {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 0 0 rgba(200, 241, 53, 0.5);
+}
+
+/* —— Headline —— */
+.stage-headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 8.2vw, 6.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+  max-width: 14ch;
+}
+
+.stage-headline .line {
+  display: block;
+}
+
+.stage-headline .line--accent {
+  color: var(--ink);
+}
+
+.stage-headline .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(1.1em) rotate(2deg);
+  will-change: opacity, transform;
+}
+
+.stage-headline .line--accent .word:last-child {
+  background: linear-gradient(120deg, var(--ink) 40%, var(--accent-deep));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* —— Subcopy —— */
+.stage-sub {
+  max-width: 34rem;
+  font-size: clamp(1rem, 1.7vw, 1.2rem);
+  color: var(--ink-soft);
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: opacity, transform;
+}
+
+/* —— Visual morph shop → app —— */
+.stage-visual {
+  margin-top: clamp(0.5rem, 2vh, 1.5rem);
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  will-change: opacity, transform;
+}
+
+.morph {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  flex-wrap: wrap;
+}
+
+.morph__shop,
+.morph__phone {
+  position: relative;
+  border-radius: 18px;
+  background: var(--shop);
+  color: #fff;
+  overflow: hidden;
+}
+
+.morph__shop {
+  width: clamp(180px, 28vw, 260px);
+  aspect-ratio: 4 / 3;
+  padding: 0.85rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+  transform: translateX(-12px) rotate(-2deg);
+}
+
+.morph__shop-bar {
+  display: flex;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.morph__shop-bar span {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.morph__shop-bar span:first-child {
+  background: #ff5f57;
+}
+.morph__shop-bar span:nth-child(2) {
+  background: #febc2e;
+}
+.morph__shop-bar span:nth-child(3) {
+  background: #28c840;
+}
+
+.morph__shop-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+  height: calc(100% - 2.2rem);
+}
+
+.morph__shop-grid i {
+  display: block;
+  border-radius: 8px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(200, 241, 53, 0.2));
+}
+
+.morph__shop-tag,
+.morph__phone-tag {
+  position: absolute;
+  left: 0.85rem;
+  bottom: 0.7rem;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+.morph__arrow {
+  color: var(--ink);
+  width: clamp(36px, 6vw, 48px);
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.morph__arrow svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.morph__phone {
+  width: clamp(110px, 16vw, 148px);
+  aspect-ratio: 9 / 17;
+  padding: 0.55rem;
+  border-radius: 22px;
+  background: linear-gradient(180deg, #1a1a1a, #050505);
+  box-shadow:
+    0 0 0 2px #222,
+    0 28px 50px rgba(0, 0, 0, 0.28);
+  transform: translateX(16px) rotate(4deg) scale(0.92);
+}
+
+.morph__phone-notch {
+  width: 38%;
+  height: 0.35rem;
+  margin: 0.25rem auto 0.65rem;
+  border-radius: 999px;
+  background: #2a2a2a;
+}
+
+.morph__phone-screen {
+  height: calc(100% - 2.4rem);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(200, 241, 53, 0.35), transparent 45%),
+    #141414;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.morph__app-icon {
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 0.55rem;
+  background: var(--accent);
+  box-shadow: 0 8px 20px rgba(200, 241, 53, 0.35);
+}
+
+.morph__app-lines span {
+  display: block;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  margin-bottom: 0.35rem;
+}
+
+.morph__app-lines span:nth-child(1) {
+  width: 78%;
+}
+.morph__app-lines span:nth-child(2) {
+  width: 92%;
+}
+.morph__app-lines span:nth-child(3) {
+  width: 56%;
+}
+
+/* —— Hint + progress —— */
+.stage-hint {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(1.25rem, 4vh, 2.5rem);
+  transform: translateX(-50%) translateY(12px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.stage-hint__chevron {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  animation: chevron-bounce 1.4s var(--ease-out) infinite;
+}
+
+@keyframes chevron-bounce {
+  0%,
+  100% {
+    transform: rotate(45deg) translate(-2px, -2px);
+    opacity: 0.4;
+  }
+  50% {
+    transform: rotate(45deg) translate(2px, 2px);
+    opacity: 1;
+  }
+}
+
+.stage-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: rgba(12, 12, 12, 0.06);
+}
+
+.stage-progress__bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-deep), var(--accent));
+  transform-origin: left center;
+}
+
+.block-next-spacer {
+  height: 40vh;
+  background: var(--bg);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .stage-brand,
+  .stage-headline .word,
+  .stage-sub,
+  .stage-visual,
+  .stage-hint,
+  .stage-bg,
+  .morph__arrow,
+  .morph__shop,
+  .morph__phone {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .stage-hint__chevron {
+    animation: none;
+  }
+
+  .block-intro {
+    height: auto;
+  }
+
+  .block-intro__sticky {
+    position: relative;
+    height: auto;
+    min-height: 100vh;
+  }
+}
+
+@media (max-width: 640px) {
+  .stage-inner {
+    width: min(100% - 2rem, 1120px);
+  }
+
+  .morph {
+    justify-content: flex-start;
+  }
+
+  .morph__shop {
+    width: 150px;
+  }
+
+  .morph__phone {
+    width: 96px;
+  }
 }
