@@ -47,65 +47,63 @@
 
     if (progress) progress.style.width = `${scrolled * 100}%`;
 
-    // 0–0.12 background
-    const bgT = map(scrolled, 0, 0.12);
+    // Background builds gently from the first frame
+    const bgT = map(scrolled, 0, 0.2);
     if (bg) {
-      bg.style.opacity = String(bgT);
-      bg.style.transform = `scale(${lerp(1.04, 1, bgT)})`;
+      bg.style.opacity = String(lerp(0.55, 1, bgT));
+      bg.style.transform = `scale(${lerp(1.03, 1, bgT)})`;
     }
 
-    // 0.02–0.14 brand
-    const brandT = map(scrolled, 0.02, 0.14);
-    setOpacityTransform(brand, brandT, lerp(18, 0, brandT));
+    // Brand is present immediately, then locks in
+    const brandT = map(scrolled, 0, 0.08);
+    setOpacityTransform(brand, lerp(0.85, 1, brandT), lerp(8, 0, brandT));
     if (brandMark) {
-      brandMark.style.boxShadow = `0 0 ${lerp(0, 18, brandT)}px ${lerp(0, 8, brandT)}px rgba(200, 241, 53, ${0.45 * brandT})`;
+      brandMark.style.boxShadow = `0 0 ${lerp(8, 18, brandT)}px ${lerp(4, 8, brandT)}px rgba(200, 241, 53, ${0.35 + 0.2 * brandT})`;
     }
 
-    // 0.12–0.42 headline words stagger
+    // Headline words stagger across the first scroll stretch
     words.forEach((word, i) => {
-      const start = 0.12 + i * 0.035;
-      const t = map(scrolled, start, start + 0.1);
+      const start = -0.06 + i * 0.038;
+      const t = map(scrolled, start, start + 0.12);
       const y = lerp(28, 0, t);
       const rot = lerp(2.2, 0, t);
       word.style.opacity = String(t);
       word.style.transform = `translateY(${y}px) rotate(${rot}deg)`;
     });
 
-    // 0.38–0.52 sub
-    const subT = map(scrolled, 0.38, 0.52);
+    // Subcopy after headline lands
+    const subT = map(scrolled, 0.32, 0.46);
     setOpacityTransform(sub, subT, lerp(24, 0, subT));
 
-    // 0.48–0.72 visual
-    const visT = map(scrolled, 0.48, 0.68);
+    // Shop → App visual
+    const visT = map(scrolled, 0.42, 0.62);
     if (visual) {
       visual.style.opacity = String(visT);
       visual.style.transform = `translateY(${lerp(40, 0, visT)}px) scale(${lerp(0.96, 1, visT)})`;
     }
 
     if (shop) {
-      const shopT = map(scrolled, 0.5, 0.7);
+      const shopT = map(scrolled, 0.44, 0.64);
       shop.style.transform = `translateX(${lerp(-12, 0, shopT)}px) rotate(${lerp(-2, 0, shopT)}deg)`;
     }
 
     if (arrow) {
-      const arrowT = map(scrolled, 0.58, 0.72);
+      const arrowT = map(scrolled, 0.52, 0.66);
       arrow.style.opacity = String(arrowT);
       arrow.style.transform = `translateX(${lerp(-10, 0, arrowT)}px)`;
     }
 
     if (phone) {
-      const phoneT = map(scrolled, 0.62, 0.78);
+      const phoneT = map(scrolled, 0.56, 0.74);
       phone.style.transform = `translateX(${lerp(16, 0, phoneT)}px) rotate(${lerp(4, 0, phoneT)}deg) scale(${lerp(0.92, 1, phoneT)})`;
       phone.style.opacity = String(lerp(0.35, 1, phoneT));
     }
 
-    // Hint: visible early, fades when visual settles
-    const hintIn = map(scrolled, 0.08, 0.18);
-    const hintOut = 1 - map(scrolled, 0.7, 0.85);
-    const hintT = hintIn * hintOut;
+    // Hint: strong at start, gone when the morph finishes
+    const hintOut = 1 - map(scrolled, 0.62, 0.78);
     if (hint) {
-      hint.style.opacity = String(hintT * 0.85);
-      hint.style.transform = `translateX(-50%) translateY(${lerp(12, 0, hintIn)}px)`;
+      hint.style.opacity = String(0.8 * hintOut);
+      hint.style.transform = `translateX(-50%) translateY(0px)`;
     }
   };
 

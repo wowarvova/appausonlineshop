@@ -55,8 +55,8 @@ body {
     radial-gradient(120% 80% at 50% -10%, rgba(200, 241, 53, 0.28), transparent 55%),
     radial-gradient(80% 60% at 100% 100%, rgba(12, 12, 12, 0.04), transparent 50%),
     var(--bg);
-  opacity: 0;
-  transform: scale(1.04);
+  opacity: 0.55;
+  transform: scale(1.03);
   transition: none;
 }
 
@@ -90,8 +90,8 @@ body {
   font-size: clamp(0.85rem, 1.4vw, 1rem);
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  opacity: 0;
-  transform: translateY(18px);
+  opacity: 0.85;
+  transform: translateY(8px);
   will-change: opacity, transform;
 }
 
@@ -303,7 +303,7 @@ body {
   position: absolute;
   left: 50%;
   bottom: clamp(1.25rem, 4vh, 2.5rem);
-  transform: translateX(-50%) translateY(12px);
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -312,7 +312,7 @@ body {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-soft);
-  opacity: 0;
+  opacity: 0.8;
   pointer-events: none;
 }
 
