@@ -61,8 +61,10 @@
     }
 
     if (hint) {
-      const fade = 1 - map(scrolled, 0.55, 0.8);
+      // Hide as soon as the morph starts, so it never sits on top of it
+      const fade = 1 - map(scrolled, 0.12, 0.22);
       hint.style.opacity = String(fade);
+      hint.style.visibility = fade < 0.05 ? "hidden" : "visible";
     }
   };
 
