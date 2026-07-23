@@ -9,11 +9,9 @@
 :root {
   --bg: #ffffff;
   --ink: #0c0c0c;
-  --ink-soft: rgba(12, 12, 12, 0.55);
-  --accent: #c8f135;
-  --accent-deep: #9bc40a;
+  --ink-soft: rgba(12, 12, 12, 0.58);
+  --line: rgba(12, 12, 12, 0.1);
   --shop: #111111;
-  --phone: #0c0c0c;
   --font-display: "Syne", sans-serif;
   --font-body: "Manrope", sans-serif;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -32,10 +30,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* —— Block shell —— */
 .block-intro {
   position: relative;
-  height: 420vh;
+  /* Enough height for a deliberate scroll beat, not endless emptiness */
+  height: 280vh;
 }
 
 .block-intro__sticky {
@@ -46,26 +44,7 @@ body {
   overflow: hidden;
   display: grid;
   place-items: center;
-}
-
-.stage-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(120% 80% at 50% -10%, rgba(200, 241, 53, 0.28), transparent 55%),
-    radial-gradient(80% 60% at 100% 100%, rgba(12, 12, 12, 0.04), transparent 50%),
-    var(--bg);
-  opacity: 0.55;
-  transform: scale(1.03);
-  transition: none;
-}
-
-.stage-noise {
-  position: absolute;
-  inset: 0;
-  opacity: 0.035;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background: var(--bg);
 }
 
 .stage-inner {
@@ -76,11 +55,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: clamp(1rem, 2.5vh, 1.75rem);
+  gap: clamp(1rem, 2.4vh, 1.6rem);
   padding: clamp(1.5rem, 4vh, 3rem) 0;
 }
 
-/* —— Brand —— */
 .stage-brand {
   display: inline-flex;
   align-items: center;
@@ -90,68 +68,37 @@ body {
   font-size: clamp(0.85rem, 1.4vw, 1rem);
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  opacity: 0.85;
-  transform: translateY(8px);
-  will-change: opacity, transform;
 }
 
 .stage-brand__mark {
-  width: 0.7rem;
-  height: 0.7rem;
-  border-radius: 2px;
-  background: var(--accent);
-  box-shadow: 0 0 0 0 rgba(200, 241, 53, 0.5);
+  width: 0.65rem;
+  height: 0.65rem;
+  background: var(--ink);
 }
 
-/* —— Headline —— */
 .stage-headline {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(2.6rem, 8.2vw, 6.4rem);
-  line-height: 0.95;
+  font-size: clamp(2.4rem, 7.4vw, 5.8rem);
+  line-height: 0.98;
   letter-spacing: -0.045em;
-  max-width: 14ch;
+  max-width: 13ch;
+  color: var(--ink);
 }
 
 .stage-headline .line {
   display: block;
 }
 
-.stage-headline .line--accent {
-  color: var(--ink);
-}
-
-.stage-headline .word {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(1.1em) rotate(2deg);
-  will-change: opacity, transform;
-}
-
-.stage-headline .line--accent .word:last-child {
-  background: linear-gradient(120deg, var(--ink) 40%, var(--accent-deep));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* —— Subcopy —— */
 .stage-sub {
-  max-width: 34rem;
+  max-width: 36rem;
   font-size: clamp(1rem, 1.7vw, 1.2rem);
   color: var(--ink-soft);
   font-weight: 500;
-  opacity: 0;
-  transform: translateY(24px);
-  will-change: opacity, transform;
 }
 
-/* —— Visual morph shop → app —— */
 .stage-visual {
-  margin-top: clamp(0.5rem, 2vh, 1.5rem);
-  opacity: 0;
-  transform: translateY(40px) scale(0.96);
-  will-change: opacity, transform;
+  margin-top: clamp(0.4rem, 1.8vh, 1.25rem);
 }
 
 .morph {
@@ -164,18 +111,18 @@ body {
 .morph__shop,
 .morph__phone {
   position: relative;
-  border-radius: 18px;
-  background: var(--shop);
-  color: #fff;
   overflow: hidden;
+  color: #fff;
+  will-change: transform;
 }
 
 .morph__shop {
   width: clamp(180px, 28vw, 260px);
   aspect-ratio: 4 / 3;
   padding: 0.85rem;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
-  transform: translateX(-12px) rotate(-2deg);
+  border-radius: 18px;
+  background: var(--shop);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.14);
 }
 
 .morph__shop-bar {
@@ -188,17 +135,7 @@ body {
   width: 0.45rem;
   height: 0.45rem;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.25);
-}
-
-.morph__shop-bar span:first-child {
-  background: #ff5f57;
-}
-.morph__shop-bar span:nth-child(2) {
-  background: #febc2e;
-}
-.morph__shop-bar span:nth-child(3) {
-  background: #28c840;
+  background: rgba(255, 255, 255, 0.28);
 }
 
 .morph__shop-grid {
@@ -211,7 +148,7 @@ body {
 .morph__shop-grid i {
   display: block;
   border-radius: 8px;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(200, 241, 53, 0.2));
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .morph__shop-tag,
@@ -230,8 +167,7 @@ body {
 .morph__arrow {
   color: var(--ink);
   width: clamp(36px, 6vw, 48px);
-  opacity: 0;
-  transform: translateX(-10px);
+  will-change: transform;
 }
 
 .morph__arrow svg {
@@ -245,11 +181,10 @@ body {
   aspect-ratio: 9 / 17;
   padding: 0.55rem;
   border-radius: 22px;
-  background: linear-gradient(180deg, #1a1a1a, #050505);
+  background: #0a0a0a;
   box-shadow:
-    0 0 0 2px #222,
-    0 28px 50px rgba(0, 0, 0, 0.28);
-  transform: translateX(16px) rotate(4deg) scale(0.92);
+    0 0 0 1px #222,
+    0 24px 48px rgba(0, 0, 0, 0.22);
 }
 
 .morph__phone-notch {
@@ -263,9 +198,7 @@ body {
 .morph__phone-screen {
   height: calc(100% - 2.4rem);
   border-radius: 12px;
-  background:
-    radial-gradient(circle at 30% 20%, rgba(200, 241, 53, 0.35), transparent 45%),
-    #141414;
+  background: #161616;
   padding: 0.75rem;
   display: flex;
   flex-direction: column;
@@ -276,8 +209,7 @@ body {
   width: 2.1rem;
   height: 2.1rem;
   border-radius: 0.55rem;
-  background: var(--accent);
-  box-shadow: 0 8px 20px rgba(200, 241, 53, 0.35);
+  background: #ffffff;
 }
 
 .morph__app-lines span {
@@ -298,7 +230,6 @@ body {
   width: 56%;
 }
 
-/* —— Hint + progress —— */
 .stage-hint {
   position: absolute;
   left: 50%;
@@ -312,7 +243,6 @@ body {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-soft);
-  opacity: 0.8;
   pointer-events: none;
 }
 
@@ -342,37 +272,22 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 3px;
-  background: rgba(12, 12, 12, 0.06);
+  height: 2px;
+  background: var(--line);
 }
 
 .stage-progress__bar {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, var(--accent-deep), var(--accent));
-  transform-origin: left center;
+  background: var(--ink);
 }
 
 .block-next-spacer {
-  height: 40vh;
+  height: 35vh;
   background: var(--bg);
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .stage-brand,
-  .stage-headline .word,
-  .stage-sub,
-  .stage-visual,
-  .stage-hint,
-  .stage-bg,
-  .morph__arrow,
-  .morph__shop,
-  .morph__phone {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
   .stage-hint__chevron {
     animation: none;
   }
@@ -386,15 +301,15 @@ body {
     height: auto;
     min-height: 100vh;
   }
+
+  [data-parallax] {
+    transform: none !important;
+  }
 }
 
 @media (max-width: 640px) {
   .stage-inner {
     width: min(100% - 2rem, 1120px);
-  }
-
-  .morph {
-    justify-content: flex-start;
   }
 
   .morph__shop {
