@@ -99,6 +99,9 @@ body {
 
 .stage-visual {
   margin-top: clamp(0.4rem, 1.8vh, 1.25rem);
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  will-change: opacity, transform;
 }
 
 .morph {
@@ -123,6 +126,7 @@ body {
   border-radius: 18px;
   background: var(--shop);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.14);
+  transform: translateX(-12px) rotate(-2deg);
 }
 
 .morph__shop-bar {
@@ -167,7 +171,9 @@ body {
 .morph__arrow {
   color: var(--ink);
   width: clamp(36px, 6vw, 48px);
-  will-change: transform;
+  opacity: 0;
+  transform: translateX(-10px);
+  will-change: opacity, transform;
 }
 
 .morph__arrow svg {
@@ -185,6 +191,9 @@ body {
   box-shadow:
     0 0 0 1px #222,
     0 24px 48px rgba(0, 0, 0, 0.22);
+  transform: translateX(16px) rotate(4deg) scale(0.92);
+  opacity: 0.35;
+  will-change: opacity, transform;
 }
 
 .morph__phone-notch {
@@ -302,7 +311,11 @@ body {
     min-height: 100vh;
   }
 
-  [data-parallax] {
+  .stage-visual,
+  .morph__arrow,
+  .morph__shop,
+  .morph__phone {
+    opacity: 1 !important;
     transform: none !important;
   }
 }

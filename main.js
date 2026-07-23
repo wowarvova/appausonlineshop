@@ -5,6 +5,7 @@
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const progress = stage.querySelector('[data-stage="progress"]');
   const hint = stage.querySelector('[data-stage="hint"]');
+  const visual = stage.querySelector(".stage-visual");
   const shop = stage.querySelector('[data-parallax="shop"]');
   const arrow = stage.querySelector('[data-parallax="arrow"]');
   const phone = stage.querySelector('[data-parallax="phone"]');
@@ -15,6 +16,12 @@
 
   if (reduceMotion) {
     if (progress) progress.style.width = "100%";
+    if (visual) {
+      visual.style.opacity = "1";
+      visual.style.transform = "none";
+    }
+    if (arrow) arrow.style.opacity = "1";
+    if (phone) phone.style.opacity = "1";
     return;
   }
 
@@ -28,25 +35,33 @@
 
     if (progress) progress.style.width = `${scrolled * 100}%`;
 
-    // Content stays fully readable — motion only layers on top
+    // Text stays visible from the start.
+    // Shop → phone block reveals with the previous scroll animation.
+    const visT = map(scrolled, 0.18, 0.42);
+    if (visual) {
+      visual.style.opacity = String(visT);
+      visual.style.transform = `translateY(${lerp(40, 0, visT)}px) scale(${lerp(0.96, 1, visT)})`;
+    }
+
     if (shop) {
-      const t = map(scrolled, 0, 0.55);
-      shop.style.transform = `translateY(${lerp(0, -18, t)}px) rotate(${lerp(0, -1.5, t)}deg)`;
+      const shopT = map(scrolled, 0.2, 0.48);
+      shop.style.transform = `translateX(${lerp(-12, 0, shopT)}px) rotate(${lerp(-2, 0, shopT)}deg)`;
     }
 
     if (arrow) {
-      const t = map(scrolled, 0.1, 0.65);
-      arrow.style.transform = `translateX(${lerp(0, 8, t)}px)`;
-      arrow.style.opacity = String(lerp(0.55, 1, t));
+      const arrowT = map(scrolled, 0.32, 0.52);
+      arrow.style.opacity = String(arrowT);
+      arrow.style.transform = `translateX(${lerp(-10, 0, arrowT)}px)`;
     }
 
     if (phone) {
-      const t = map(scrolled, 0.15, 0.8);
-      phone.style.transform = `translateY(${lerp(0, -28, t)}px) rotate(${lerp(0, 2, t)}deg) scale(${lerp(1, 1.04, t)})`;
+      const phoneT = map(scrolled, 0.38, 0.62);
+      phone.style.transform = `translateX(${lerp(16, 0, phoneT)}px) rotate(${lerp(4, 0, phoneT)}deg) scale(${lerp(0.92, 1, phoneT)})`;
+      phone.style.opacity = String(lerp(0.35, 1, phoneT));
     }
 
     if (hint) {
-      const fade = 1 - map(scrolled, 0.55, 0.85);
+      const fade = 1 - map(scrolled, 0.55, 0.8);
       hint.style.opacity = String(fade);
     }
   };
