@@ -232,14 +232,83 @@
     };
   };
 
+  /* —— Block 3: Recalled example —— */
+  const setupExample = () => {
+    const stage = document.querySelector('[data-scroll-stage="example"]');
+    if (!stage) return () => {};
+
+    const progress = stage.querySelector('[data-stage="progress-example"]');
+    const phone = stage.querySelector('[data-ex="phone"]');
+    const caption = stage.querySelector('[data-ex="caption"]');
+    const screens = {
+      home: stage.querySelector('[data-ex-screen="home"]'),
+      product: stage.querySelector('[data-ex-screen="product"]'),
+      chat: stage.querySelector('[data-ex-screen="chat"]'),
+    };
+    const feats = [...stage.querySelectorAll("[data-ex-feat]")];
+    const captions = {
+      home: "Home — Drops & Feed",
+      product: "Produkt — Warenkorb bereit",
+      chat: "Chat — Listing wird live",
+    };
+
+    const setScreen = (name) => {
+      Object.entries(screens).forEach(([key, el]) => {
+        if (el) el.classList.toggle("is-active", key === name);
+      });
+      feats.forEach((li) => {
+        const id = li.getAttribute("data-ex-feat");
+        const mapName = { 0: "home", 1: "product", 2: "chat" }[id];
+        li.classList.toggle("is-active", mapName === name);
+      });
+      if (caption) caption.textContent = captions[name] || "";
+    };
+
+    if (reduceMotion) {
+      if (progress) progress.style.width = "100%";
+      setScreen("home");
+      feats.forEach((li) => li.classList.add("is-active"));
+      return () => {};
+    }
+
+    return () => {
+      const scrolled = getProgress(stage);
+      if (progress) progress.style.width = `${scrolled * 100}%`;
+
+      if (phone) {
+        const lift = map(scrolled, 0, 0.2);
+        phone.style.transform = `translateY(${lerp(24, 0, lift)}px)`;
+      }
+
+      // 0–0.28 home, 0.28–0.58 product, 0.58–1 chat
+      if (scrolled < 0.32) setScreen("home");
+      else if (scrolled < 0.62) setScreen("product");
+      else setScreen("chat");
+
+      // Soft chat bubble stagger when on chat
+      const chat = screens.chat;
+      if (chat) {
+        const bubbles = [...chat.querySelectorAll(".ex-bubble")];
+        const chatT = map(scrolled, 0.62, 0.92);
+        bubbles.forEach((b, i) => {
+          const t = map(chatT, i * 0.12, i * 0.12 + 0.2);
+          b.style.opacity = String(lerp(0.15, 1, t));
+          b.style.transform = `translateY(${lerp(10, 0, t)}px)`;
+        });
+      }
+    };
+  };
+
   const updateIntro = setupIntro();
   const updateWhy = setupWhy();
+  const updateExample = setupExample();
 
   let ticking = false;
   const update = () => {
     ticking = false;
     updateIntro();
     updateWhy();
+    updateExample();
   };
 
   const onScroll = () => {
