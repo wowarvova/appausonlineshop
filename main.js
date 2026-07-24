@@ -303,9 +303,140 @@
     };
   };
 
+  /* —— Block 4: Features —— */
+  const setupFeatures = () => {
+    const stage = document.querySelector('[data-scroll-stage="features"]');
+    if (!stage) return () => {};
+
+    const progress = stage.querySelector('[data-stage="progress-features"]');
+    const titleEl = stage.querySelector('[data-feat="title"]');
+    const textEl = stage.querySelector('[data-feat="text"]');
+    const indexEl = stage.querySelector('[data-feat="index"]');
+    const panels = [...stage.querySelectorAll("[data-feat-panel]")];
+    const dots = [...stage.querySelectorAll("[data-feat='dots'] i")];
+
+    const items = [
+      {
+        title: "Kollektionen",
+        text: "Deine Shopify-Kollektionen erscheinen klar strukturiert in der App — Kunden finden genau das, was sie suchen.",
+      },
+      {
+        title: "Push aufs Gerät",
+        text: "Benachrichtige deine Kunden direkt auf ihrem Gerät — neue Drops und Updates kommen sofort an.",
+      },
+      {
+        title: "App-Store-Bewertungen",
+        text: "Kunden können direkt in der App bewerten. Ein klares Bewertungsbanner hilft dir, Sterne im App Store zu sammeln.",
+      },
+      {
+        title: "Bestellungen & Tracking",
+        text: "Kunden sehen ihre Bestellungen inkl. Sendungsverfolgung — transparent und jederzeit in der App.",
+      },
+      {
+        title: "Kundenregistrierung",
+        text: "Einmal anmelden reicht. Danach bleiben Kunden eingeloggt — ohne sich immer neu anmelden zu müssen.",
+      },
+      {
+        title: "Warenkorb",
+        text: "Artikel landen im Warenkorb der App — übersichtlich, vertraut und bereit für den Kauf.",
+      },
+      {
+        title: "Shopify Checkout",
+        text: "Bezahlen läuft über das Shopify-Checkout-Fenster — sicher, bekannt und conversion-stark.",
+      },
+      {
+        title: "Einfach über Shopify",
+        text: "Die App steuerst du wie deinen Shop: Produkte, Preise und Bestand pflegst du einfach in Shopify.",
+      },
+    ];
+
+    const pad = (n) => String(n).padStart(2, "0");
+
+    const activatePanel = (index, localT) => {
+      panels.forEach((panel, i) => {
+        panel.classList.toggle("is-active", i === index);
+      });
+      dots.forEach((dot, i) => dot.classList.toggle("is-on", i === index));
+
+      if (titleEl) titleEl.textContent = items[index].title;
+      if (textEl) textEl.textContent = items[index].text;
+      if (indexEl) indexEl.textContent = `${pad(index + 1)} / ${pad(items.length)}`;
+
+      const panel = panels[index];
+      if (!panel) return;
+
+      // Per-feature micro animations
+      if (index === 0) {
+        panel.querySelectorAll(".fp-col").forEach((el, i) => {
+          el.classList.toggle("is-in", localT > 0.12 + i * 0.12);
+        });
+      }
+      if (index === 1) {
+        const push = panel.querySelector("[data-feat-anim='push']");
+        if (push) push.classList.toggle("is-in", localT > 0.2);
+      }
+      if (index === 2) {
+        const review = panel.querySelector("[data-feat-anim='review']");
+        if (review) review.classList.toggle("is-in", localT > 0.15);
+        panel.querySelectorAll(".fp-stars i").forEach((star, i) => {
+          star.classList.toggle("is-on", localT > 0.28 + i * 0.08);
+        });
+      }
+      if (index === 3) {
+        const track = panel.querySelector("[data-feat-anim='track']");
+        if (track) track.classList.toggle("is-in", localT > 0.15);
+        panel.querySelectorAll(".fp-track__steps i").forEach((step, i) => {
+          step.classList.toggle("is-on", localT > 0.3 + i * 0.12);
+        });
+      }
+      if (index === 4) {
+        const auth = panel.querySelector("[data-feat-anim='auth']");
+        const check = panel.querySelector(".fp-auth__check");
+        if (auth) auth.classList.toggle("is-in", localT > 0.15);
+        if (check) check.classList.toggle("is-in", localT > 0.55);
+      }
+      if (index === 5) {
+        const count = panel.querySelector("[data-feat-anim='cart-count']");
+        panel.querySelectorAll(".fp-cart__items img").forEach((img, i) => {
+          img.classList.toggle("is-in", localT > 0.2 + i * 0.15);
+        });
+        if (count) count.classList.toggle("is-in", localT > 0.55);
+      }
+      if (index === 6) {
+        const sheet = panel.querySelector(".fp-checkout__sheet");
+        if (sheet) sheet.classList.toggle("is-in", localT > 0.2);
+      }
+      if (index === 7) {
+        const admin = panel.querySelector("[data-feat-anim='admin']");
+        if (admin) admin.classList.toggle("is-in", localT > 0.15);
+        panel.querySelectorAll(".fp-admin__row").forEach((row, i) => {
+          row.classList.toggle("is-on", localT > 0.3 + i * 0.15);
+        });
+      }
+    };
+
+    if (reduceMotion) {
+      if (progress) progress.style.width = "100%";
+      activatePanel(0, 1);
+      return () => {};
+    }
+
+    return () => {
+      const scrolled = getProgress(stage);
+      if (progress) progress.style.width = `${scrolled * 100}%`;
+
+      const n = items.length;
+      const raw = scrolled * n;
+      const index = Math.min(n - 1, Math.floor(raw));
+      const localT = clamp(raw - index);
+      activatePanel(index, localT);
+    };
+  };
+
   const updateIntro = setupIntro();
   const updateWhy = setupWhy();
   const updateExample = setupExample();
+  const updateFeatures = setupFeatures();
 
   let ticking = false;
   const update = () => {
@@ -313,6 +444,7 @@
     updateIntro();
     updateWhy();
     updateExample();
+    updateFeatures();
   };
 
   const onScroll = () => {
