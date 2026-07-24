@@ -180,19 +180,20 @@
       <div class="block-example__sticky">
         <div class="ex-inner">
           <div class="ex-copy">
-            <p class="ex-eyebrow">Live Beispiel</p>
+            <p class="ex-eyebrow">Erfolgreiches Projekt</p>
             <h2 class="ex-headline">
-              So sieht’s aus.<br />
-              <span>Recalled.</span>
+              App Recalled.<br />
+              <span>Bereits live.</span>
             </h2>
             <p class="ex-sub">
-              Aus einem Shopify-Vintage-Shop eine echte App Store App —
-              Feed, Produktdetail, Warenkorb und Partner-Chat für neue Listings.
+              Ein fertiges Beispiel aus unserem Portfolio: Vintage-Shopify-Shop
+              als professionelle App Store App — inkl. Bestellungen und
+              Live-Sync mit Shopify.
             </p>
             <ul class="ex-features">
               <li class="is-active" data-ex-feat="0"><strong>Home &amp; Drops</strong> Kategorien, Filter, Live-Bestand</li>
-              <li data-ex-feat="1"><strong>Produktdetail</strong> Galerie, Preis, In den Warenkorb</li>
-              <li data-ex-feat="2"><strong>Listing-Chat</strong> Fotos + Titel, Preis, SKU → live im Shop</li>
+              <li data-ex-feat="1"><strong>Bestellungen</strong> Status &amp; Sendungsnummer direkt in der App</li>
+              <li data-ex-feat="2"><strong>Shopify Live-Sync</strong> Komplette Synchronisation in Echtzeit</li>
             </ul>
             <a
               class="ex-store"
@@ -262,61 +263,100 @@
                     </nav>
                   </div>
 
-                  <!-- Screen: Product -->
-                  <div class="ex-screen ex-screen--product" data-ex-screen="product">
+                  <!-- Screen: Product (kept briefly in flow via orders/sync focus) -->
+                  <div class="ex-screen ex-screen--orders" data-ex-screen="orders">
                     <div class="ex-status">
                       <span>9:41</span>
                       <span class="ex-status__icons"></span>
                     </div>
-                    <div class="ex-nav ex-nav--back">Artikel</div>
-                    <div class="ex-hero">
-                      <img src="assets/recalled/p1.jpg" alt="" />
+                    <div class="ex-nav">Bestellungen</div>
+                    <div class="ex-orders">
+                      <article class="ex-order">
+                        <div class="ex-order__top">
+                          <img src="assets/recalled/p1.jpg" alt="" />
+                          <div>
+                            <h3>Harrington Jacke</h3>
+                            <p>Bestellung #1042</p>
+                            <span class="ex-order__status">Unterwegs</span>
+                          </div>
+                        </div>
+                        <div class="ex-order__track">
+                          <small>Sendungsnummer</small>
+                          <code>DHL 0034 0456 7890 1234</code>
+                        </div>
+                      </article>
+                      <article class="ex-order">
+                        <div class="ex-order__top">
+                          <img src="assets/recalled/p3.jpg" alt="" />
+                          <div>
+                            <h3>Levi’s 501</h3>
+                            <p>Bestellung #1038</p>
+                            <span class="ex-order__status ex-order__status--done">Zugestellt</span>
+                          </div>
+                        </div>
+                        <div class="ex-order__track">
+                          <small>Sendungsnummer</small>
+                          <code>DHL 0034 0456 7122 8891</code>
+                        </div>
+                      </article>
+                      <article class="ex-order">
+                        <div class="ex-order__top">
+                          <img src="assets/recalled/p6.jpg" alt="" />
+                          <div>
+                            <h3>Worker Denim</h3>
+                            <p>Bestellung #1031</p>
+                            <span class="ex-order__status ex-order__status--pack">Wird verpackt</span>
+                          </div>
+                        </div>
+                        <div class="ex-order__track ex-order__track--pending">
+                          <small>Sendungsnummer</small>
+                          <code>folgt nach Versand</code>
+                        </div>
+                      </article>
                     </div>
-                    <div class="ex-product-meta">
-                      <h3>Harrington Jacke</h3>
-                      <p class="ex-price">14,00 € <small>zzgl. Versand</small></p>
-                      <p class="ex-desc">
-                        Vintage Harrington in starkem Zustand. Secondhand —
-                        geprüft und bereit für den nächsten Drop.
-                      </p>
-                      <button type="button" tabindex="-1">In den Warenkorb</button>
-                    </div>
+                    <nav class="ex-tabbar">
+                      <span>Home</span>
+                      <span class="is-on">Orders</span>
+                      <span>Pro</span>
+                      <span>Bag</span>
+                      <span>Profil</span>
+                    </nav>
                   </div>
 
-                  <!-- Screen: Chat -->
-                  <div class="ex-screen ex-screen--chat" data-ex-screen="chat">
+                  <!-- Screen: Shopify live sync -->
+                  <div class="ex-screen ex-screen--sync" data-ex-screen="sync">
                     <div class="ex-status">
                       <span>9:41</span>
                       <span class="ex-status__icons"></span>
                     </div>
-                    <div class="ex-nav ex-nav--chat">
-                      <img src="assets/recalled/icon-256.png" alt="" />
-                      <div>
-                        <strong>Recalled</strong>
-                        <small>Listing Chat</small>
+                    <div class="ex-nav">Sync</div>
+                    <div class="ex-sync">
+                      <div class="ex-sync__pair">
+                        <div class="ex-sync__node">
+                          <img src="assets/recalled/icon-256.png" alt="" />
+                          <span>Recalled App</span>
+                        </div>
+                        <div class="ex-sync__line" data-ex="sync-line">
+                          <i></i><i></i><i></i>
+                        </div>
+                        <div class="ex-sync__node">
+                          <div class="ex-sync__shopify">S</div>
+                          <span>Shopify</span>
+                        </div>
                       </div>
-                    </div>
-                    <div class="ex-chat">
-                      <div class="ex-bubble ex-bubble--them">
-                        Neue Pieces für den Drop 👇
+                      <div class="ex-sync__card" data-ex-sync-item="0">
+                        <strong>Produkte</strong>
+                        <span>Live aktualisiert</span>
                       </div>
-                      <div class="ex-bubble ex-bubble--them ex-bubble--media">
-                        <img src="assets/recalled/p1.jpg" alt="" />
-                        <img src="assets/recalled/p2.jpg" alt="" />
+                      <div class="ex-sync__card" data-ex-sync-item="1">
+                        <strong>Bestellungen</strong>
+                        <span>Sendungsnr. synchron</span>
                       </div>
-                      <div class="ex-bubble ex-bubble--them">
-                        Harrington Jacke, 14€, 0138
+                      <div class="ex-sync__card" data-ex-sync-item="2">
+                        <strong>Bestand</strong>
+                        <span>Echtzeit · kein Lag</span>
                       </div>
-                      <div class="ex-bubble ex-bubble--us">
-                        Übernommen — live in App &amp; Shopify.
-                      </div>
-                      <div class="ex-bubble ex-bubble--us ex-bubble--soft">
-                        SKU 0138 · Feed aktualisiert
-                      </div>
-                    </div>
-                    <div class="ex-composer">
-                      <span>Nachricht…</span>
-                      <b>↑</b>
+                      <p class="ex-sync__note">Komplette Synchronisation — App und Shopify immer gleich.</p>
                     </div>
                   </div>
                 </div>

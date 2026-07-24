@@ -242,14 +242,16 @@
     const caption = stage.querySelector('[data-ex="caption"]');
     const screens = {
       home: stage.querySelector('[data-ex-screen="home"]'),
-      product: stage.querySelector('[data-ex-screen="product"]'),
-      chat: stage.querySelector('[data-ex-screen="chat"]'),
+      orders: stage.querySelector('[data-ex-screen="orders"]'),
+      sync: stage.querySelector('[data-ex-screen="sync"]'),
     };
     const feats = [...stage.querySelectorAll("[data-ex-feat]")];
+    const syncCards = [...stage.querySelectorAll("[data-ex-sync-item]")];
+    const syncDots = stage.querySelectorAll("[data-ex='sync-line'] i");
     const captions = {
       home: "Home — Drops & Feed",
-      product: "Produkt — Warenkorb bereit",
-      chat: "Chat — Listing wird live",
+      orders: "Bestellungen — Sendungsnummer",
+      sync: "Live-Sync mit Shopify",
     };
 
     const setScreen = (name) => {
@@ -258,7 +260,7 @@
       });
       feats.forEach((li) => {
         const id = li.getAttribute("data-ex-feat");
-        const mapName = { 0: "home", 1: "product", 2: "chat" }[id];
+        const mapName = { 0: "home", 1: "orders", 2: "sync" }[id];
         li.classList.toggle("is-active", mapName === name);
       });
       if (caption) caption.textContent = captions[name] || "";
@@ -268,6 +270,7 @@
       if (progress) progress.style.width = "100%";
       setScreen("home");
       feats.forEach((li) => li.classList.add("is-active"));
+      syncCards.forEach((c) => c.classList.add("is-on"));
       return () => {};
     }
 
@@ -280,22 +283,23 @@
         phone.style.transform = `translateY(${lerp(24, 0, lift)}px)`;
       }
 
-      // 0–0.28 home, 0.28–0.58 product, 0.58–1 chat
       if (scrolled < 0.32) setScreen("home");
-      else if (scrolled < 0.62) setScreen("product");
-      else setScreen("chat");
+      else if (scrolled < 0.62) setScreen("orders");
+      else setScreen("sync");
 
-      // Soft chat bubble stagger when on chat
-      const chat = screens.chat;
-      if (chat) {
-        const bubbles = [...chat.querySelectorAll(".ex-bubble")];
-        const chatT = map(scrolled, 0.62, 0.92);
-        bubbles.forEach((b, i) => {
-          const t = map(chatT, i * 0.12, i * 0.12 + 0.2);
-          b.style.opacity = String(lerp(0.15, 1, t));
-          b.style.transform = `translateY(${lerp(10, 0, t)}px)`;
-        });
-      }
+      const syncT = map(scrolled, 0.62, 0.92);
+      syncCards.forEach((card, i) => {
+        const t = map(syncT, i * 0.15, i * 0.15 + 0.22);
+        card.classList.toggle("is-on", t > 0.55);
+        card.style.opacity = String(lerp(0.25, 1, t));
+        card.style.transform = `translateY(${lerp(8, 0, t)}px)`;
+      });
+
+      syncDots.forEach((dot, i) => {
+        const pulse = (Math.sin(scrolled * 40 + i * 1.2) + 1) / 2;
+        const active = scrolled >= 0.62 ? lerp(0.25, 1, pulse) : 0.2;
+        dot.style.opacity = String(active);
+      });
     };
   };
 
