@@ -1305,11 +1305,12 @@ body {
 
 .ex-sync {
   flex: 1;
-  padding: 0.75rem 0.85rem 1rem;
+  padding: 0.45rem 0.75rem 0.75rem;
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.35rem;
   background: #fafafa;
+  overflow: hidden;
 }
 
 .ex-sync__pair {
@@ -1317,7 +1318,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 0.35rem;
-  padding: 0.75rem 0.5rem 0.9rem;
+  padding: 0.45rem 0.5rem 0.55rem;
 }
 
 .ex-sync__node {
@@ -1381,24 +1382,6 @@ body {
   gap: 0.5rem;
   opacity: 0.35;
   transform: translateY(8px);
-}
-
-.ex-sync__pair {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.35rem;
-  padding: 0.45rem 0.5rem 0.55rem;
-}
-
-.ex-sync {
-  flex: 1;
-  padding: 0.45rem 0.75rem 0.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  background: #fafafa;
-  overflow: hidden;
 }
 
 .ex-sync__card strong {
