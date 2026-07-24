@@ -622,37 +622,6 @@ body {
   color: rgba(12, 12, 12, 0.45);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .block-why {
-    height: auto;
-  }
-
-  .block-why__sticky {
-    position: relative;
-    height: auto;
-    min-height: 100vh;
-  }
-
-  .why-path--app {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
-  .why-browser__home,
-  .why-browser__shop,
-  .why-phone__shop {
-    opacity: 1 !important;
-  }
-
-  .why-browser__loading {
-    opacity: 0 !important;
-  }
-
-  .why-steps li {
-    color: var(--ink);
-  }
-}
-
 @media (max-width: 720px) {
   .why-compare {
     grid-template-columns: 1fr;
@@ -673,11 +642,13 @@ body {
     animation: none;
   }
 
-  .block-intro {
+  .block-intro,
+  .block-why {
     height: auto;
   }
 
-  .block-intro__sticky {
+  .block-intro__sticky,
+  .block-why__sticky {
     position: relative;
     height: auto;
     min-height: 100vh;
@@ -697,16 +668,6 @@ body {
 
   .why-browser__loading {
     opacity: 0 !important;
-  }
-
-  .block-why {
-    height: auto;
-  }
-
-  .block-why__sticky {
-    position: relative;
-    height: auto;
-    min-height: 100vh;
   }
 
   .why-steps li {
