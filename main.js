@@ -78,6 +78,12 @@
     const urlText = stage.querySelector('[data-why="url-text"]');
     const cursor = stage.querySelector('[data-why="cursor"]');
     const safariHome = stage.querySelector('[data-why="safari-home"]');
+    const searchPanel = stage.querySelector('[data-why="search"]');
+    const searchHits = [
+      stage.querySelector('[data-why="search-a"]'),
+      stage.querySelector('[data-why="search-b"]'),
+      stage.querySelector('[data-why="search-c"]'),
+    ];
     const loading = stage.querySelector('[data-why="loading"]');
     const webShop = stage.querySelector('[data-why="web-shop"]');
     const appCol = stage.querySelector('[data-why="app-col"]');
@@ -87,12 +93,14 @@
     const webSteps = [...stage.querySelectorAll("[data-why-step]")];
     const appSteps = [...stage.querySelectorAll("[data-why-step-app]")];
 
-    const fullUrl = "shopify.deine-marke.com";
+    const wrongName = "meine mar";
+    const shopName = "Meine Marke";
 
     if (reduceMotion) {
       if (progress) progress.style.width = "100%";
-      if (urlText) urlText.textContent = fullUrl;
+      if (urlText) urlText.textContent = shopName;
       if (safariHome) safariHome.style.opacity = "0";
+      if (searchPanel) searchPanel.style.opacity = "0";
       if (loading) loading.style.opacity = "0";
       if (webShop) webShop.style.opacity = "1";
       if (appCol) {
@@ -124,35 +132,66 @@
       const scrolled = getProgress(stage);
       if (progress) progress.style.width = `${scrolled * 100}%`;
 
-      // Web journey phases
-      // 0.00–0.18: Safari home
-      // 0.18–0.42: typing URL
-      // 0.42–0.58: loading
-      // 0.58–0.75: finally shop
-      const phaseSafari = map(scrolled, 0, 0.16);
-      const phaseType = map(scrolled, 0.16, 0.4);
-      const phaseLoad = map(scrolled, 0.4, 0.55);
-      const phaseWebShop = map(scrolled, 0.55, 0.7);
+      // 0.00–0.12 Safari
+      // 0.12–0.28 type partial/wrong shop name
+      // 0.28–0.48 forgot → search results, pick right name
+      // 0.48–0.62 loading
+      // 0.62–0.76 finally shop
+      const phaseSafari = map(scrolled, 0, 0.12);
+      const phaseType = map(scrolled, 0.12, 0.28);
+      const phaseSearch = map(scrolled, 0.28, 0.48);
+      const phaseLoad = map(scrolled, 0.48, 0.62);
+      const phaseWebShop = map(scrolled, 0.62, 0.76);
 
       if (safariHome) {
         safariHome.style.opacity = String(
-          scrolled < 0.16 ? lerp(0.35, 1, phaseSafari) : Math.max(0, 1 - map(scrolled, 0.16, 0.22))
+          scrolled < 0.12 ? lerp(0.35, 1, phaseSafari) : Math.max(0, 1 - map(scrolled, 0.12, 0.18))
         );
       }
 
+      // Typing then backspace (forgot), then correct name via search
       if (urlText) {
-        const chars = Math.floor(phaseType * fullUrl.length);
-        urlText.textContent = fullUrl.slice(0, chars);
+        if (scrolled < 0.12) {
+          urlText.textContent = "";
+        } else if (scrolled < 0.28) {
+          const chars = Math.floor(phaseType * wrongName.length);
+          urlText.textContent = wrongName.slice(0, chars);
+        } else if (scrolled < 0.36) {
+          // erase — name forgotten
+          const erase = map(scrolled, 0.28, 0.36);
+          const left = Math.floor((1 - erase) * wrongName.length);
+          urlText.textContent = wrongName.slice(0, left);
+        } else if (scrolled < 0.48) {
+          const typeCorrect = map(scrolled, 0.38, 0.48);
+          const chars = Math.floor(typeCorrect * shopName.length);
+          urlText.textContent = shopName.slice(0, chars);
+        } else {
+          urlText.textContent = shopName;
+        }
       }
+
       if (cursor) {
-        const showCursor = scrolled >= 0.16 && scrolled < 0.42;
+        const showCursor = scrolled >= 0.12 && scrolled < 0.48;
         cursor.style.opacity = showCursor ? (Math.floor(scrolled * 40) % 2 ? "1" : "0.2") : "0";
+      }
+
+      if (searchPanel) {
+        const searchVis =
+          scrolled >= 0.28 && scrolled < 0.5
+            ? map(scrolled, 0.28, 0.34) * (1 - map(scrolled, 0.46, 0.5))
+            : 0;
+        searchPanel.style.opacity = String(searchVis);
+
+        const highlight = Math.min(2, Math.floor(phaseSearch * 3));
+        searchHits.forEach((el, i) => {
+          if (el) el.classList.toggle("is-hot", searchVis > 0.2 && i === highlight);
+        });
       }
 
       if (loading) {
         const loadVis =
-          scrolled >= 0.4 && scrolled < 0.58
-            ? map(scrolled, 0.4, 0.45) * (1 - map(scrolled, 0.55, 0.58))
+          scrolled >= 0.48 && scrolled < 0.64
+            ? map(scrolled, 0.48, 0.52) * (1 - map(scrolled, 0.6, 0.64))
             : 0;
         loading.style.opacity = String(loadVis);
       }
@@ -161,20 +200,21 @@
         webShop.style.opacity = String(phaseWebShop);
       }
 
-      if (scrolled < 0.16) setWebStep(0);
-      else if (scrolled < 0.4) setWebStep(1);
-      else if (scrolled < 0.55) setWebStep(2);
-      else setWebStep(3);
+      if (scrolled < 0.12) setWebStep(0);
+      else if (scrolled < 0.28) setWebStep(1);
+      else if (scrolled < 0.48) setWebStep(2);
+      else if (scrolled < 0.62) setWebStep(3);
+      else setWebStep(4);
 
-      // App column arrives later and finishes in one beat
-      const appReveal = map(scrolled, 0.48, 0.62);
+      // App column — still one tap
+      const appReveal = map(scrolled, 0.52, 0.66);
       if (appCol) {
         appCol.style.opacity = String(lerp(0.22, 1, appReveal));
         appCol.style.transform = `translateY(${lerp(16, 0, appReveal)}px)`;
       }
 
-      const tap = map(scrolled, 0.62, 0.72);
-      const open = map(scrolled, 0.7, 0.82);
+      const tap = map(scrolled, 0.66, 0.76);
+      const open = map(scrolled, 0.74, 0.86);
 
       if (appIcon) {
         appIcon.style.transform = `scale(${lerp(1, 0.88, tap)})`;
@@ -186,8 +226,8 @@
         appShop.style.opacity = String(open);
       }
 
-      if (scrolled < 0.62) setAppStep(-1);
-      else if (scrolled < 0.72) setAppStep(0);
+      if (scrolled < 0.66) setAppStep(-1);
+      else if (scrolled < 0.76) setAppStep(0);
       else setAppStep(1);
     };
   };

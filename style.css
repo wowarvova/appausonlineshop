@@ -444,13 +444,56 @@ body {
 
 .why-browser__home,
 .why-browser__loading,
-.why-browser__shop {
+.why-browser__shop,
+.why-browser__search {
   position: absolute;
   inset: 0;
   display: grid;
   place-items: center;
   opacity: 0;
   transition: none;
+}
+
+.why-browser__search {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 0.55rem;
+  padding: 0.85rem 1rem;
+  background: #fff;
+  place-items: unset;
+}
+
+.why-search-title {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.why-search-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.why-search-list span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ink);
+  padding: 0.45rem 0.55rem;
+  border-radius: 8px;
+  background: #f3f3f3;
+  opacity: 0.35;
+}
+
+.why-search-list span.is-hot {
+  opacity: 1;
+  background: #ebebeb;
+  font-weight: 600;
 }
 
 .why-safari-icon {
@@ -666,7 +709,8 @@ body {
     transform: none !important;
   }
 
-  .why-browser__loading {
+  .why-browser__loading,
+  .why-browser__search {
     opacity: 0 !important;
   }
 
