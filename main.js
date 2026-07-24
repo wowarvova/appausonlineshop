@@ -287,9 +287,9 @@
       else if (scrolled < 0.62) setScreen("orders");
       else setScreen("sync");
 
-      const syncT = map(scrolled, 0.62, 0.92);
+      const syncT = map(scrolled, 0.62, 0.95);
       syncCards.forEach((card, i) => {
-        const t = map(syncT, i * 0.15, i * 0.15 + 0.22);
+        const t = map(syncT, i * 0.1, i * 0.1 + 0.18);
         card.classList.toggle("is-on", t > 0.55);
         card.style.opacity = String(lerp(0.25, 1, t));
         card.style.transform = `translateY(${lerp(8, 0, t)}px)`;

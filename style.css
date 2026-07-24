@@ -841,6 +841,30 @@ body {
   border-color: var(--line);
 }
 
+.ex-more {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.15rem;
+}
+
+.ex-more span {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  background: #f3f3f3;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.35rem 0.65rem;
+}
+
+.ex-more span:last-child {
+  background: #0c0c0c;
+  color: #fff;
+  border-color: #0c0c0c;
+}
+
 .ex-store {
   margin-top: 0.5rem;
   display: inline-flex;
@@ -1349,14 +1373,32 @@ body {
 .ex-sync__card {
   background: #fff;
   border: 1px solid #ececec;
-  border-radius: 12px;
-  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
+  padding: 0.45rem 0.65rem;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 0.5rem;
   opacity: 0.35;
   transform: translateY(8px);
+}
+
+.ex-sync__pair {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem;
+  padding: 0.45rem 0.5rem 0.55rem;
+}
+
+.ex-sync {
+  flex: 1;
+  padding: 0.45rem 0.75rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  background: #fafafa;
+  overflow: hidden;
 }
 
 .ex-sync__card strong {
