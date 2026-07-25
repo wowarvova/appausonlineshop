@@ -27,29 +27,19 @@
       <div class="offer-intro">
         <h1>Angebot anfragen</h1>
         <p>
-          Je genauer die Angaben, desto präziser unser Preis.
-          Danach bekommst du per E-Mail ein Angebot — du entscheidest mit Ja oder Nein.
+          Alle Angaben auf einer Seite. Danach bekommst du per E-Mail ein Angebot —
+          du entscheidest mit Ja oder Nein.
         </p>
-        <div class="offer-progress" aria-hidden="true">
-          <div class="offer-progress__bar" id="offer-progress-bar"></div>
-        </div>
-        <p class="offer-step-label" id="offer-step-label">Schritt 1 von 5</p>
       </div>
 
-      <form
-        id="offer-form"
-        class="offer-form"
-        method="POST"
-        action="#"
-      >
+      <form id="offer-form" class="offer-form" method="POST" action="#">
         <input type="hidden" name="_subject" value="Neue App-Anfrage — Angebot" />
         <input type="hidden" name="_template" value="table" />
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_next" id="offer-next" value="" />
         <input type="text" name="_honey" class="offer-honey" tabindex="-1" autocomplete="off" />
 
-        <!-- Step 1: Kontakt -->
-        <fieldset class="offer-step is-active" data-offer-step="0">
+        <fieldset class="offer-step">
           <legend>Kontakt</legend>
           <label>
             Name *
@@ -69,8 +59,7 @@
           </label>
         </fieldset>
 
-        <!-- Step 2: Shop -->
-        <fieldset class="offer-step" data-offer-step="1" hidden>
+        <fieldset class="offer-step">
           <legend>Dein Shopify-Shop</legend>
           <label>
             Shopify-URL *
@@ -101,8 +90,7 @@
           </label>
         </fieldset>
 
-        <!-- Step 3: App -->
-        <fieldset class="offer-step" data-offer-step="2" hidden>
+        <fieldset class="offer-step">
           <legend>Die App</legend>
           <fieldset class="offer-choices">
             <legend class="offer-choices__title">Plattform *</legend>
@@ -140,8 +128,7 @@
           </fieldset>
         </fieldset>
 
-        <!-- Step 4: Features -->
-        <fieldset class="offer-step" data-offer-step="3" hidden>
+        <fieldset class="offer-step">
           <legend>Funktionen</legend>
           <p class="offer-hint">Alles was du brauchst — wir planen danach den Scope.</p>
           <fieldset class="offer-choices">
@@ -161,8 +148,7 @@
           </label>
         </fieldset>
 
-        <!-- Step 5: Timing + Notizen -->
-        <fieldset class="offer-step" data-offer-step="4" hidden>
+        <fieldset class="offer-step">
           <legend>Zeitplan &amp; Notizen</legend>
           <label>
             Gewünschter Start
@@ -195,11 +181,7 @@
         </fieldset>
 
         <div class="offer-actions">
-          <button type="button" class="offer-btn offer-btn--ghost" id="offer-prev" hidden>
-            Zurück
-          </button>
-          <button type="button" class="offer-btn" id="offer-next-btn">Weiter</button>
-          <button type="submit" class="offer-btn" id="offer-submit" hidden>
+          <button type="submit" class="offer-btn" id="offer-submit">
             Angebot anfragen
           </button>
         </div>
