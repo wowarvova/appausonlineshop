@@ -1468,7 +1468,7 @@ body {
 .feat-inner {
   width: min(1120px, calc(100% - 3rem));
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.95fr);
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.85fr);
   gap: clamp(1.5rem, 4vw, 3.5rem);
   align-items: center;
 }
@@ -1477,7 +1477,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  max-width: 28rem;
+  max-width: 22rem;
+  min-width: 0;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .feat-eyebrow {
@@ -1498,9 +1501,13 @@ body {
 .feat-title {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(2rem, 4.8vw, 3.6rem);
+  font-size: clamp(1.75rem, 3.8vw, 3rem);
   letter-spacing: -0.04em;
-  line-height: 1.05;
+  line-height: 1.08;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .feat-text {
@@ -1512,9 +1519,11 @@ body {
 
 .feat-visual {
   position: relative;
-  width: min(420px, 100%);
+  width: min(380px, 100%);
   aspect-ratio: 1.05;
-  justify-self: center;
+  justify-self: end;
+  min-width: 0;
+  z-index: 0;
 }
 
 .feat-panel {
@@ -2066,15 +2075,20 @@ body {
   color: var(--ink-soft);
 }
 
-@media (max-width: 860px) {
+@media (max-width: 960px) {
   .feat-inner {
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
 
+  .feat-copy {
+    max-width: none;
+  }
+
   .feat-visual {
     width: min(340px, 100%);
     aspect-ratio: 1.1;
+    justify-self: center;
   }
 
   .block-features {

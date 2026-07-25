@@ -321,19 +321,19 @@
         text: "Deine Shopify-Kollektionen erscheinen klar strukturiert in der Shopping-App — Kunden finden schneller, was sie suchen.",
       },
       {
-        title: "Push aufs Gerät",
+        title: "Push-Nachrichten",
         text: "Benachrichtige Kunden direkt auf ihrem Gerät — neue Produkte, Sales und Updates kommen sofort an.",
       },
       {
-        title: "App-Store-Bewertungen",
+        title: "Bewertungen",
         text: "Kunden können direkt in der App bewerten. Ein Bewertungsbanner hilft dir, Sterne im App Store zu sammeln.",
       },
       {
-        title: "Bestellungen & Tracking",
+        title: "Bestellungen",
         text: "Kunden sehen ihre Bestellungen inkl. Sendungsverfolgung — transparent und jederzeit in der App.",
       },
       {
-        title: "Kundenregistrierung",
+        title: "Login speichern",
         text: "Einmal anmelden reicht. Danach bleiben Kunden eingeloggt — ohne sich immer neu anmelden zu müssen.",
       },
       {
@@ -341,11 +341,11 @@
         text: "Artikel landen im Warenkorb der App — übersichtlich, vertraut und bereit für den Kauf.",
       },
       {
-        title: "Shopify Checkout",
+        title: "Checkout",
         text: "Bezahlen läuft über das Shopify-Checkout-Fenster — sicher, bekannt und conversion-stark.",
       },
       {
-        title: "Einfach über Shopify",
+        title: "Steuerung in Shopify",
         text: "Die App steuerst du wie deinen Shop: Produkte, Preise und Bestand pflegst du einfach in Shopify.",
       },
     ];
