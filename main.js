@@ -132,37 +132,30 @@
       const scrolled = getProgress(stage);
       if (progress) progress.style.width = `${scrolled * 100}%`;
 
-      // 0.00–0.12 Safari
-      // 0.12–0.28 type partial/wrong shop name
-      // 0.28–0.48 forgot → search results, pick right name
-      // 0.48–0.62 loading
-      // 0.62–0.76 finally shop
-      const phaseSafari = map(scrolled, 0, 0.12);
-      const phaseType = map(scrolled, 0.12, 0.28);
-      const phaseSearch = map(scrolled, 0.28, 0.48);
-      const phaseLoad = map(scrolled, 0.48, 0.62);
-      const phaseWebShop = map(scrolled, 0.62, 0.76);
+      // Web path, then short pause, then app path
+      const phaseSafari = map(scrolled, 0, 0.1);
+      const phaseType = map(scrolled, 0.1, 0.24);
+      const phaseSearch = map(scrolled, 0.24, 0.42);
+      const phaseWebShop = map(scrolled, 0.54, 0.64);
 
       if (safariHome) {
         safariHome.style.opacity = String(
-          scrolled < 0.12 ? lerp(0.35, 1, phaseSafari) : Math.max(0, 1 - map(scrolled, 0.12, 0.18))
+          scrolled < 0.1 ? lerp(0.35, 1, phaseSafari) : Math.max(0, 1 - map(scrolled, 0.1, 0.16))
         );
       }
 
-      // Typing then backspace (forgot), then correct name via search
       if (urlText) {
-        if (scrolled < 0.12) {
+        if (scrolled < 0.1) {
           urlText.textContent = "";
-        } else if (scrolled < 0.28) {
+        } else if (scrolled < 0.24) {
           const chars = Math.floor(phaseType * wrongName.length);
           urlText.textContent = wrongName.slice(0, chars);
-        } else if (scrolled < 0.36) {
-          // erase — name forgotten
-          const erase = map(scrolled, 0.28, 0.36);
+        } else if (scrolled < 0.32) {
+          const erase = map(scrolled, 0.24, 0.32);
           const left = Math.floor((1 - erase) * wrongName.length);
           urlText.textContent = wrongName.slice(0, left);
-        } else if (scrolled < 0.48) {
-          const typeCorrect = map(scrolled, 0.38, 0.48);
+        } else if (scrolled < 0.42) {
+          const typeCorrect = map(scrolled, 0.34, 0.42);
           const chars = Math.floor(typeCorrect * shopName.length);
           urlText.textContent = shopName.slice(0, chars);
         } else {
@@ -171,14 +164,14 @@
       }
 
       if (cursor) {
-        const showCursor = scrolled >= 0.12 && scrolled < 0.48;
+        const showCursor = scrolled >= 0.1 && scrolled < 0.42;
         cursor.style.opacity = showCursor ? (Math.floor(scrolled * 40) % 2 ? "1" : "0.2") : "0";
       }
 
       if (searchPanel) {
         const searchVis =
-          scrolled >= 0.28 && scrolled < 0.5
-            ? map(scrolled, 0.28, 0.34) * (1 - map(scrolled, 0.46, 0.5))
+          scrolled >= 0.24 && scrolled < 0.44
+            ? map(scrolled, 0.24, 0.3) * (1 - map(scrolled, 0.4, 0.44))
             : 0;
         searchPanel.style.opacity = String(searchVis);
 
@@ -190,44 +183,44 @@
 
       if (loading) {
         const loadVis =
-          scrolled >= 0.48 && scrolled < 0.64
-            ? map(scrolled, 0.48, 0.52) * (1 - map(scrolled, 0.6, 0.64))
+          scrolled >= 0.42 && scrolled < 0.56
+            ? map(scrolled, 0.42, 0.46) * (1 - map(scrolled, 0.52, 0.56))
             : 0;
         loading.style.opacity = String(loadVis);
       }
 
       if (webShop) {
-        webShop.style.opacity = String(phaseWebShop);
+        webShop.style.opacity = String(scrolled >= 0.64 ? 1 : phaseWebShop);
       }
 
-      if (scrolled < 0.12) setWebStep(0);
-      else if (scrolled < 0.28) setWebStep(1);
-      else if (scrolled < 0.48) setWebStep(2);
-      else if (scrolled < 0.62) setWebStep(3);
-      else setWebStep(4);
+      if (scrolled < 0.1) setWebStep(0);
+      else if (scrolled < 0.24) setWebStep(1);
+      else if (scrolled < 0.42) setWebStep(2);
+      else if (scrolled < 0.54) setWebStep(3);
+      else setWebStep(4); // includes pause before app starts
 
-      // App column — still one tap
-      const appReveal = map(scrolled, 0.52, 0.66);
+      // Pause 0.64–0.76 on "Shop geöffnet", then app path
+      const appReveal = map(scrolled, 0.76, 0.86);
       if (appCol) {
         appCol.style.opacity = String(lerp(0.22, 1, appReveal));
         appCol.style.transform = `translateY(${lerp(16, 0, appReveal)}px)`;
       }
 
-      const tap = map(scrolled, 0.66, 0.76);
-      const open = map(scrolled, 0.74, 0.86);
+      const tap = map(scrolled, 0.84, 0.9);
+      const open = map(scrolled, 0.88, 0.96);
 
       if (appIcon) {
         appIcon.style.transform = `scale(${lerp(1, 0.88, tap)})`;
       }
       if (appHome) {
-        appHome.style.opacity = String(1 - open);
+        appHome.style.opacity = String(scrolled < 0.76 ? 1 : 1 - open);
       }
       if (appShop) {
         appShop.style.opacity = String(open);
       }
 
-      if (scrolled < 0.66) setAppStep(-1);
-      else if (scrolled < 0.76) setAppStep(0);
+      if (scrolled < 0.84) setAppStep(-1);
+      else if (scrolled < 0.9) setAppStep(0);
       else setAppStep(1);
     };
   };
