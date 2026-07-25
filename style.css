@@ -2202,6 +2202,128 @@ body {
   line-height: 1.55;
 }
 
+.seo-body {
+  max-width: 40rem;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.seo-body strong,
+.seo-lead strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.seo-topics {
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.65rem;
+}
+
+.seo-topics li {
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--ink);
+  color: var(--ink);
+}
+
+.seo-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.seo-list li {
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.seo-list strong {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.seo-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.seo-links a {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+  width: fit-content;
+  padding-bottom: 0.1rem;
+}
+
+.seo-links a:hover {
+  opacity: 0.7;
+}
+
+.seo-page h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  margin: 0.35rem 0 1rem;
+}
+
+.seo-page h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+  letter-spacing: -0.02em;
+  margin: 1.75rem 0 0.65rem;
+}
+
+.seo-page p {
+  color: var(--ink-soft);
+  line-height: 1.6;
+  font-size: 0.98rem;
+  margin: 0 0 0.85rem;
+}
+
+.seo-page .seo-lead {
+  font-size: clamp(1.05rem, 1.5vw, 1.15rem);
+  margin-bottom: 1.25rem;
+}
+
+.seo-page .offer-cta {
+  margin: 1.5rem 0 0.5rem;
+  align-self: flex-start;
+}
+
+.seo-page .seo-steps {
+  margin: 0.5rem 0 1rem;
+}
+
+.seo-page .seo-links {
+  margin-top: 2rem;
+}
+
 .seo-steps {
   list-style: none;
   margin: 0.75rem 0 0.5rem;
