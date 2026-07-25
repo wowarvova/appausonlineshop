@@ -14,8 +14,8 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Syne:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
-    <script src="config.js" defer></script>
+    <link rel="stylesheet" href="style.css?v=20260725" />
+    <script src="config.js?v=20260725" defer></script>
   </head>
   <body class="offer-page">
     <header class="offer-top">
@@ -92,15 +92,8 @@
 
         <fieldset class="offer-step">
           <legend>Die App</legend>
-          <fieldset class="offer-choices">
-            <legend class="offer-choices__title">Plattform *</legend>
-            <label class="offer-check"
-              ><input type="checkbox" name="platform" value="iOS" /> iOS (App Store)</label
-            >
-            <label class="offer-check"
-              ><input type="checkbox" name="platform" value="Android" /> Android (Play Store)</label
-            >
-          </fieldset>
+          <input type="hidden" name="Plattform" value="iOS (App Store)" />
+          <p class="offer-hint">Plattform: <strong>iOS · App Store</strong></p>
           <label>
             Gewünschter App-Name
             <input name="app_name" type="text" placeholder="z. B. wie die Marke" />
@@ -115,15 +108,12 @@
             </select>
           </label>
           <fieldset class="offer-choices">
-            <legend class="offer-choices__title">Developer Accounts</legend>
+            <legend class="offer-choices__title">Apple Developer Account</legend>
             <label class="offer-check"
-              ><input type="checkbox" name="accounts" value="Apple Developer" /> Apple Developer vorhanden</label
+              ><input type="radio" name="apple_developer" value="Vorhanden" /> Ja, vorhanden</label
             >
             <label class="offer-check"
-              ><input type="checkbox" name="accounts" value="Google Play" /> Google Play vorhanden</label
-            >
-            <label class="offer-check"
-              ><input type="checkbox" name="accounts" value="Noch keins" /> Noch keins — Hilfe gewünscht</label
+              ><input type="radio" name="apple_developer" value="Noch keins — Hilfe gewünscht" /> Noch keins — Hilfe gewünscht</label
             >
           </fieldset>
         </fieldset>
@@ -188,6 +178,6 @@
       </form>
     </main>
 
-    <script src="angebot.js" defer></script>
+    <script src="angebot.js?v=20260725" defer></script>
   </body>
 </html>

@@ -13,17 +13,9 @@
     nextInput.value = `${window.location.origin}${window.location.pathname.replace(/[^/]*$/, "")}danke.html`;
   }
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", () => {
     if (!email) {
-      e.preventDefault();
       alert("Anfrage-E-Mail ist noch nicht konfiguriert (config.js → offerEmail).");
-      return;
-    }
-
-    const platforms = [...form.querySelectorAll('input[name="platform"]:checked')];
-    if (!platforms.length) {
-      e.preventDefault();
-      alert("Bitte mindestens eine Plattform wählen (iOS und/oder Android).");
       return;
     }
 
@@ -41,8 +33,6 @@
       input.value = value;
     };
 
-    ensureHidden("Plattformen", joinChecked("platform") || "—");
-    ensureHidden("Developer_Accounts", joinChecked("accounts") || "—");
     ensureHidden("Funktionen", joinChecked("features") || "—");
 
     form.querySelectorAll('input[type="checkbox"]').forEach((el) => {
