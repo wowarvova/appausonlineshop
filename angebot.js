@@ -13,8 +13,9 @@
     nextInput.value = `${window.location.origin}${window.location.pathname.replace(/[^/]*$/, "")}danke.html`;
   }
 
-  form.addEventListener("submit", () => {
+  form.addEventListener("submit", (e) => {
     if (!email) {
+      e.preventDefault();
       alert("Anfrage-E-Mail ist noch nicht konfiguriert (config.js → offerEmail).");
       return;
     }
