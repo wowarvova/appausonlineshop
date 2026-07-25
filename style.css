@@ -2163,6 +2163,138 @@ body {
   color: var(--ink-soft);
 }
 
+/* —— SEO: Ablauf + FAQ —— */
+.block-seo {
+  padding: clamp(3.5rem, 10vh, 6rem) 0;
+  border-top: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.seo-inner {
+  width: min(720px, calc(100% - 3rem));
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.seo-eyebrow {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.seo-headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.85rem, 4.2vw, 2.75rem);
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+
+.seo-lead {
+  max-width: 38rem;
+  font-size: clamp(1rem, 1.4vw, 1.1rem);
+  color: var(--ink-soft);
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.seo-steps {
+  list-style: none;
+  margin: 0.75rem 0 0.5rem;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  counter-reset: seo-step;
+}
+
+.seo-steps li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.35rem 1rem;
+  align-items: start;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  counter-increment: seo-step;
+}
+
+.seo-steps li::before {
+  content: counter(seo-step, decimal-leading-zero);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  grid-row: 1 / span 2;
+  padding-top: 0.15rem;
+}
+
+.seo-steps strong {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.seo-steps span {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.seo-faq-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+  letter-spacing: -0.02em;
+  margin-top: 1.5rem;
+}
+
+.seo-faq {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line);
+}
+
+.seo-faq details {
+  border-bottom: 1px solid var(--line);
+  padding: 0.95rem 0;
+}
+
+.seo-faq summary {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: baseline;
+}
+
+.seo-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.seo-faq summary::after {
+  content: "+";
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.seo-faq details[open] summary::after {
+  content: "–";
+}
+
+.seo-faq p {
+  margin: 0.75rem 0 0.15rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  max-width: 40rem;
+}
+
 /* —— Offer form page —— */
 .offer-page {
   background: var(--bg);
@@ -2420,6 +2552,9 @@ body {
 .site-footer__nav {
   display: flex;
   gap: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  row-gap: 0.5rem;
 }
 
 .site-footer__nav a {
