@@ -318,15 +318,15 @@
     const items = [
       {
         title: "Kollektionen",
-        text: "Deine Shopify-Kollektionen erscheinen klar strukturiert in der App — Kunden finden genau das, was sie suchen.",
+        text: "Deine Shopify-Kollektionen erscheinen klar strukturiert in der Shopping-App — Kunden finden schneller, was sie suchen.",
       },
       {
         title: "Push aufs Gerät",
-        text: "Benachrichtige deine Kunden direkt auf ihrem Gerät — neue Drops und Updates kommen sofort an.",
+        text: "Benachrichtige Kunden direkt auf ihrem Gerät — neue Produkte, Sales und Updates kommen sofort an.",
       },
       {
         title: "App-Store-Bewertungen",
-        text: "Kunden können direkt in der App bewerten. Ein klares Bewertungsbanner hilft dir, Sterne im App Store zu sammeln.",
+        text: "Kunden können direkt in der App bewerten. Ein Bewertungsbanner hilft dir, Sterne im App Store zu sammeln.",
       },
       {
         title: "Bestellungen & Tracking",
@@ -397,7 +397,7 @@
       }
       if (index === 5) {
         const count = panel.querySelector("[data-feat-anim='cart-count']");
-        panel.querySelectorAll(".fp-cart__items img").forEach((img, i) => {
+        panel.querySelectorAll(".fp-cart__item").forEach((img, i) => {
           img.classList.toggle("is-in", localT > 0.2 + i * 0.15);
         });
         if (count) count.classList.toggle("is-in", localT > 0.55);
