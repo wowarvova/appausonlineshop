@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Angebot anfragen — App aus deinem Shopify-Onlineshop."
+      content="Anfrageformular für die Entwicklung einer iOS-App aus Ihrem Shopify-Shop."
     />
     <title>Angebot anfragen — App aus Onlineshop</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,8 +27,8 @@
       <div class="offer-intro">
         <h1>Angebot anfragen</h1>
         <p>
-          Alle Angaben auf einer Seite. Danach bekommst du per E-Mail ein Angebot —
-          du entscheidest mit Ja oder Nein.
+          Bitte füllen Sie das Formular aus. Anschließend erhalten Sie per E-Mail
+          ein Angebot mit Preis zur Annahme oder Ablehnung.
         </p>
       </div>
 
@@ -67,7 +67,7 @@
               name="shopify_url"
               type="url"
               required
-              placeholder="https://dein-shop.myshopify.com oder deine Domain"
+              placeholder="https://shop.myshopify.com oder Domain"
             />
           </label>
           <label>
@@ -96,7 +96,7 @@
           <p class="offer-hint">Plattform: <strong>iOS · App Store</strong></p>
           <label>
             Gewünschter App-Name
-            <input name="app_name" type="text" placeholder="z. B. wie die Marke" />
+            <input name="app_name" type="text" placeholder="z. B. Markenname" />
           </label>
           <label>
             Design
@@ -112,14 +112,14 @@
               ><input type="radio" name="apple_developer" value="Vorhanden" /> Ja, vorhanden</label
             >
             <label class="offer-check"
-              ><input type="radio" name="apple_developer" value="Noch keins — Hilfe gewünscht" /> Noch keins — Hilfe gewünscht</label
+              ><input type="radio" name="apple_developer" value="Noch nicht vorhanden" /> Noch nicht vorhanden</label
             >
           </fieldset>
         </fieldset>
 
         <fieldset class="offer-step">
           <legend>Funktionen</legend>
-          <p class="offer-hint">Alles was du brauchst — wir planen danach den Scope.</p>
+          <p class="offer-hint">Angaben zum Funktionsumfang für die Angebotskalkulation.</p>
           <fieldset class="offer-choices">
             <label class="offer-check"><input type="checkbox" name="features" value="Kollektionen" checked /> Kollektionen</label>
             <label class="offer-check"><input type="checkbox" name="features" value="Push-Benachrichtigungen" /> Push-Benachrichtigungen</label>
@@ -132,8 +132,8 @@
             <label class="offer-check"><input type="checkbox" name="features" value="Live-Sync Shopify" checked /> Komplette Live-Sync mit Shopify</label>
           </fieldset>
           <label>
-            Weitere Wünsche
-            <textarea name="extra_features" rows="3" placeholder="z. B. Wunschlisten, Filter, …"></textarea>
+            Weitere Anforderungen
+            <textarea name="extra_features" rows="3" placeholder="z. B. Filter, Wunschlisten, …"></textarea>
           </label>
         </fieldset>
 
@@ -152,7 +152,7 @@
           <label>
             Budget-Rahmen (optional)
             <select name="budget">
-              <option value="">Lieber im Angebot klären</option>
+              <option value="">Im Angebot klären</option>
               <option>Unter 5.000 €</option>
               <option>5.000–10.000 €</option>
               <option>10.000–20.000 €</option>
@@ -160,11 +160,11 @@
             </select>
           </label>
           <label>
-            Sonstiges
+            Anmerkungen
             <textarea
               name="notes"
               rows="4"
-              placeholder="Alles, was wir wissen sollten, um die App richtig zu bauen."
+              placeholder="Weitere Informationen zur Umsetzung"
             ></textarea>
           </label>
         </fieldset>

@@ -249,9 +249,9 @@
     const syncCards = [...stage.querySelectorAll("[data-ex-sync-item]")];
     const syncDots = stage.querySelectorAll("[data-ex='sync-line'] i");
     const captions = {
-      home: "Home — Drops & Feed",
-      orders: "Bestellungen — Sendungsnummer",
-      sync: "Live-Sync mit Shopify",
+      home: "Startseite",
+      orders: "Bestellungen",
+      sync: "Shopify-Synchronisation",
     };
 
     const setScreen = (name) => {
@@ -318,35 +318,35 @@
     const items = [
       {
         title: "Kollektionen",
-        text: "Deine Shopify-Kollektionen erscheinen klar strukturiert in der Shopping-App — Kunden finden schneller, was sie suchen.",
+        text: "Shopify-Kollektionen werden in der App als strukturierte Übersicht dargestellt.",
       },
       {
         title: "Push-Nachrichten",
-        text: "Benachrichtige Kunden direkt auf ihrem Gerät — neue Produkte, Sales und Updates kommen sofort an.",
+        text: "Kunden erhalten Mitteilungen direkt auf dem Gerät, zum Beispiel zu neuen Artikeln oder Aktionen.",
       },
       {
         title: "Bewertungen",
-        text: "Kunden können direkt in der App bewerten. Ein Bewertungsbanner hilft dir, Sterne im App Store zu sammeln.",
+        text: "In der App kann ein Bewertungsdialog angezeigt werden, um App-Store-Bewertungen zu ermöglichen.",
       },
       {
         title: "Bestellungen",
-        text: "Kunden sehen ihre Bestellungen inkl. Sendungsverfolgung — transparent und jederzeit in der App.",
+        text: "Kunden sehen Bestellstatus und Sendungsnummer in der App.",
       },
       {
         title: "Login speichern",
-        text: "Einmal anmelden reicht. Danach bleiben Kunden eingeloggt — ohne sich immer neu anmelden zu müssen.",
+        text: "Nach der Registrierung bleiben Kunden angemeldet und müssen sich nicht erneut einloggen.",
       },
       {
         title: "Warenkorb",
-        text: "Artikel landen im Warenkorb der App — übersichtlich, vertraut und bereit für den Kauf.",
+        text: "Artikel können im Warenkorb der App gesammelt und zur Kasse geführt werden.",
       },
       {
         title: "Checkout",
-        text: "Bezahlen läuft über das Shopify-Checkout-Fenster — sicher, bekannt und conversion-stark.",
+        text: "Die Bezahlung erfolgt über den Shopify-Checkout.",
       },
       {
         title: "Steuerung in Shopify",
-        text: "Die App steuerst du wie deinen Shop: Produkte, Preise und Bestand pflegst du einfach in Shopify.",
+        text: "Produkte, Preise und Bestand werden weiterhin in Shopify gepflegt und mit der App synchronisiert.",
       },
     ];
 
