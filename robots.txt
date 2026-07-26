@@ -3,4 +3,4 @@ Allow: /
 
 Disallow: /danke.html
 
-Sitemap: https://appausonlineshop.onrender.com/sitemap.xml
+Sitemap: https://appausonlineshop.de/sitemap.xml

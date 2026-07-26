@@ -20,6 +20,6 @@ open "https://dashboard.render.com/blueprints/new?repo=https://github.com/wowarv
 
 echo
 echo "In Render: connect the repo / apply the blueprint (render.yaml)."
-echo "Public URL will be something like: https://appausonlineshop.onrender.com"
+echo "Public URL will be something like: https://appausonlineshop.de"
 echo
 echo "GitHub: https://github.com/wowarvova/appausonlineshop"
