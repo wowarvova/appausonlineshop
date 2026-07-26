@@ -1051,6 +1051,42 @@ body {
   display: block;
 }
 
+.ex-cat--jacket img {
+  object-position: 50% 28%;
+}
+
+.ex-cat--pants img {
+  object-position: 50% 18%;
+}
+
+.ex-cat--set img {
+  object-position: 50% 22%;
+}
+
+.ex-cat--sport img {
+  object-position: 50% 18%;
+}
+
+.ex-shot {
+  object-fit: cover;
+}
+
+.ex-shot--jacket {
+  object-position: 50% 30%;
+}
+
+.ex-shot--pants {
+  object-position: 50% 12%;
+}
+
+.ex-shot--set {
+  object-position: 50% 20%;
+}
+
+.ex-shot--top {
+  object-position: 50% 15%;
+}
+
 .ex-cats figcaption {
   margin-top: 0.25rem;
   font-size: 0.48rem;
