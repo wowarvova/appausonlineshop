@@ -4,6 +4,8 @@
   const lerp = (a, b, t) => a + (b - a) * t;
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const compactView = window.matchMedia("(max-width: 860px), (max-height: 740px)").matches;
+  const staticStages = reduceMotion || compactView;
 
   const getProgress = (stage) => {
     const rect = stage.getBoundingClientRect();
@@ -23,7 +25,7 @@
     const arrow = intro.querySelector('[data-parallax="arrow"]');
     const phone = intro.querySelector('[data-parallax="phone"]');
 
-    if (reduceMotion) {
+    if (staticStages) {
       if (progress) progress.style.width = "100%";
       if (visual) {
         visual.style.opacity = "1";
@@ -96,7 +98,7 @@
     const wrongName = "meine mar";
     const shopName = "Meine Marke";
 
-    if (reduceMotion) {
+    if (staticStages) {
       if (progress) progress.style.width = "100%";
       if (urlText) urlText.textContent = shopName;
       if (safariHome) safariHome.style.opacity = "0";
@@ -259,7 +261,7 @@
       if (caption) caption.textContent = captions[name] || "";
     };
 
-    if (reduceMotion) {
+    if (staticStages) {
       if (progress) progress.style.width = "100%";
       setScreen("home");
       feats.forEach((li) => li.classList.add("is-active"));
@@ -408,7 +410,7 @@
       }
     };
 
-    if (reduceMotion) {
+    if (staticStages) {
       if (progress) progress.style.width = "100%";
       activatePanel(0, 1);
       return () => {};
