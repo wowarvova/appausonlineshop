@@ -22,6 +22,10 @@
     return clamp(-stage.getBoundingClientRect().top / total, 0, 1);
   };
 
+  // Last portion of each stage holds the finished frame before you can scroll on.
+  const HOLD_TAIL = 0.22;
+  const animProgress = (raw) => clamp(raw / (1 - HOLD_TAIL), 0, 1);
+
   /* —— Scroll reveals —— */
   const nodes = document.querySelectorAll(".reveal");
   if (nodes.length) {
@@ -67,8 +71,9 @@
     const wrongName = "meine mar";
     const shopName = "Meine Marke";
 
-    return (p) => {
-      if (progressBar) progressBar.style.width = `${p * 100}%`;
+    return (raw) => {
+      const p = animProgress(raw);
+      if (progressBar) progressBar.style.width = `${raw * 100}%`;
       const webDone = p >= 0.68;
 
       if (p < 0.08) {
@@ -169,8 +174,9 @@
     const webSteps = [...stage.querySelectorAll("[data-ret-step]")];
     const appSteps = [...stage.querySelectorAll("[data-ret-step-app]")];
 
-    return (p) => {
-      if (progressBar) progressBar.style.width = `${p * 100}%`;
+    return (raw) => {
+      const p = animProgress(raw);
+      if (progressBar) progressBar.style.width = `${raw * 100}%`;
       const webDone = p >= 0.62;
 
       if (p < 0.22) {
@@ -252,8 +258,9 @@
     const webSteps = [...stage.querySelectorAll("[data-ntf-step]")];
     const appSteps = [...stage.querySelectorAll("[data-ntf-step-app]")];
 
-    return (p) => {
-      if (progressBar) progressBar.style.width = `${p * 100}%`;
+    return (raw) => {
+      const p = animProgress(raw);
+      if (progressBar) progressBar.style.width = `${raw * 100}%`;
       const webDone = p >= 0.64;
 
       const fill = map(p, 0.05, 0.55);
