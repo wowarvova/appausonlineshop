@@ -1,6 +1,9 @@
 (() => {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+  const map = (v, a, b) => clamp((v - a) / (b - a || 1), 0, 1);
+
   /* —— Scroll reveals —— */
   const nodes = document.querySelectorAll(".reveal");
   if (nodes.length) {
@@ -21,34 +24,36 @@
     }
   }
 
-  /* —— Vorteile: Website vs App path —— */
-  const whyRoot = document.querySelector("[data-why]");
-  if (!whyRoot) return;
+  /* —— Vorteile: scroll-scrubbed Website → App —— */
+  const stage = document.querySelector("[data-why]");
+  if (!stage) return;
 
-  const urlText = whyRoot.querySelector('[data-why="url-text"]');
-  const cursor = whyRoot.querySelector('[data-why="cursor"]');
-  const safariHome = whyRoot.querySelector('[data-why="safari-home"]');
-  const searchPanel = whyRoot.querySelector('[data-why="search"]');
+  const progressBar = stage.querySelector('[data-why="progress"]');
+  const compare = stage.querySelector('[data-why="compare"]');
+  const urlText = stage.querySelector('[data-why="url-text"]');
+  const cursor = stage.querySelector('[data-why="cursor"]');
+  const safariHome = stage.querySelector('[data-why="safari-home"]');
+  const searchPanel = stage.querySelector('[data-why="search"]');
   const searchHits = [
-    whyRoot.querySelector('[data-why="search-a"]'),
-    whyRoot.querySelector('[data-why="search-b"]'),
-    whyRoot.querySelector('[data-why="search-c"]'),
+    stage.querySelector('[data-why="search-a"]'),
+    stage.querySelector('[data-why="search-b"]'),
+    stage.querySelector('[data-why="search-c"]'),
   ];
-  const loading = whyRoot.querySelector('[data-why="loading"]');
-  const webShop = whyRoot.querySelector('[data-why="web-shop"]');
-  const appCol = whyRoot.querySelector('[data-why="app-col"]');
-  const appHome = whyRoot.querySelector('[data-why="app-home"]');
-  const appIcon = whyRoot.querySelector('[data-why="app-icon"]');
-  const appShop = whyRoot.querySelector('[data-why="app-shop"]');
-  const webSteps = [...whyRoot.querySelectorAll("[data-why-step]")];
-  const appSteps = [...whyRoot.querySelectorAll("[data-why-step-app]")];
+  const loading = stage.querySelector('[data-why="loading"]');
+  const webShop = stage.querySelector('[data-why="web-shop"]');
+  const appCol = stage.querySelector('[data-why="app-col"]');
+  const appHome = stage.querySelector('[data-why="app-home"]');
+  const appIcon = stage.querySelector('[data-why="app-icon"]');
+  const appShop = stage.querySelector('[data-why="app-shop"]');
+  const webSteps = [...stage.querySelectorAll("[data-why-step]")];
+  const appSteps = [...stage.querySelectorAll("[data-why-step-app]")];
 
   const wrongName = "meine mar";
   const shopName = "Meine Marke";
 
   const showLayer = (el, on) => {
     if (!el) return;
-    el.classList.toggle("is-on", on);
+    el.classList.toggle("is-on", Boolean(on));
   };
 
   const setWebStep = (activeIndex) => {
@@ -65,139 +70,120 @@
     });
   };
 
-  const reset = () => {
-    if (urlText) urlText.textContent = "";
-    if (cursor) cursor.classList.remove("is-on");
-    showLayer(safariHome, true);
-    showLayer(searchPanel, false);
-    showLayer(loading, false);
-    showLayer(webShop, false);
-    showLayer(appHome, true);
-    showLayer(appShop, false);
-    if (appCol) appCol.classList.remove("is-live");
-    if (appIcon) appIcon.classList.remove("is-press");
-    searchHits.forEach((el) => el && el.classList.remove("is-hot"));
-    setWebStep(-1);
-    setAppStep(-1);
+  const getProgress = () => {
+    const total = stage.offsetHeight - window.innerHeight;
+    if (total <= 0) return 1;
+    return clamp(-stage.getBoundingClientRect().top / total, 0, 1);
   };
 
-  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  const apply = (p) => {
+    if (progressBar) progressBar.style.width = `${p * 100}%`;
 
-  const typeText = async (target, text, stepMs = 70) => {
-    for (let i = 1; i <= text.length; i += 1) {
-      target.textContent = text.slice(0, i);
-      await wait(stepMs);
+    // —— Website first (0 → 0.68) ——
+    const webDone = p >= 0.68;
+
+    if (p < 0.08) {
+      setWebStep(0);
+      if (urlText) urlText.textContent = "";
+      if (cursor) cursor.classList.remove("is-on");
+      showLayer(safariHome, true);
+      showLayer(searchPanel, false);
+      showLayer(loading, false);
+      showLayer(webShop, false);
+    } else if (p < 0.28) {
+      setWebStep(1);
+      showLayer(safariHome, true);
+      showLayer(searchPanel, false);
+      showLayer(loading, false);
+      showLayer(webShop, false);
+      const t = map(p, 0.08, 0.28);
+      if (urlText) urlText.textContent = wrongName.slice(0, Math.floor(t * wrongName.length));
+      if (cursor) cursor.classList.add("is-on");
+    } else if (p < 0.36) {
+      setWebStep(2);
+      showLayer(safariHome, true);
+      showLayer(searchPanel, false);
+      showLayer(loading, false);
+      showLayer(webShop, false);
+      const erase = map(p, 0.28, 0.36);
+      if (urlText) {
+        urlText.textContent = wrongName.slice(0, Math.floor((1 - erase) * wrongName.length));
+      }
+      if (cursor) cursor.classList.add("is-on");
+    } else if (p < 0.52) {
+      setWebStep(2);
+      showLayer(safariHome, false);
+      showLayer(searchPanel, true);
+      showLayer(loading, false);
+      showLayer(webShop, false);
+      const searchP = map(p, 0.36, 0.52);
+      const highlight = Math.min(2, Math.floor(searchP * 3));
+      searchHits.forEach((el, i) => el && el.classList.toggle("is-hot", i === highlight));
+      const typeCorrect = map(p, 0.42, 0.52);
+      if (urlText) urlText.textContent = shopName.slice(0, Math.floor(typeCorrect * shopName.length));
+      if (cursor) cursor.classList.toggle("is-on", typeCorrect < 1);
+    } else if (p < 0.62) {
+      setWebStep(3);
+      if (urlText) urlText.textContent = shopName;
+      if (cursor) cursor.classList.remove("is-on");
+      showLayer(safariHome, false);
+      showLayer(searchPanel, false);
+      showLayer(loading, true);
+      showLayer(webShop, false);
+      searchHits.forEach((el) => el && el.classList.remove("is-hot"));
+    } else {
+      setWebStep(4);
+      if (urlText) urlText.textContent = shopName;
+      if (cursor) cursor.classList.remove("is-on");
+      showLayer(safariHome, false);
+      showLayer(searchPanel, false);
+      showLayer(loading, false);
+      showLayer(webShop, true);
+      searchHits.forEach((el) => el && el.classList.remove("is-hot"));
     }
-  };
 
-  const eraseText = async (target, stepMs = 45) => {
-    let value = target.textContent || "";
-    while (value.length) {
-      value = value.slice(0, -1);
-      target.textContent = value;
-      await wait(stepMs);
-    }
-  };
+    // —— App only after website ——
+    if (compare) compare.classList.toggle("is-split", webDone);
+    if (appCol) appCol.classList.toggle("is-live", webDone);
 
-  let running = false;
-  let loopId = 0;
-
-  const runLoop = async (id) => {
-    reset();
-    setWebStep(0);
-    showLayer(safariHome, true);
-    await wait(700);
-    if (id !== loopId) return;
-
-    setWebStep(1);
-    if (cursor) cursor.classList.add("is-on");
-    await typeText(urlText, wrongName, 85);
-    if (id !== loopId) return;
-    await wait(350);
-
-    setWebStep(2);
-    await eraseText(urlText, 40);
-    if (id !== loopId) return;
-
-    showLayer(safariHome, false);
-    showLayer(searchPanel, true);
-    for (let i = 0; i < searchHits.length; i += 1) {
-      searchHits.forEach((el, idx) => el && el.classList.toggle("is-hot", idx === i));
-      await wait(380);
-      if (id !== loopId) return;
+    if (!webDone) {
+      setAppStep(-1);
+      showLayer(appHome, true);
+      showLayer(appShop, false);
+      if (appIcon) appIcon.classList.remove("is-press");
+      return;
     }
 
-    await typeText(urlText, shopName, 55);
-    if (id !== loopId) return;
-    if (cursor) cursor.classList.remove("is-on");
-    showLayer(searchPanel, false);
-
-    setWebStep(3);
-    showLayer(loading, true);
-    await wait(900);
-    if (id !== loopId) return;
-
-    showLayer(loading, false);
-    setWebStep(4);
-    showLayer(webShop, true);
-
-    if (appCol) appCol.classList.add("is-live");
-    setAppStep(0);
-    await wait(500);
-    if (id !== loopId) return;
-
-    if (appIcon) appIcon.classList.add("is-press");
-    await wait(220);
-    if (id !== loopId) return;
-    if (appIcon) appIcon.classList.remove("is-press");
-
-    setAppStep(1);
-    showLayer(appHome, false);
-    showLayer(appShop, true);
-
-    await wait(2200);
-    if (id !== loopId) return;
-    runLoop(id);
-  };
-
-  const start = () => {
-    if (running) return;
-    running = true;
-    loopId += 1;
-    runLoop(loopId);
-  };
-
-  const showFinal = () => {
-    reset();
-    if (urlText) urlText.textContent = shopName;
-    showLayer(safariHome, false);
-    showLayer(webShop, true);
-    showLayer(appHome, false);
-    showLayer(appShop, true);
-    if (appCol) appCol.classList.add("is-live");
-    webSteps.forEach((li) => li.classList.add("is-done"));
-    appSteps.forEach((li) => li.classList.add("is-done"));
-    setWebStep(4);
-    setAppStep(1);
+    if (p < 0.78) {
+      setAppStep(0);
+      showLayer(appHome, true);
+      showLayer(appShop, false);
+      if (appIcon) appIcon.classList.toggle("is-press", p >= 0.74);
+    } else {
+      setAppStep(1);
+      showLayer(appHome, false);
+      showLayer(appShop, true);
+      if (appIcon) appIcon.classList.remove("is-press");
+    }
   };
 
   if (reduceMotion) {
-    showFinal();
+    apply(1);
+    stage.classList.add("why--static");
     return;
   }
 
-  if (!("IntersectionObserver" in window)) {
-    start();
-    return;
-  }
+  let ticking = false;
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      apply(getProgress());
+      ticking = false;
+    });
+  };
 
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) start();
-      });
-    },
-    { threshold: 0.35 }
-  );
-  io.observe(whyRoot);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll, { passive: true });
+  apply(getProgress());
 })();

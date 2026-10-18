@@ -438,23 +438,81 @@ a {
   max-width: 38ch;
 }
 
-/* —— Why compare —— */
-.why {
-  width: min(1100px, calc(100% - 2.5rem));
-  margin: 0 auto 3rem;
+.page-intro__hint {
+  margin-top: 1.5rem;
+  font-family: var(--display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(18, 24, 22, 0.4);
+}
+
+/* —— Why compare (scroll stage) —— */
+.why--stage {
+  height: 420vh;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.why--stage.why--static {
+  height: auto;
+}
+
+.why__sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.25rem clamp(1.25rem, 5vw, 4rem) 2rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  background:
+    radial-gradient(700px 360px at 85% 10%, rgba(31, 169, 122, 0.1), transparent 60%),
+    var(--bg);
+}
+
+.why--static .why__sticky {
+  position: relative;
+  height: auto;
+  min-height: auto;
+  overflow: visible;
+}
+
+.why__progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(18, 24, 22, 0.08);
+}
+
+.why__progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  transition: width 0.05s linear;
 }
 
 .why-compare {
+  width: min(1100px, 100%);
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
+  align-items: start;
 }
 
 @media (min-width: 820px) {
-  .why-compare {
+  .why-compare.is-split {
     grid-template-columns: 1.15fr 0.85fr;
     gap: 2.5rem;
-    align-items: start;
+  }
+
+  .why-compare:not(.is-split) .why-path--web {
+    max-width: 420px;
   }
 }
 
@@ -475,14 +533,26 @@ a {
 }
 
 .why-path--app {
-  opacity: 0.35;
-  transform: translateY(12px);
-  transition: opacity 0.45s ease, transform 0.45s ease;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(28px);
+  pointer-events: none;
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease,
+    visibility 0.45s,
+    max-height 0.45s ease;
 }
 
 .why-path--app.is-live {
   opacity: 1;
+  visibility: visible;
   transform: none;
+  pointer-events: auto;
+  max-height: 800px;
+  overflow: visible;
 }
 
 .why-browser {
@@ -785,15 +855,38 @@ a {
   background: var(--accent);
 }
 
+@media (max-width: 819px) {
+  .why--stage {
+    height: 480vh;
+  }
+
+  .why__sticky {
+    justify-content: flex-start;
+    padding-top: 1.5rem;
+    overflow-y: auto;
+  }
+
+  .why-phone {
+    width: min(132px, 40%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .why-spinner,
   .why-browser__cursor.is-on {
     animation: none !important;
   }
 
+  .why--stage {
+    height: auto;
+  }
+
   .why-path--app {
     opacity: 1;
+    visibility: visible;
     transform: none;
+    max-height: none;
+    pointer-events: auto;
   }
 }
 
