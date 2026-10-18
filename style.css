@@ -1561,37 +1561,15 @@ a {
 
 .sync__bridge {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.35rem;
   color: var(--accent);
   padding: 0.5rem;
 }
 
 .sync__arrows {
-  width: 3rem;
+  width: 3.5rem;
   height: 1.5rem;
-}
-
-.sync__pulse {
-  width: 2.5rem;
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  animation: sync-flow 1.6s ease-in-out infinite;
-}
-
-@keyframes sync-flow {
-  0%,
-  100% {
-    transform: scaleX(0.55);
-    opacity: 0.35;
-  }
-  50% {
-    transform: scaleX(1);
-    opacity: 1;
-  }
 }
 
 .how-points {
@@ -1646,13 +1624,6 @@ a {
   color: var(--muted);
   font-weight: 500;
   font-size: 0.92rem;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .sync__pulse {
-    animation: none;
-    opacity: 0.7;
-  }
 }
 
 /* —— Projekte —— */
