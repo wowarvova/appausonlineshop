@@ -6,7 +6,7 @@
     <title>Vorteile — App aus Onlineshop</title>
     <meta
       name="description"
-      content="Warum eine Shopping App besser ist als nur der Browser-Shop: ein Tippen — und Kunden sind im Shop."
+      content="Warum eine Shopping App besser ist als nur der Browser-Shop: schneller Zugang und dauerhafte Präsenz auf dem Homescreen."
     />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://appausonlineshop.de/vorteile.html" />
@@ -16,7 +16,7 @@
       href="https://fonts.bunny.net/css?family=space-grotesk:500,600,700|dm-sans:400,500,600,700"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css?v=20261018j" />
+    <link rel="stylesheet" href="style.css?v=20261018k" />
   </head>
   <body class="inner-page">
     <header class="page-top">
@@ -30,16 +30,19 @@
         <p class="page-intro__lead">
           Zum Onlineshop brauchen Kunden mehrere Schritte. Zur App reicht ein Tippen — und sie sind im Shop.
         </p>
-        <p class="page-intro__hint">Scrollen, um den Vergleich zu sehen</p>
+        <p class="page-intro__hint">Scrollen, um die Vergleiche zu sehen</p>
       </section>
 
-      <section class="why why--stage" data-why aria-label="Vergleich Website und App">
+      <!-- Vorteil 1: Zugang -->
+      <section class="why why--stage" data-why="access" aria-label="Vorteil 1: Schneller Zugang">
         <div class="why__sticky">
           <div class="why__progress" aria-hidden="true">
-            <div class="why__progress-bar" data-why="progress"></div>
+            <div class="why__progress-bar" data-why-progress></div>
           </div>
+          <p class="why__eyebrow">Vorteil 01</p>
+          <h2 class="why__title">Schneller im Shop</h2>
 
-          <div class="why-compare" data-why="compare">
+          <div class="why-compare" data-why-compare>
             <div class="why-path why-path--web">
               <p class="why-path__label">Website</p>
               <div class="why-browser">
@@ -80,7 +83,7 @@
               </ol>
             </div>
 
-            <div class="why-path why-path--app" data-why="app-col">
+            <div class="why-path why-path--app" data-why-app>
               <p class="why-path__label">App</p>
               <div class="why-phone">
                 <div class="why-phone__bezel">
@@ -114,9 +117,7 @@
                     </div>
                     <div class="why-phone__layer why-phone__shop" data-why="app-shop">
                       <div class="why-shop-app">
-                        <div class="why-shop-app__bar">
-                          <span>Dein Shop</span>
-                        </div>
+                        <div class="why-shop-app__bar"><span>Dein Shop</span></div>
                         <div class="why-mini-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
                         <span class="why-shop-app__label">Shop</span>
                       </div>
@@ -127,6 +128,105 @@
               <ol class="why-steps why-steps--app">
                 <li data-why-step-app="0">App öffnen</li>
                 <li data-why-step-app="1">Sofort im Shop</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Vorteil 2: Bleibt / Wiederkehr -->
+      <section class="why why--stage why--return" data-why="return" aria-label="Vorteil 2: Bleibt sichtbar">
+        <div class="why__sticky">
+          <div class="why__progress" aria-hidden="true">
+            <div class="why__progress-bar" data-why-progress></div>
+          </div>
+          <p class="why__eyebrow">Vorteil 02</p>
+          <h2 class="why__title">Bleibt sichtbar — Kunden kehren zurück</h2>
+
+          <div class="why-compare" data-why-compare>
+            <div class="why-path why-path--web">
+              <p class="why-path__label">Website</p>
+              <div class="why-browser why-browser--window" data-ret="window">
+                <div class="why-browser__chrome">
+                  <span class="why-browser__dots" aria-hidden="true">
+                    <i class="why-dot--close" data-ret="close"></i><i></i><i></i>
+                  </span>
+                  <div class="why-browser__url">meinoshop.de</div>
+                </div>
+                <div class="why-browser__body">
+                  <div class="why-browser__layer why-browser__shop is-on" data-ret="shop">
+                    <div class="why-mini-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+                    <span>Shop</span>
+                  </div>
+                  <div class="why-browser__layer why-browser__gone" data-ret="gone">
+                    <span>Geschlossen</span>
+                    <small>Aus dem Blick — und oft aus dem Sinn</small>
+                  </div>
+                </div>
+              </div>
+              <ol class="why-steps">
+                <li data-ret-step="0">Website öffnen</li>
+                <li data-ret-step="1">Fenster schließen</li>
+                <li data-ret-step="2">Shop vergessen</li>
+              </ol>
+            </div>
+
+            <div class="why-path why-path--app" data-why-app>
+              <p class="why-path__label">App</p>
+              <div class="why-phone">
+                <div class="why-phone__bezel">
+                  <div class="why-phone__island" aria-hidden="true"></div>
+                  <div class="why-phone__screen">
+                    <div class="why-ios-status why-ios-status--fixed" aria-hidden="true">
+                      <span>9:41</span>
+                      <span class="why-ios-status__right">
+                        <i class="why-ios-signal"></i>
+                        <i class="why-ios-wifi"></i>
+                        <i class="why-ios-battery"></i>
+                      </span>
+                    </div>
+                    <div class="why-pages" data-ret="pages">
+                      <div class="why-page why-ios-home why-ios-home--page">
+                        <div class="why-ios-grid" aria-hidden="true">
+                          <span class="why-ios-app why-ios-app--muted"><i></i></span>
+                          <span class="why-ios-app why-ios-app--muted"><i></i></span>
+                          <span class="why-ios-app why-ios-app--muted"><i></i></span>
+                          <span class="why-ios-app why-ios-app--muted"><i></i></span>
+                          <span class="why-ios-app why-ios-app--muted"><i></i></span>
+                          <span class="why-ios-app why-ios-app--muted"><i></i></span>
+                          <span class="why-ios-app why-ios-app--muted"><i></i></span>
+                          <span class="why-ios-app why-ios-app--muted"><i></i></span>
+                        </div>
+                      </div>
+                      <div class="why-page why-ios-home why-ios-home--page">
+                        <div class="why-ios-grid" aria-hidden="true">
+                          <span class="why-ios-app why-ios-app--muted"><i></i></span>
+                          <span class="why-ios-app why-ios-app--muted"><i></i></span>
+                          <button class="why-ios-app why-ios-app--shop is-glow" type="button" tabindex="-1" data-ret="shop-icon">
+                            <i></i>
+                            <em>Dein Shop</em>
+                          </button>
+                          <span class="why-ios-app why-ios-app--muted"><i></i></span>
+                          <span class="why-ios-app why-ios-app--muted"><i></i></span>
+                          <span class="why-ios-app why-ios-app--muted"><i></i></span>
+                          <span class="why-ios-app why-ios-app--muted"><i></i></span>
+                          <span class="why-ios-app why-ios-app--muted"><i></i></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="why-ios-dots" aria-hidden="true" data-ret="dots">
+                      <i class="is-on"></i><i></i>
+                    </div>
+                    <div class="why-ios-dock" aria-hidden="true">
+                      <span></span><span></span><span></span><span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ol class="why-steps why-steps--app">
+                <li data-ret-step-app="0">Zur zweiten Seite wischen</li>
+                <li data-ret-step-app="1">Dein Shop bleibt sichtbar</li>
+                <li data-ret-step-app="2">Kunden kehren zurück</li>
               </ol>
             </div>
           </div>
@@ -147,6 +247,6 @@
       </nav>
     </footer>
 
-    <script src="main.js?v=20261018j" defer></script>
+    <script src="main.js?v=20261018k" defer></script>
   </body>
 </html>
