@@ -345,4 +345,54 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll, { passive: true });
   tick();
+
+  /* —— Wie es funktioniert: Lagerbestand-Sync Demo —— */
+  const syncRoot = document.querySelector("[data-sync]");
+  if (syncRoot && !reduceMotion) {
+    const shopEl = syncRoot.querySelector("[data-sync-shop]");
+    const appEl = syncRoot.querySelector("[data-sync-app]");
+    const values = [24, 23, 19, 18, 22, 24];
+    let i = 0;
+    let timer = null;
+
+    const write = (n) => {
+      if (shopEl) shopEl.textContent = String(n);
+      window.setTimeout(() => {
+        if (appEl) {
+          appEl.textContent = String(n);
+          appEl.classList.add("is-flash");
+          window.setTimeout(() => appEl.classList.remove("is-flash"), 420);
+        }
+      }, 380);
+    };
+
+    const start = () => {
+      if (timer) return;
+      write(values[0]);
+      timer = window.setInterval(() => {
+        i = (i + 1) % values.length;
+        write(values[i]);
+      }, 2200);
+    };
+
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) start();
+          });
+        },
+        { threshold: 0.4 }
+      );
+      io.observe(syncRoot);
+    } else {
+      start();
+    }
+  } else if (syncRoot && reduceMotion) {
+    const shopEl = syncRoot.querySelector("[data-sync-shop]");
+    const appEl = syncRoot.querySelector("[data-sync-app]");
+    if (shopEl) shopEl.textContent = "24";
+    if (appEl) appEl.textContent = "24";
+  }
 })();
+

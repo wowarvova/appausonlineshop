@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wie es funktioniert — App aus Onlineshop</title>
-    <meta name="robots" content="noindex, follow" />
+    <meta
+      name="description"
+      content="Shopify und App synchronisieren sich direkt: Lagerbestand, Produkte und Bestellungen — ohne Mehrarbeit, mit einfacher Bedienung."
+    />
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://appausonlineshop.de/wie-es-funktioniert.html" />
     <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="preconnect" href="https://fonts.bunny.net" />
@@ -12,16 +16,122 @@
       href="https://fonts.bunny.net/css?family=space-grotesk:500,600,700|dm-sans:400,500,600,700"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css?v=20261018q" />
+    <link rel="stylesheet" href="style.css?v=20261018s" />
   </head>
-  <body class="stub-page">
-    <header class="legal-top">
+  <body class="inner-page how-page">
+    <header class="page-top">
       <a class="legal-back" href="index.html">← Zurück</a>
     </header>
-    <main class="stub-main">
-      <h1>Funktionen</h1>
-      <p>Inhalt folgt in Kürze.</p>
+
+    <main>
+      <section class="page-intro reveal reveal--in">
+        <p class="page-intro__eyebrow">Funktionen</p>
+        <h1 class="page-intro__title">So funktioniert die App</h1>
+        <p class="page-intro__lead">
+          Ihr Shopify-Shop bleibt die Quelle. Die App spiegelt ihn — ohne doppelte Pflege.
+        </p>
+      </section>
+
+      <section class="sync reveal" data-sync aria-label="Synchronisation Shopify und App">
+        <div class="sync__stage">
+          <div class="sync__panel sync__panel--shop">
+            <p class="sync__label">Shopify</p>
+            <div class="sync__row">
+              <span>Lagerbestand</span>
+              <strong data-sync-shop>24</strong>
+            </div>
+            <div class="sync__row">
+              <span>Produktpreis</span>
+              <strong>49 €</strong>
+            </div>
+            <div class="sync__row">
+              <span>Verfügbar</span>
+              <strong class="sync__ok">Ja</strong>
+            </div>
+          </div>
+
+          <div class="sync__bridge" aria-hidden="true">
+            <span class="sync__pulse"></span>
+            <span class="sync__pulse sync__pulse--delay"></span>
+            <p class="sync__bridge-text">Live-Sync</p>
+          </div>
+
+          <div class="sync__panel sync__panel--app">
+            <p class="sync__label">App</p>
+            <div class="sync__row">
+              <span>Lagerbestand</span>
+              <strong data-sync-app>24</strong>
+            </div>
+            <div class="sync__row">
+              <span>Produktpreis</span>
+              <strong>49 €</strong>
+            </div>
+            <div class="sync__row">
+              <span>Verfügbar</span>
+              <strong class="sync__ok">Ja</strong>
+            </div>
+          </div>
+        </div>
+        <p class="sync__caption">
+          Ändern Sie etwas in Shopify — die App übernimmt es direkt. Kein zweites System, kein manuelles Nachziehen.
+        </p>
+      </section>
+
+      <section class="how-points">
+        <article class="how-point reveal">
+          <p class="how-point__num" aria-hidden="true">01</p>
+          <h2 class="how-point__title">Keine Mehrarbeit</h2>
+          <p class="how-point__text">
+            Sie arbeiten weiter wie gewohnt in Shopify: Produkte, Preise, Lager. Die App braucht keine eigene Pflege
+            und keine doppelten Einträge.
+          </p>
+        </article>
+
+        <article class="how-point reveal" style="--d: 80ms">
+          <p class="how-point__num" aria-hidden="true">02</p>
+          <h2 class="how-point__title">Direkte Synchronisation</h2>
+          <p class="how-point__text">
+            Lagerbestand, Katalog und Bestellungen laufen zwischen Shopify und App zusammen. Was im Shop stimmt,
+            stimmt auch in der App — in Echtzeit.
+          </p>
+        </article>
+
+        <article class="how-point reveal" style="--d: 140ms">
+          <p class="how-point__num" aria-hidden="true">03</p>
+          <h2 class="how-point__title">Sehr einfache Bedienung</h2>
+          <p class="how-point__text">
+            Für Kunden: Tippen, stöbern, bestellen. Für Sie: alles über Shopify steuern. Die App bleibt klar und
+            reduziert — ohne unnötige Komplexität.
+          </p>
+        </article>
+      </section>
+
+      <section class="how-flow reveal">
+        <h2 class="how-flow__title">Der Alltag in einem Satz</h2>
+        <ol class="how-flow__steps">
+          <li>
+            <span>Shopify</span>
+            <em>Sie pflegen den Shop</em>
+          </li>
+          <li aria-hidden="true" class="how-flow__arrow"></li>
+          <li>
+            <span>Sync</span>
+            <em>Daten gleichen sich ab</em>
+          </li>
+          <li aria-hidden="true" class="how-flow__arrow"></li>
+          <li>
+            <span>App</span>
+            <em>Kunden kaufen dort</em>
+          </li>
+        </ol>
+      </section>
+
+      <section class="offer reveal">
+        <h2 class="offer__title">Bereit für den nächsten Schritt?</h2>
+        <a class="btn btn--solid" href="angebot.html">Angebot anfragen</a>
+      </section>
     </main>
+
     <footer class="site-footer">
       <nav class="site-footer__nav" aria-label="Rechtliches">
         <a href="impressum.html">Impressum</a>
@@ -29,5 +139,7 @@
         <a href="datenschutz.html">Datenschutz</a>
       </nav>
     </footer>
+
+    <script src="main.js?v=20261018s" defer></script>
   </body>
 </html>
