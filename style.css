@@ -1081,6 +1081,195 @@ a {
   background: #fff;
 }
 
+/* —— Vorteil 3: Mail vs Push —— */
+.why-mail {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: 0 16px 40px rgba(18, 24, 22, 0.06);
+  max-width: 380px;
+}
+
+.why-mail__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 0.85rem;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--display);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.why-mail__bar em {
+  min-width: 1.35rem;
+  height: 1.35rem;
+  padding: 0 0.35rem;
+  border-radius: 999px;
+  background: #e85d4c;
+  color: #fff;
+  font-style: normal;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.why-mail__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.why-mail__list li {
+  display: none;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.7rem 0.85rem;
+  border-bottom: 1px solid rgba(18, 24, 22, 0.06);
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.why-mail__list li.is-on {
+  display: flex;
+  opacity: 1;
+  transform: none;
+}
+
+.why-mail__list li.is-dim {
+  opacity: 0.45;
+}
+
+.why-mail__list li.is-lost {
+  opacity: 0.28;
+  filter: grayscale(0.35);
+}
+
+.why-mail__list li:last-child {
+  border-bottom: 0;
+}
+
+.why-mail__list strong {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.why-mail__list span {
+  font-size: 0.74rem;
+  color: var(--muted);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@keyframes mail-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.why-lock {
+  background:
+    radial-gradient(120% 70% at 30% 0%, rgba(255, 255, 255, 0.18), transparent 50%),
+    linear-gradient(165deg, #0b1c2c 0%, #1a3a4a 45%, #244a3a 100%);
+  padding: 2.1rem 0.55rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.why-lock__time {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.why-lock__time span {
+  display: block;
+  font-family: var(--display);
+  font-size: 2.1rem;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.why-lock__time small {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.62rem;
+  font-weight: 500;
+  opacity: 0.75;
+}
+
+.why-push {
+  display: flex;
+  gap: 0.45rem;
+  align-items: flex-start;
+  padding: 0.55rem 0.5rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--ink);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  opacity: 0;
+  transform: translateY(-12px) scale(0.96);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.why-push.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.why-push.is-pulse {
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.22),
+    0 0 0 3px rgba(31, 169, 122, 0.28);
+}
+
+.why-push__icon {
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 0.4rem;
+  flex-shrink: 0;
+  background: linear-gradient(160deg, #34d399, #0f766e);
+}
+
+.why-push__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.35rem;
+  margin-bottom: 0.12rem;
+}
+
+.why-push__top strong {
+  font-size: 0.62rem;
+  font-weight: 700;
+}
+
+.why-push__top em {
+  font-style: normal;
+  font-size: 0.55rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.why-push__body p {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
 .why-ios-dock {
   margin-top: auto;
   display: grid;

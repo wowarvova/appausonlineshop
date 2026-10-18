@@ -241,21 +241,86 @@
     };
   };
 
+  /* —— Vorteil 3: E-Mail vs Push —— */
+  const setupNotify = (stage) => {
+    const progressBar = stage.querySelector("[data-why-progress]");
+    const compare = stage.querySelector("[data-why-compare]");
+    const appCol = stage.querySelector("[data-why-app]");
+    const badge = stage.querySelector('[data-ntf="badge"]');
+    const mails = [...stage.querySelectorAll("[data-ntf-mail]")];
+    const push = stage.querySelector('[data-ntf="push"]');
+    const webSteps = [...stage.querySelectorAll("[data-ntf-step]")];
+    const appSteps = [...stage.querySelectorAll("[data-ntf-step-app]")];
+
+    return (p) => {
+      if (progressBar) progressBar.style.width = `${p * 100}%`;
+      const webDone = p >= 0.64;
+
+      const fill = map(p, 0.05, 0.55);
+      const visibleCount = Math.min(mails.length, Math.floor(fill * mails.length) + (p > 0.05 ? 1 : 0));
+
+      mails.forEach((mail, i) => {
+        const on = i < visibleCount;
+        mail.classList.toggle("is-on", on);
+        mail.classList.toggle("is-dim", webDone ? i < mails.length - 1 : false);
+        mail.classList.toggle("is-lost", webDone && i === mails.length - 1);
+      });
+
+      if (badge) badge.textContent = String(Math.max(0, visibleCount));
+
+      if (p < 0.2) setSteps(webSteps, 0);
+      else if (p < 0.45) setSteps(webSteps, 1);
+      else setSteps(webSteps, 2);
+
+      if (compare) compare.classList.toggle("is-split", webDone);
+      if (appCol) appCol.classList.toggle("is-live", webDone);
+
+      if (!webDone) {
+        setSteps(appSteps, -1);
+        if (push) push.classList.remove("is-in", "is-pulse");
+        return;
+      }
+
+      if (p < 0.78) {
+        setSteps(appSteps, 0);
+        if (push) {
+          push.classList.add("is-in");
+          push.classList.remove("is-pulse");
+        }
+      } else if (p < 0.9) {
+        setSteps(appSteps, 1);
+        if (push) {
+          push.classList.add("is-in", "is-pulse");
+        }
+      } else {
+        setSteps(appSteps, 2);
+        if (push) {
+          push.classList.add("is-in", "is-pulse");
+        }
+      }
+    };
+  };
+
   const accessStage = document.querySelector('[data-why="access"]');
   const returnStage = document.querySelector('[data-why="return"]');
-  if (!accessStage && !returnStage) return;
+  const notifyStage = document.querySelector('[data-why="notify"]');
+  if (!accessStage && !returnStage && !notifyStage) return;
 
   const applyAccess = accessStage ? setupAccess(accessStage) : null;
   const applyReturn = returnStage ? setupReturn(returnStage) : null;
+  const applyNotify = notifyStage ? setupNotify(notifyStage) : null;
 
   const tick = () => {
-    if (applyAccess && accessStage) applyAccess(reduceMotion ? 1 : getProgress(accessStage));
-    if (applyReturn && returnStage) applyReturn(reduceMotion ? 1 : getProgress(returnStage));
+    const final = reduceMotion ? 1 : null;
+    if (applyAccess && accessStage) applyAccess(final ?? getProgress(accessStage));
+    if (applyReturn && returnStage) applyReturn(final ?? getProgress(returnStage));
+    if (applyNotify && notifyStage) applyNotify(final ?? getProgress(notifyStage));
   };
 
   if (reduceMotion) {
     if (accessStage) accessStage.classList.add("why--static");
     if (returnStage) returnStage.classList.add("why--static");
+    if (notifyStage) notifyStage.classList.add("why--static");
     tick();
     return;
   }
