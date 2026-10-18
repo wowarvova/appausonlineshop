@@ -1453,6 +1453,140 @@ a {
   }
 }
 
+/* —— Projekte —— */
+.projects-page {
+  background:
+    radial-gradient(900px 480px at 10% -10%, rgba(31, 169, 122, 0.1), transparent 55%),
+    var(--bg);
+}
+
+.project {
+  width: min(960px, calc(100% - 2.5rem));
+  margin: 0 auto 4rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: 0 20px 50px rgba(18, 24, 22, 0.06);
+}
+
+.project__visual {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--bg-deep);
+  min-height: 180px;
+}
+
+.project__visual img {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  max-height: 260px;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.92);
+  transition: transform 0.55s ease, filter 0.55s ease;
+}
+
+.project:hover .project__visual img {
+  filter: saturate(1.05);
+}
+
+.project:hover .project__visual img:nth-child(2) {
+  transform: scale(1.03);
+}
+
+.project__body {
+  padding: clamp(1.5rem, 4vw, 2.4rem);
+}
+
+.project__brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.project__logo {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 1.15rem;
+  object-fit: cover;
+  box-shadow: 0 10px 28px rgba(18, 24, 22, 0.16);
+  background: #111;
+}
+
+.project__kicker {
+  font-family: var(--display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+
+.project__name {
+  font-family: var(--display);
+  font-size: clamp(1.45rem, 3.2vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.project__text {
+  color: var(--muted);
+  font-weight: 500;
+  max-width: 42ch;
+  margin-bottom: 1.5rem;
+  font-size: 1.02rem;
+}
+
+.project__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn--store {
+  background: var(--bg-deep);
+  color: #fff;
+}
+
+.btn--store:hover {
+  background: #000;
+}
+
+.btn--ghost-dark {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--line);
+}
+
+.btn--ghost-dark:hover {
+  border-color: rgba(18, 24, 22, 0.35);
+  background: rgba(18, 24, 22, 0.04);
+}
+
+.btn svg {
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .project__visual {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .project__visual img:nth-child(3) {
+    display: none;
+  }
+
+  .project__visual img {
+    min-height: 140px;
+    max-height: 180px;
+  }
+}
+
 /* —— Stub / empty pages —— */
 
 .stub-main {
