@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vorteile — App aus Onlineshop</title>
-    <meta name="robots" content="noindex, follow" />
+    <meta
+      name="description"
+      content="Warum eine Shopping App besser ist als nur der Browser-Shop: ein Tippen — und Kunden sind drin."
+    />
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://appausonlineshop.de/vorteile.html" />
     <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="preconnect" href="https://fonts.bunny.net" />
@@ -12,16 +16,93 @@
       href="https://fonts.bunny.net/css?family=space-grotesk:500,600,700|dm-sans:400,500,600,700"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css?v=20261018b" />
+    <link rel="stylesheet" href="style.css?v=20261018h" />
   </head>
-  <body class="stub-page">
-    <header class="legal-top">
+  <body class="inner-page">
+    <header class="page-top">
       <a class="legal-back" href="index.html">← Zurück</a>
     </header>
-    <main class="stub-main">
-      <h1>Zu den Vorteilen</h1>
-      <p>Inhalt folgt in Kürze.</p>
+
+    <main>
+      <section class="page-intro reveal reveal--in">
+        <p class="page-intro__eyebrow">Der Unterschied</p>
+        <h1 class="page-intro__title">Website oder App — der Weg entscheidet.</h1>
+        <p class="page-intro__lead">
+          Zum Onlineshop brauchen Kunden mehrere Schritte. Zur App reicht ein Tippen — und sie sind drin.
+        </p>
+      </section>
+
+      <section class="why" data-why aria-label="Vergleich Website und App">
+        <div class="why-compare">
+          <div class="why-path why-path--web">
+            <p class="why-path__label">Website</p>
+            <div class="why-browser">
+              <div class="why-browser__chrome">
+                <span class="why-browser__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <div class="why-browser__url">
+                  <span data-why="url-text"></span>
+                  <span class="why-browser__cursor" data-why="cursor"></span>
+                </div>
+              </div>
+              <div class="why-browser__body">
+                <div class="why-browser__layer is-on" data-why="safari-home">
+                  <div class="why-safari-icon">Browser</div>
+                </div>
+                <div class="why-browser__layer why-browser__search" data-why="search">
+                  <div class="why-search-title">Suche</div>
+                  <div class="why-search-list">
+                    <span data-why="search-a">meine marke shop</span>
+                    <span data-why="search-b">meine marke outlet</span>
+                    <span data-why="search-c">meine marke instagram</span>
+                  </div>
+                </div>
+                <div class="why-browser__layer" data-why="loading">
+                  <span class="why-spinner"></span>
+                </div>
+                <div class="why-browser__layer why-browser__shop" data-why="web-shop">
+                  <div class="why-mini-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+                  <span>Shop</span>
+                </div>
+              </div>
+            </div>
+            <ol class="why-steps">
+              <li data-why-step="0">Browser öffnen</li>
+              <li data-why-step="1">Shop-Namen tippen</li>
+              <li data-why-step="2">Namen vergessen — suchen</li>
+              <li data-why-step="3">Seite laden</li>
+              <li data-why-step="4">Endlich im Shop</li>
+            </ol>
+          </div>
+
+          <div class="why-path why-path--app" data-why="app-col">
+            <p class="why-path__label">App</p>
+            <div class="why-phone">
+              <div class="why-phone__notch" aria-hidden="true"></div>
+              <div class="why-phone__screen">
+                <div class="why-phone__layer is-on" data-why="app-home">
+                  <div class="why-app-icon" data-why="app-icon"><span></span></div>
+                  <span class="why-app-name">Dein Shop</span>
+                </div>
+                <div class="why-phone__layer why-phone__shop" data-why="app-shop">
+                  <div class="why-mini-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+                  <span>Shop</span>
+                </div>
+              </div>
+            </div>
+            <ol class="why-steps why-steps--app">
+              <li data-why-step-app="0">App antippen</li>
+              <li data-why-step-app="1">Zack — man ist drin</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="offer reveal">
+        <h2 class="offer__title">Bereit für den nächsten Schritt?</h2>
+        <a class="btn btn--solid" href="angebot.html">Angebot anfragen</a>
+      </section>
     </main>
+
     <footer class="site-footer">
       <nav class="site-footer__nav" aria-label="Rechtliches">
         <a href="impressum.html">Impressum</a>
@@ -29,5 +110,7 @@
         <a href="datenschutz.html">Datenschutz</a>
       </nav>
     </footer>
+
+    <script src="main.js?v=20261018h" defer></script>
   </body>
 </html>
