@@ -230,16 +230,16 @@
       if (pages) pages.style.transform = `translateX(${-swipe * 50}%)`;
 
       if (p < 0.82) {
-        setSteps(appSteps, 0);
+        setSteps(appSteps, -1);
         dots.forEach((d, i) => d.classList.toggle("is-on", i === (swipe > 0.5 ? 1 : 0)));
         if (shopIcon) shopIcon.classList.toggle("is-glow", swipe > 0.7);
       } else if (p < 0.92) {
-        setSteps(appSteps, 1);
+        setSteps(appSteps, 0);
         if (pages) pages.style.transform = "translateX(-50%)";
         dots.forEach((d, i) => d.classList.toggle("is-on", i === 1));
         if (shopIcon) shopIcon.classList.add("is-glow");
       } else {
-        setSteps(appSteps, 2);
+        setSteps(appSteps, 1);
         if (pages) pages.style.transform = "translateX(-50%)";
         dots.forEach((d, i) => d.classList.toggle("is-on", i === 1));
         if (shopIcon) shopIcon.classList.add("is-glow");
