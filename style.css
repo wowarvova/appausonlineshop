@@ -184,6 +184,10 @@ a {
     grid-template-columns: 1fr 1fr;
     gap: 1.25rem;
   }
+
+  .path-block--wide {
+    grid-column: 1 / -1;
+  }
 }
 
 .path-block {
