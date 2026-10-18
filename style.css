@@ -102,20 +102,60 @@ a {
 .hero__flow {
   display: inline-flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 1.1rem;
+}
+
+.hero__flow-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  min-width: 4.5rem;
+}
+
+.hero__flow-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.9rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: 0 8px 20px rgba(18, 24, 22, 0.06);
+}
+
+.hero__flow-icon svg {
+  width: 1.55rem;
+  height: 1.55rem;
+}
+
+.hero__flow-icon--shop {
+  color: #5e8e3e;
+  background: linear-gradient(160deg, #f3f8ec, #fff);
+  border-color: rgba(94, 142, 62, 0.28);
+}
+
+.hero__flow-icon--app {
+  color: var(--accent-ink);
+  background: linear-gradient(160deg, rgba(31, 169, 122, 0.16), #fff);
+  border-color: rgba(31, 169, 122, 0.3);
+}
+
+.hero__flow-label {
   font-family: var(--display);
-  font-size: 0.95rem;
+  font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: -0.01em;
-  color: var(--ink);
+  color: var(--muted);
 }
 
 .hero__flow-line {
-  display: block;
-  width: 2.75rem;
+  width: 2.5rem;
   height: 1.5px;
-  background: linear-gradient(90deg, rgba(18, 24, 22, 0.2), var(--accent), rgba(18, 24, 22, 0.2));
+  margin-bottom: 1.15rem;
+  background: linear-gradient(90deg, rgba(18, 24, 22, 0.15), var(--accent), rgba(18, 24, 22, 0.15));
   position: relative;
+  flex-shrink: 0;
 }
 
 .hero__flow-line::after {
