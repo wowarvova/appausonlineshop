@@ -3,14 +3,63 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>App aus Onlineshop</title>
-    <meta name="robots" content="noindex, follow" />
+    <title>App aus Onlineshop — Shopping App aus Shopify</title>
+    <meta
+      name="description"
+      content="App aus Onlineshop — wir verwandeln deinen Shopify Shop in eine native Shopping App."
+    />
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://appausonlineshop.de/" />
     <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32" />
-    <link rel="stylesheet" href="style.css?v=20261018" />
+    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link
+      href="https://fonts.bunny.net/css?family=space-grotesk:500,600,700|dm-sans:400,500,600,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css?v=20261018b" />
   </head>
-  <body class="blank-page">
-    <main class="blank-main" aria-hidden="true"></main>
+  <body class="home">
+    <main>
+      <section class="hero">
+        <div class="hero__glow" aria-hidden="true"></div>
+        <p class="hero__brand reveal reveal--in">App aus Onlineshop</p>
+        <h1 class="hero__title reveal reveal--in" style="--d: 80ms">
+          Shopping App aus deinem Shopify Shop.
+        </h1>
+        <p class="hero__lead reveal reveal--in" style="--d: 160ms">
+          Dein Shop bleibt. Deine Kunden bekommen die App — schnell, klar und auf iOS &amp; Android.
+        </p>
+        <div class="hero__scroll reveal reveal--in" style="--d: 240ms" aria-hidden="true">
+          <span></span>
+        </div>
+      </section>
+
+      <section class="path-grid" aria-label="Weiterführende Seiten">
+        <article class="path-block reveal">
+          <p class="path-block__kicker">01</p>
+          <h2 class="path-block__title">Warum eine App?</h2>
+          <p class="path-block__text">
+            Mehr Sichtbarkeit, stärkere Bindung und ein eigener Kanal — direkt auf dem Homescreen.
+          </p>
+          <a class="btn" href="vorteile.html">Zu den Vorteilen</a>
+        </article>
+
+        <article class="path-block path-block--alt reveal" style="--d: 100ms">
+          <p class="path-block__kicker">02</p>
+          <h2 class="path-block__title">Was wir gebaut haben</h2>
+          <p class="path-block__text">
+            Ausgewählte Shopify-Shops, die wir in vollwertige Shopping Apps verwandelt haben.
+          </p>
+          <a class="btn btn--ghost" href="projekte.html">Unsere Projekte</a>
+        </article>
+      </section>
+
+      <section class="offer reveal">
+        <h2 class="offer__title">Bereit für den nächsten Schritt?</h2>
+        <p class="offer__text">Kurz beschreiben, was du brauchst — wir melden uns mit einem konkreten Angebot.</p>
+        <a class="btn btn--solid" href="angebot.html">Angebot anfragen</a>
+      </section>
+    </main>
 
     <footer class="site-footer">
       <nav class="site-footer__nav" aria-label="Rechtliches">
@@ -19,5 +68,7 @@
         <a href="datenschutz.html">Datenschutz</a>
       </nav>
     </footer>
+
+    <script src="main.js?v=20261018b" defer></script>
   </body>
 </html>
