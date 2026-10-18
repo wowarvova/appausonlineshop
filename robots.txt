@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
 
-Disallow: /danke.html
-
 Sitemap: https://appausonlineshop.de/sitemap.xml
