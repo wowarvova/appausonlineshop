@@ -6,7 +6,7 @@
     <title>Wie es funktioniert — App aus Onlineshop</title>
     <meta
       name="description"
-      content="Shopify und App synchronisieren sich direkt: Lagerbestand, Produkte und Bestellungen — ohne Mehrarbeit, mit einfacher Bedienung."
+      content="Shopify und App synchronisieren sich direkt — ohne Mehrarbeit, mit einfacher Bedienung."
     />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://appausonlineshop.de/wie-es-funktioniert.html" />
@@ -16,7 +16,7 @@
       href="https://fonts.bunny.net/css?family=space-grotesk:500,600,700|dm-sans:400,500,600,700"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css?v=20261018s" />
+    <link rel="stylesheet" href="style.css?v=20261018u" />
   </head>
   <body class="inner-page how-page">
     <header class="page-top">
@@ -27,103 +27,84 @@
       <section class="page-intro reveal reveal--in">
         <p class="page-intro__eyebrow">Funktionen</p>
         <h1 class="page-intro__title">So funktioniert die App</h1>
-        <p class="page-intro__lead">
-          Ihr Shopify-Shop bleibt die Quelle. Die App spiegelt ihn — ohne doppelte Pflege.
-        </p>
       </section>
 
-      <section class="sync reveal" data-sync aria-label="Synchronisation Shopify und App">
+      <section class="sync sync--simple reveal" data-sync aria-label="Synchronisation Shopify und App">
         <div class="sync__stage">
           <div class="sync__panel sync__panel--shop">
+            <div class="sync__icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect x="8" y="12" width="24" height="20" rx="3" stroke="currentColor" stroke-width="2"/>
+                <path d="M14 12V10a6 6 0 0 1 12 0v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
             <p class="sync__label">Shopify</p>
-            <div class="sync__row">
-              <span>Lagerbestand</span>
+            <p class="sync__stock">
+              <span>Lager</span>
               <strong data-sync-shop>24</strong>
-            </div>
-            <div class="sync__row">
-              <span>Produktpreis</span>
-              <strong>49 €</strong>
-            </div>
-            <div class="sync__row">
-              <span>Verfügbar</span>
-              <strong class="sync__ok">Ja</strong>
-            </div>
+            </p>
           </div>
 
           <div class="sync__bridge" aria-hidden="true">
             <span class="sync__pulse"></span>
-            <span class="sync__pulse sync__pulse--delay"></span>
-            <p class="sync__bridge-text">Live-Sync</p>
+            <svg class="sync__arrows" viewBox="0 0 48 24" fill="none">
+              <path d="M4 12h34" stroke="currentColor" stroke-width="2"/>
+              <path d="M34 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M44 12H10" stroke="currentColor" stroke-width="2" opacity="0.25"/>
+              <path d="M10 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.35"/>
+            </svg>
           </div>
 
           <div class="sync__panel sync__panel--app">
+            <div class="sync__icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect x="11" y="5" width="18" height="30" rx="4" stroke="currentColor" stroke-width="2"/>
+                <circle cx="20" cy="29.5" r="1.4" fill="currentColor"/>
+              </svg>
+            </div>
             <p class="sync__label">App</p>
-            <div class="sync__row">
-              <span>Lagerbestand</span>
+            <p class="sync__stock">
+              <span>Lager</span>
               <strong data-sync-app>24</strong>
-            </div>
-            <div class="sync__row">
-              <span>Produktpreis</span>
-              <strong>49 €</strong>
-            </div>
-            <div class="sync__row">
-              <span>Verfügbar</span>
-              <strong class="sync__ok">Ja</strong>
-            </div>
+            </p>
           </div>
         </div>
-        <p class="sync__caption">
-          Ändern Sie etwas in Shopify — die App übernimmt es direkt. Kein zweites System, kein manuelles Nachziehen.
-        </p>
       </section>
 
-      <section class="how-points">
+      <section class="how-points how-points--icons">
         <article class="how-point reveal">
-          <p class="how-point__num" aria-hidden="true">01</p>
+          <div class="how-point__icon" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2"/>
+              <path d="M13 20.5l4.2 4.2L27 14.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
           <h2 class="how-point__title">Keine Mehrarbeit</h2>
-          <p class="how-point__text">
-            Sie arbeiten weiter wie gewohnt in Shopify: Produkte, Preise, Lager. Die App braucht keine eigene Pflege
-            und keine doppelten Einträge.
-          </p>
+          <p class="how-point__text">Alles bleibt in Shopify</p>
         </article>
 
         <article class="how-point reveal" style="--d: 80ms">
-          <p class="how-point__num" aria-hidden="true">02</p>
-          <h2 class="how-point__title">Direkte Synchronisation</h2>
-          <p class="how-point__text">
-            Lagerbestand, Katalog und Bestellungen laufen zwischen Shopify und App zusammen. Was im Shop stimmt,
-            stimmt auch in der App — in Echtzeit.
-          </p>
+          <div class="how-point__icon" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none">
+              <path d="M10 20h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M24 13l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 27l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h2 class="how-point__title">Live-Sync</h2>
+          <p class="how-point__text">Bestand &amp; Preise sofort</p>
         </article>
 
         <article class="how-point reveal" style="--d: 140ms">
-          <p class="how-point__num" aria-hidden="true">03</p>
-          <h2 class="how-point__title">Sehr einfache Bedienung</h2>
-          <p class="how-point__text">
-            Für Kunden: Tippen, stöbern, bestellen. Für Sie: alles über Shopify steuern. Die App bleibt klar und
-            reduziert — ohne unnötige Komplexität.
-          </p>
+          <div class="how-point__icon" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none">
+              <rect x="9" y="8" width="22" height="24" rx="4" stroke="currentColor" stroke-width="2"/>
+              <path d="M15 16h10M15 21h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h2 class="how-point__title">Einfach bedienen</h2>
+          <p class="how-point__text">Tippen &amp; bestellen</p>
         </article>
-      </section>
-
-      <section class="how-flow reveal">
-        <h2 class="how-flow__title">Der Alltag in einem Satz</h2>
-        <ol class="how-flow__steps">
-          <li>
-            <span>Shopify</span>
-            <em>Sie pflegen den Shop</em>
-          </li>
-          <li aria-hidden="true" class="how-flow__arrow"></li>
-          <li>
-            <span>Sync</span>
-            <em>Daten gleichen sich ab</em>
-          </li>
-          <li aria-hidden="true" class="how-flow__arrow"></li>
-          <li>
-            <span>App</span>
-            <em>Kunden kaufen dort</em>
-          </li>
-        </ol>
       </section>
 
       <section class="offer reveal">
@@ -140,6 +121,6 @@
       </nav>
     </footer>
 
-    <script src="main.js?v=20261018s" defer></script>
+    <script src="main.js?v=20261018u" defer></script>
   </body>
 </html>
