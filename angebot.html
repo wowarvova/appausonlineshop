@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Angebot anfragen — App aus Onlineshop</title>
-    <meta name="robots" content="noindex, follow" />
+    <meta
+      name="description"
+      content="Unverbindliches Angebot für eine Shopify Shopping App anfragen."
+    />
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://appausonlineshop.de/angebot.html" />
     <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="preconnect" href="https://fonts.bunny.net" />
@@ -12,16 +16,147 @@
       href="https://fonts.bunny.net/css?family=space-grotesk:500,600,700|dm-sans:400,500,600,700"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css?v=20261018b" />
+    <link rel="stylesheet" href="style.css?v=20261018x" />
   </head>
-  <body class="stub-page">
-    <header class="legal-top">
+  <body class="inner-page offer-page">
+    <header class="page-top">
       <a class="legal-back" href="index.html">← Zurück</a>
     </header>
-    <main class="stub-main">
-      <h1>Angebot anfragen</h1>
-      <p>Inhalt folgt in Kürze.</p>
+
+    <main>
+      <section class="page-intro reveal reveal--in">
+        <p class="page-intro__eyebrow">Anfrage</p>
+        <h1 class="page-intro__title">Angebot anfragen</h1>
+      </section>
+
+      <div class="wizard" data-wizard>
+        <div class="wizard__progress" aria-hidden="true">
+          <span class="wizard__bar" data-wizard-bar></span>
+        </div>
+        <p class="wizard__step-label" data-wizard-label>Schritt 1 von 4</p>
+
+        <form
+          class="wizard__form"
+          action="https://formsubmit.co/recalled.info@gmail.com"
+          method="POST"
+          data-wizard-form
+          novalidate
+        >
+          <input type="hidden" name="_subject" value="Neue Angebotsanfrage — App aus Onlineshop" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://appausonlineshop.de/danke.html" />
+          <input type="hidden" name="_replyto" value="" data-wizard-replyto />
+          <input type="text" name="_honey" class="wizard__honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <input type="hidden" name="Shopify" value="" data-wizard-shopify />
+          <textarea name="Zusammenfassung" class="wizard__honey" tabindex="-1" aria-hidden="true" data-wizard-summary></textarea>
+
+          <!-- Step 1: Shopify -->
+          <section class="wizard__panel is-active" data-wizard-step="0">
+            <h2 class="wizard__question">Arbeiten Sie mit Shopify?</h2>
+            <div class="wizard__choices">
+              <button type="button" class="wizard__choice" data-shopify="ja">Ja</button>
+              <button type="button" class="wizard__choice wizard__choice--ghost" data-shopify="nein">Nein</button>
+            </div>
+          </section>
+
+          <!-- Blocked: no Shopify -->
+          <section class="wizard__panel" data-wizard-step="blocked" hidden>
+            <h2 class="wizard__question">Vielen Dank für Ihr Interesse</h2>
+            <p class="wizard__note">
+              Tut uns leid — wir bauen aktuell Apps nur für Shopify Stores.
+            </p>
+            <a class="btn btn--solid" href="index.html">Zur Startseite</a>
+          </section>
+
+          <!-- Step 2: Contact -->
+          <section class="wizard__panel" data-wizard-step="1" hidden>
+            <h2 class="wizard__question">Ihre Kontaktdaten</h2>
+            <div class="wizard__fields">
+              <label class="wizard__field">
+                <span>Vorname</span>
+                <input type="text" name="Vorname" autocomplete="given-name" required />
+              </label>
+              <label class="wizard__field">
+                <span>Nachname</span>
+                <input type="text" name="Nachname" autocomplete="family-name" required />
+              </label>
+              <label class="wizard__field wizard__field--full">
+                <span>E-Mail-Adresse</span>
+                <input type="email" name="E-Mail" autocomplete="email" required data-wizard-email />
+              </label>
+            </div>
+            <div class="wizard__nav">
+              <button type="button" class="btn btn--ghost-dark" data-wizard-back>Zurück</button>
+              <button type="button" class="btn btn--solid" data-wizard-next>Weiter</button>
+            </div>
+          </section>
+
+          <!-- Step 3: Features -->
+          <section class="wizard__panel" data-wizard-step="2" hidden>
+            <h2 class="wizard__question">Welche Funktionen soll die App haben?</h2>
+            <div class="wizard__checks">
+              <label class="wizard__check">
+                <input type="checkbox" name="Funktionen" value="Alle" data-feat-all />
+                <span>Alle</span>
+              </label>
+              <label class="wizard__check">
+                <input type="checkbox" name="Funktionen" value="Shop spiegeln (Warenkorb und ähnlich)" data-feat />
+                <span>Shop spiegeln — Warenkorb und ähnliche Funktionen</span>
+              </label>
+              <label class="wizard__check">
+                <input type="checkbox" name="Funktionen" value="Benachrichtigungen" data-feat />
+                <span>Benachrichtigungen</span>
+              </label>
+              <label class="wizard__check">
+                <input type="checkbox" name="Funktionen" value="Drop Countdowns" data-feat />
+                <span>Drop Countdowns</span>
+              </label>
+              <label class="wizard__check">
+                <input type="checkbox" name="Funktionen" value="Loyalty-Programm" data-feat />
+                <span>Loyalty-Programm</span>
+              </label>
+            </div>
+            <label class="wizard__field wizard__field--full">
+              <span>Extra-Wünsche</span>
+              <textarea name="Extra-Wünsche" rows="3" placeholder="Optional — weitere Anforderungen"></textarea>
+            </label>
+            <div class="wizard__nav">
+              <button type="button" class="btn btn--ghost-dark" data-wizard-back>Zurück</button>
+              <button type="button" class="btn btn--solid" data-wizard-next>Weiter</button>
+            </div>
+          </section>
+
+          <!-- Step 4: Company -->
+          <section class="wizard__panel" data-wizard-step="3" hidden>
+            <h2 class="wizard__question">Unternehmen &amp; Rahmen</h2>
+            <div class="wizard__fields">
+              <label class="wizard__field wizard__field--full">
+                <span>Website</span>
+                <input type="url" name="Website" placeholder="https://" autocomplete="url" required />
+              </label>
+              <label class="wizard__field wizard__field--full">
+                <span>Instagram <em>(optional)</em></span>
+                <input type="text" name="Instagram" placeholder="@ihrshop" autocomplete="off" />
+              </label>
+              <label class="wizard__field wizard__field--full">
+                <span>Geschätzter monatlicher Umsatz</span>
+                <input type="text" name="Geschätzter monatlicher Umsatz" placeholder="z. B. 20.000 €" required />
+              </label>
+              <label class="wizard__field wizard__field--full">
+                <span>Budget für die App</span>
+                <input type="text" name="Budget für die App" placeholder="Ihr Budget" required />
+              </label>
+            </div>
+            <div class="wizard__nav">
+              <button type="button" class="btn btn--ghost-dark" data-wizard-back>Zurück</button>
+              <button type="submit" class="btn btn--solid">Anfrage abschicken</button>
+            </div>
+          </section>
+        </form>
+      </div>
     </main>
+
     <footer class="site-footer">
       <nav class="site-footer__nav" aria-label="Rechtliches">
         <a href="impressum.html">Impressum</a>
@@ -29,5 +164,8 @@
         <a href="datenschutz.html">Datenschutz</a>
       </nav>
     </footer>
+
+    <script src="main.js?v=20261018x" defer></script>
+    <script src="angebot.js?v=20261018x" defer></script>
   </body>
 </html>
