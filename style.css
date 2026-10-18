@@ -1361,14 +1361,15 @@ a {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.55rem;
 }
 
 .why-steps li {
-  font-size: 0.95rem;
+  font-size: 1.12rem;
   font-weight: 500;
+  line-height: 1.35;
   color: rgba(18, 24, 22, 0.28);
-  padding-left: 1.15rem;
+  padding-left: 1.4rem;
   position: relative;
   transition: color 0.25s ease;
 }
@@ -1377,9 +1378,9 @@ a {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.55em;
-  width: 0.4rem;
-  height: 0.4rem;
+  top: 0.5em;
+  width: 0.55rem;
+  height: 0.55rem;
   border-radius: 50%;
   background: currentColor;
 }
@@ -1422,11 +1423,11 @@ a {
   }
 
   .why-steps {
-    gap: 0.28rem;
+    gap: 0.45rem;
   }
 
   .why-steps li {
-    font-size: 0.88rem;
+    font-size: 1.05rem;
   }
 }
 
