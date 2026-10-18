@@ -170,39 +170,6 @@ a {
   transform: translateY(-50%) rotate(45deg);
 }
 
-.hero__scroll {
-  margin-top: 3rem;
-  width: 22px;
-  height: 36px;
-  border: 1.5px solid rgba(18, 24, 22, 0.28);
-  border-radius: 999px;
-  position: relative;
-}
-
-.hero__scroll span {
-  position: absolute;
-  top: 7px;
-  left: 50%;
-  width: 4px;
-  height: 4px;
-  margin-left: -2px;
-  border-radius: 50%;
-  background: var(--ink);
-  animation: scroll-dot 1.8s ease-in-out infinite;
-}
-
-@keyframes scroll-dot {
-  0%,
-  100% {
-    transform: translateY(0);
-    opacity: 0.35;
-  }
-  50% {
-    transform: translateY(12px);
-    opacity: 1;
-  }
-}
-
 .path-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -363,7 +330,6 @@ a {
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .hero__glow,
-  .hero__scroll span,
   .path-block,
   .btn {
     animation: none !important;
