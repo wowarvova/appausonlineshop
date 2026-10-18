@@ -23,7 +23,8 @@
   };
 
   // Last portion of each stage holds the finished frame before you can scroll on.
-  const HOLD_TAIL = 0.22;
+  const isMobile = window.matchMedia("(max-width: 819px)").matches;
+  const HOLD_TAIL = isMobile ? 0.18 : 0.22;
   const animProgress = (raw) => clamp(raw / (1 - HOLD_TAIL), 0, 1);
 
   /* —— Scroll reveals —— */
