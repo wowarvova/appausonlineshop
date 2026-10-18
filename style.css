@@ -449,7 +449,7 @@ a {
 
 /* —— Why compare (scroll stages, stacked, no overlap) —— */
 .why--stage {
-  height: 420vh;
+  height: 560vh;
   position: relative;
   margin: 0 0 4rem;
   isolation: isolate;
@@ -1404,7 +1404,7 @@ a {
 
 @media (max-width: 819px) {
   .why--stage {
-    height: 460vh;
+    height: 620vh;
   }
 
   .why__sticky {
