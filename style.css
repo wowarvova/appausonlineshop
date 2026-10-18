@@ -706,8 +706,7 @@ a {
   }
 }
 
-.why-browser__shop,
-.why-phone__shop {
+.why-browser__shop {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -731,8 +730,7 @@ a {
   background: rgba(255, 255, 255, 0.14);
 }
 
-.why-browser__shop span,
-.why-phone__shop span {
+.why-browser__shop span {
   font-family: var(--display);
   font-size: 0.7rem;
   letter-spacing: 0.1em;
@@ -741,74 +739,279 @@ a {
 }
 
 .why-phone {
-  width: min(148px, 46%);
-  aspect-ratio: 9 / 17;
-  border-radius: 22px;
-  background: #0a0a0a;
-  padding: 0.5rem;
+  width: min(168px, 52%);
+  aspect-ratio: 9 / 19.2;
+  border-radius: 28px;
+  background: #1a1a1a;
+  padding: 0.38rem;
   box-shadow:
-    0 0 0 1px #222,
-    0 20px 40px rgba(0, 0, 0, 0.16);
+    0 0 0 1px #2c2c2c,
+    0 22px 44px rgba(0, 0, 0, 0.22);
 }
 
-.why-phone__notch {
-  width: 36%;
-  height: 0.3rem;
-  margin: 0.2rem auto 0.5rem;
+.why-phone__bezel {
+  position: relative;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #000;
+}
+
+.why-phone__island {
+  position: absolute;
+  top: 0.55rem;
+  left: 50%;
+  z-index: 5;
+  width: 38%;
+  height: 0.82rem;
+  transform: translateX(-50%);
   border-radius: 999px;
-  background: #2a2a2a;
+  background: #0a0a0a;
+  box-shadow: inset 0 0 0 1px #111;
 }
 
 .why-phone__screen {
   position: relative;
-  height: calc(100% - 1.2rem);
-  border-radius: 12px;
+  height: 100%;
   overflow: hidden;
-  background: #f0f2ef;
+  background: #111;
 }
 
 .why-phone__layer {
   position: absolute;
   inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45rem;
   opacity: 0;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.28s ease;
+  pointer-events: none;
 }
 
 .why-phone__layer.is-on {
   opacity: 1;
 }
 
-.why-app-icon {
-  width: 2.7rem;
-  height: 2.7rem;
-  border-radius: 0.7rem;
-  background: linear-gradient(160deg, var(--accent), #147a58);
-  display: grid;
-  place-items: center;
-  transition: transform 0.2s ease;
-  box-shadow: 0 8px 18px rgba(31, 169, 122, 0.35);
+.why-ios-home {
+  display: flex;
+  flex-direction: column;
+  padding: 1.55rem 0.55rem 0.55rem;
+  background:
+    radial-gradient(120% 80% at 20% 0%, #6ec8ff 0%, transparent 45%),
+    radial-gradient(100% 70% at 100% 30%, #c9a0ff 0%, transparent 50%),
+    linear-gradient(165deg, #1d3557 0%, #457b9d 45%, #a8dadc 100%);
 }
 
-.why-app-icon.is-press {
-  transform: scale(0.88);
+.why-ios-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.35rem 0.65rem;
+  color: #fff;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
-.why-app-icon span {
-  width: 0.85rem;
-  height: 0.85rem;
+.why-ios-status__right {
+  display: flex;
+  align-items: center;
+  gap: 0.18rem;
+}
+
+.why-ios-signal,
+.why-ios-wifi,
+.why-ios-battery {
+  display: block;
   background: #fff;
-  border-radius: 2px;
+  border-radius: 1px;
 }
 
-.why-app-name {
-  font-size: 0.65rem;
+.why-ios-signal {
+  width: 0.55rem;
+  height: 0.35rem;
+  clip-path: polygon(0 100%, 25% 60%, 25% 100%, 50% 35%, 50% 100%, 75% 15%, 75% 100%, 100% 0, 100% 100%);
+}
+
+.why-ios-wifi {
+  width: 0.5rem;
+  height: 0.35rem;
+  border-radius: 50% 50% 0 0;
+  opacity: 0.95;
+}
+
+.why-ios-battery {
+  width: 0.7rem;
+  height: 0.35rem;
+  border-radius: 1px;
+  opacity: 0.9;
+}
+
+.why-ios-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.55rem 0.35rem;
+  padding: 0.15rem 0.15rem 0;
+  flex: 1;
+  align-content: start;
+}
+
+.why-ios-app {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.18rem;
+  color: #fff;
+  font: inherit;
+}
+
+.why-ios-app i {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 22%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+.why-ios-app--muted i {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.22));
+}
+
+.why-ios-app--muted:nth-child(2) i {
+  background: linear-gradient(160deg, #ff8a65, #e64a19);
+}
+
+.why-ios-app--muted:nth-child(3) i {
+  background: linear-gradient(160deg, #4fc3f7, #0288d1);
+}
+
+.why-ios-app--muted:nth-child(4) i {
+  background: linear-gradient(160deg, #81c784, #388e3c);
+}
+
+.why-ios-app--muted:nth-child(5) i {
+  background: linear-gradient(160deg, #f06292, #c2185b);
+}
+
+.why-ios-app--muted:nth-child(6) i {
+  background: linear-gradient(160deg, #ffd54f, #ffa000);
+}
+
+.why-ios-app--muted:nth-child(7) i {
+  background: linear-gradient(160deg, #ba68c8, #7b1fa2);
+}
+
+.why-ios-app--shop {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.18s ease;
+}
+
+.why-ios-app--shop i {
+  background: linear-gradient(160deg, #34d399, #0f766e);
+  box-shadow:
+    0 0 0 1.5px rgba(255, 255, 255, 0.55),
+    0 4px 12px rgba(15, 118, 110, 0.45);
+}
+
+.why-ios-app--shop em {
+  font-style: normal;
+  font-size: 0.48rem;
   font-weight: 600;
-  color: var(--ink);
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.why-ios-app--shop.is-press {
+  transform: scale(0.86);
+}
+
+.why-ios-dock {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.35rem;
+  padding: 0.45rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
+}
+
+.why-ios-dock span {
+  aspect-ratio: 1;
+  border-radius: 22%;
+  background: linear-gradient(160deg, #fff, #cfd8dc);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+}
+
+.why-ios-dock span:nth-child(1) {
+  background: linear-gradient(160deg, #64b5f6, #1565c0);
+}
+
+.why-ios-dock span:nth-child(2) {
+  background: linear-gradient(160deg, #81c784, #2e7d32);
+}
+
+.why-ios-dock span:nth-child(3) {
+  background: linear-gradient(160deg, #ffb74d, #ef6c00);
+}
+
+.why-ios-dock span:nth-child(4) {
+  background: linear-gradient(160deg, #e57373, #c62828);
+}
+
+.why-phone__shop {
+  background: #0f1412;
+  color: #fff;
+}
+
+.why-shop-app {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 1.6rem 0.5rem 0.75rem;
+  background:
+    radial-gradient(80% 50% at 50% 0%, rgba(31, 169, 122, 0.28), transparent 60%),
+    #121816;
+  animation: shop-in 0.35s ease both;
+}
+
+@keyframes shop-in {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.why-shop-app__bar {
+  position: absolute;
+  top: 1.45rem;
+  left: 0.45rem;
+  right: 0.45rem;
+  padding: 0.35rem 0.45rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.why-shop-app__label {
+  font-family: var(--display);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
 }
 
 .why-steps {
@@ -867,7 +1070,7 @@ a {
   }
 
   .why-phone {
-    width: min(132px, 40%);
+    width: min(150px, 46%);
   }
 }
 
