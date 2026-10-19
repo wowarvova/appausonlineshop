@@ -736,6 +736,51 @@ p { margin: 0; }
 .push small { display: block; color: var(--on-deep-muted); font-size: 12px; }
 .push time { margin-left: auto; align-self: flex-start; font-size: 11px; color: var(--on-deep-muted); }
 
+/* Mini-Visual: Ein Tippen */
+.tap {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+}
+.tap__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, var(--accent-pale), var(--accent));
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 22px;
+  box-shadow: 0 14px 28px -10px rgba(151, 71, 255, 0.55);
+}
+.tap__icon::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 22px;
+  border: 1.5px solid rgba(151, 71, 255, 0.4);
+  animation: ring 2.4s var(--ease) infinite;
+}
+.tap__finger {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(247, 243, 255, 0.92);
+  box-shadow: 0 0 0 6px rgba(151, 71, 255, 0.22);
+  animation: tap 1.8s var(--ease) infinite;
+}
+@keyframes tap {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  45% { transform: scale(0.72); opacity: 0.85; }
+}
+
 /* Mini-Visual: Sync */
 .sync { display: flex; align-items: center; gap: 12px; }
 .sync__node {
