@@ -51,11 +51,10 @@
           recalled.info@gmail.com geschickt — wie auf der bisherigen Seite.
           Andere Adresse? Einfach die E-Mail im action-Attribut unten austauschen.
         -->
-        <form class="wizard" action="https://formsubmit.co/recalled.info@gmail.com" method="POST" data-wizard novalidate>
+        <form class="wizard" action="https://formsubmit.co/ajax/recalled.info@gmail.com" method="POST" data-wizard novalidate>
           <input type="hidden" name="_subject" value="Neue Angebotsanfrage — App aus Onlineshop">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="" data-next>
           <input type="hidden" name="_replyto" value="" data-replyto>
           <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
           <input type="hidden" name="Shopify" value="" data-shopify>
@@ -191,9 +190,17 @@
       var submit = form.querySelector("[data-submit]");
       var nav = form.querySelector("[data-nav]");
       var current = 1;
+      var dankeUrl = new URL("danke.html", location.href).href;
+      var dankePrefetched = false;
 
-      /* Weiterleitung nach dem Absenden auf die Danke-Seite derselben Domain */
-      form.querySelector("[data-next]").value = new URL("danke.html", location.href).href;
+      function prefetchDanke() {
+        if (dankePrefetched) return;
+        dankePrefetched = true;
+        var link = document.createElement("link");
+        link.rel = "prefetch";
+        link.href = dankeUrl;
+        document.head.appendChild(link);
+      }
 
       function show(step) {
         steps.forEach(function (s) { s.classList.toggle("is-active", s.dataset.step === String(step)); });
@@ -205,6 +212,7 @@
           back.hidden = step === 1;
           next.hidden = step === 4;
           submit.hidden = step !== 4;
+          if (step === 4) prefetchDanke();
         }
         var top = form.getBoundingClientRect().top + window.scrollY - 110;
         if (window.scrollY > top) window.scrollTo({ top: top, behavior: "smooth" });
@@ -286,15 +294,31 @@
       }
 
       form.addEventListener("submit", function (e) {
-        if (!validate(4)) { e.preventDefault(); return; }
+        e.preventDefault();
+        if (!validate(4)) return;
         if (!collectFunktionen()) {
-          e.preventDefault();
           show(3);
           return;
         }
         form.querySelector("[data-replyto]").value = form.querySelector("#f-email").value.trim();
         submit.disabled = true;
         submit.textContent = "Wird gesendet …";
+
+        /* AJAX statt FormSubmit-Redirect — max. kurz warten, dann sofort zur Danke-Seite */
+        var body = new FormData(form);
+        var gone = false;
+        function goDanke() {
+          if (gone) return;
+          gone = true;
+          location.href = dankeUrl;
+        }
+        fetch(form.action, {
+          method: "POST",
+          body: body,
+          headers: { Accept: "application/json" },
+          keepalive: true
+        }).then(goDanke).catch(goDanke);
+        setTimeout(goDanke, 350);
       });
 
       /* Enter springt zum nächsten Schritt statt das Formular abzuschicken */
