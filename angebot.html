@@ -59,6 +59,7 @@
           <input type="hidden" name="_replyto" value="" data-replyto>
           <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
           <input type="hidden" name="Shopify" value="" data-shopify>
+          <input type="hidden" name="Funktionen" value="" data-funktionen>
 
           <div class="wizard__progress" aria-hidden="true"><span data-progress></span></div>
 
@@ -114,12 +115,12 @@
               <span class="wizard__count">Schritt 3 von 4</span>
               <h2>Welche Funktionen soll die App haben?</h2>
               <p>Mehrfachauswahl möglich.</p>
-              <div class="wizard__fields choice-grid">
-                <label class="choice"><input type="checkbox" name="Funktionen" value="Alle" data-all><span>Alle</span></label>
-                <label class="choice"><input type="checkbox" name="Funktionen" value="Shop spiegeln (Warenkorb und ähnlich)"><span>Shop spiegeln — Warenkorb &amp; Co.</span></label>
-                <label class="choice"><input type="checkbox" name="Funktionen" value="Benachrichtigungen"><span>Benachrichtigungen</span></label>
-                <label class="choice"><input type="checkbox" name="Funktionen" value="Drop Countdowns"><span>Drop Countdowns</span></label>
-                <label class="choice"><input type="checkbox" name="Funktionen" value="Loyalty-Programm"><span>Loyalty-Programm</span></label>
+              <div class="wizard__fields choice-grid" data-feat-box>
+                <label class="choice"><input type="checkbox" value="Alle" data-all><span>Alle</span></label>
+                <label class="choice"><input type="checkbox" value="Shop spiegeln (Warenkorb und ähnlich)" data-feat><span>Shop spiegeln — Warenkorb &amp; Co.</span></label>
+                <label class="choice"><input type="checkbox" value="Benachrichtigungen" data-feat><span>Benachrichtigungen</span></label>
+                <label class="choice"><input type="checkbox" value="Drop Countdowns" data-feat><span>Drop Countdowns</span></label>
+                <label class="choice"><input type="checkbox" value="Loyalty-Programm" data-feat><span>Loyalty-Programm</span></label>
               </div>
               <div class="wizard__fields">
                 <div class="field">
@@ -244,20 +245,53 @@
           if (!chosen) return;
           return chosen.value === "Ja" ? show(2) : show("stop");
         }
+        if (current === 3) {
+          var any = all.checked || Array.prototype.some.call(feats, function (c) { return c.checked; });
+          if (!any) return;
+          collectFunktionen();
+          show(4);
+          return;
+        }
         if (validate(current)) show(current + 1);
       });
       back.addEventListener("click", function () { show(Math.max(1, current - 1)); });
 
       /* "Alle" wählt alle Funktionen aus */
       var all = form.querySelector("[data-all]");
-      var feats = form.querySelectorAll('input[name="Funktionen"]:not([data-all])');
-      all.addEventListener("change", function () { feats.forEach(function (c) { c.checked = all.checked; }); });
-      feats.forEach(function (c) {
-        c.addEventListener("change", function () { all.checked = Array.prototype.every.call(feats, function (x) { return x.checked; }); });
+      var feats = form.querySelectorAll("[data-feat]");
+      var funktionenField = form.querySelector("[data-funktionen]");
+
+      all.addEventListener("change", function () {
+        feats.forEach(function (c) { c.checked = all.checked; });
       });
+      feats.forEach(function (c) {
+        c.addEventListener("change", function () {
+          all.checked = Array.prototype.every.call(feats, function (x) { return x.checked; });
+        });
+      });
+
+      function collectFunktionen() {
+        var selected = [];
+        if (all.checked) {
+          selected.push("Alle");
+          feats.forEach(function (c) { selected.push(c.value); });
+        } else {
+          feats.forEach(function (c) {
+            if (c.checked) selected.push(c.value);
+          });
+        }
+        /* Ein Feld für FormSubmit — sonst kommt nur ein Wert an */
+        funktionenField.value = selected.length ? selected.join(" · ") : "";
+        return selected.length > 0;
+      }
 
       form.addEventListener("submit", function (e) {
         if (!validate(4)) { e.preventDefault(); return; }
+        if (!collectFunktionen()) {
+          e.preventDefault();
+          show(3);
+          return;
+        }
         form.querySelector("[data-replyto]").value = form.querySelector("#f-email").value.trim();
         submit.disabled = true;
         submit.textContent = "Wird gesendet …";
