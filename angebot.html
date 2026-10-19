@@ -1,172 +1,276 @@
-<!DOCTYPE html>
-<html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Angebot anfragen — App aus Onlineshop</title>
-    <meta
-      name="description"
-      content="Unverbindliches Angebot für eine Shopify Shopping App anfragen."
-    />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://appausonlineshop.de/angebot.html" />
-    <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32" />
-    <link rel="preconnect" href="https://fonts.bunny.net" />
-    <link
-      href="https://fonts.bunny.net/css?family=syne:500,600,700,800|outfit:400,500,600,700"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css?v=20261019a" />
-  </head>
-  <body class="inner-page offer-page">
-    <header class="page-top">
-      <a class="legal-back" href="index.html">← Zurück</a>
-    </header>
+<!doctype html>
+<html lang="de" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Angebot anfragen — App aus Onlineshop</title>
+  <meta name="description" content="Unverbindliches Angebot für Ihre Shopify-App anfragen. Wenige Angaben — wir melden uns mit einer klaren Einschätzung.">
+  <meta name="theme-color" content="#f4f0fb">
+  <link rel="icon" type="image/png" href="assets/favicon-32.png">
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link rel="stylesheet" href="https://fonts.bunny.net/css?family=syne:500,600,700,800|outfit:400,500,600,700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <main>
-      <section class="page-intro reveal reveal--in">
-        <p class="page-intro__eyebrow">Anfrage</p>
-        <h1 class="page-intro__title">Unverbindliches Angebot</h1>
-        <p class="page-intro__lead">Wenige Angaben — wir melden uns mit einer klaren Einschätzung.</p>
-      </section>
-
-      <div class="wizard" data-wizard>
-        <div class="wizard__progress" aria-hidden="true">
-          <span class="wizard__bar" data-wizard-bar></span>
+  <header class="nav">
+    <div class="wrap">
+      <nav class="nav__bar" aria-label="Hauptnavigation">
+        <a class="logo" href="index.html" aria-label="App aus Onlineshop — Startseite">
+          <span class="logo__mark"><span></span></span>
+          App aus Onlineshop
+        </a>
+        <ul class="nav__links">
+          <li><a href="index.html#vorteile">Vorteile</a></li>
+          <li><a href="index.html#funktionen">Funktionen</a></li>
+          <li><a href="index.html#ablauf">Ablauf</a></li>
+          <li><a href="projekte.html">Projekte</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+        <div class="nav__cta">
+          <button class="nav__toggle" type="button" aria-label="Menü öffnen" aria-expanded="false"><span></span></button>
         </div>
-        <p class="wizard__step-label" data-wizard-label>Schritt 1 von 4</p>
+      </nav>
+    </div>
+  </header>
 
-        <form
-          class="wizard__form"
-          action="https://formsubmit.co/recalled.info@gmail.com"
-          method="POST"
-          data-wizard-form
-          novalidate
-        >
-          <input type="hidden" name="_subject" value="Neue Angebotsanfrage — App aus Onlineshop" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://appausonlineshop.de/danke.html" />
-          <input type="hidden" name="_replyto" value="" data-wizard-replyto />
-          <input type="text" name="_honey" class="wizard__honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          <input type="hidden" name="Shopify" value="" data-wizard-shopify />
-          <textarea name="Zusammenfassung" class="wizard__honey" tabindex="-1" aria-hidden="true" data-wizard-summary></textarea>
+  <main>
+    <section class="page-hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="wrap">
+        <a class="back-link" href="index.html">← Zurück</a>
+        <h1>Angebot anfragen</h1>
+        <p>Unverbindlich und in etwa zwei Minuten. Wenige Angaben — wir melden uns mit einer klaren Einschätzung.</p>
+      </div>
+    </section>
 
-          <!-- Step 1: Shopify -->
-          <section class="wizard__panel is-active" data-wizard-step="0">
-            <h2 class="wizard__question">Arbeiten Sie mit Shopify?</h2>
-            <div class="wizard__choices">
-              <button type="button" class="wizard__choice" data-shopify="ja">Ja</button>
-              <button type="button" class="wizard__choice wizard__choice--ghost" data-shopify="nein">Nein</button>
-            </div>
-          </section>
+    <section class="wizard-wrap">
+      <div class="wrap">
+        <!--
+          Versand: Die Anfrage wird über FormSubmit (formsubmit.co) per E-Mail an
+          recalled.info@gmail.com geschickt — wie auf der bisherigen Seite.
+          Andere Adresse? Einfach die E-Mail im action-Attribut unten austauschen.
+        -->
+        <form class="wizard" action="https://formsubmit.co/recalled.info@gmail.com" method="POST" data-wizard novalidate>
+          <input type="hidden" name="_subject" value="Neue Angebotsanfrage — App aus Onlineshop">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="" data-next>
+          <input type="hidden" name="_replyto" value="" data-replyto>
+          <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="Shopify" value="" data-shopify>
 
-          <!-- Blocked: no Shopify -->
-          <section class="wizard__panel" data-wizard-step="blocked" hidden>
-            <h2 class="wizard__question">Vielen Dank für Ihr Interesse</h2>
-            <p class="wizard__note">
-              Tut uns leid — wir bauen aktuell Apps nur für Shopify Stores.
-            </p>
-            <a class="btn btn--solid" href="index.html">Zur Startseite</a>
-          </section>
+          <div class="wizard__progress" aria-hidden="true"><span data-progress></span></div>
 
-          <!-- Step 2: Contact -->
-          <section class="wizard__panel" data-wizard-step="1" hidden>
-            <h2 class="wizard__question">Ihre Kontaktdaten</h2>
-            <div class="wizard__fields">
-              <label class="wizard__field">
-                <span>Vorname</span>
-                <input type="text" name="Vorname" autocomplete="given-name" required />
-              </label>
-              <label class="wizard__field">
-                <span>Nachname</span>
-                <input type="text" name="Nachname" autocomplete="family-name" required />
-              </label>
-              <label class="wizard__field wizard__field--full">
-                <span>E-Mail-Adresse</span>
-                <input type="email" name="E-Mail" autocomplete="email" required data-wizard-email />
-              </label>
+          <div class="wizard__inner">
+            <!-- Schritt 1 -->
+            <div class="wizard__step is-active" data-step="1">
+              <span class="wizard__count">Schritt 1 von 4</span>
+              <h2>Arbeiten Sie mit Shopify?</h2>
+              <p>Wir bauen Apps aktuell ausschließlich für Shopify-Shops.</p>
+              <div class="wizard__fields choice-grid">
+                <label class="choice"><input type="radio" name="shopify-choice" value="Ja"><span>Ja, mein Shop läuft auf Shopify</span></label>
+                <label class="choice"><input type="radio" name="shopify-choice" value="Nein"><span>Nein</span></label>
+              </div>
             </div>
-            <div class="wizard__nav">
-              <button type="button" class="btn btn--ghost-dark" data-wizard-back>Zurück</button>
-              <button type="button" class="btn btn--solid" data-wizard-next>Weiter</button>
-            </div>
-          </section>
 
-          <!-- Step 3: Features -->
-          <section class="wizard__panel" data-wizard-step="2" hidden>
-            <h2 class="wizard__question">Welche Funktionen soll die App haben?</h2>
-            <div class="wizard__checks">
-              <label class="wizard__check">
-                <input type="checkbox" name="Funktionen" value="Alle" data-feat-all />
-                <span>Alle</span>
-              </label>
-              <label class="wizard__check">
-                <input type="checkbox" name="Funktionen" value="Shop spiegeln (Warenkorb und ähnlich)" data-feat />
-                <span>Shop spiegeln — Warenkorb und ähnliche Funktionen</span>
-              </label>
-              <label class="wizard__check">
-                <input type="checkbox" name="Funktionen" value="Benachrichtigungen" data-feat />
-                <span>Benachrichtigungen</span>
-              </label>
-              <label class="wizard__check">
-                <input type="checkbox" name="Funktionen" value="Drop Countdowns" data-feat />
-                <span>Drop Countdowns</span>
-              </label>
-              <label class="wizard__check">
-                <input type="checkbox" name="Funktionen" value="Loyalty-Programm" data-feat />
-                <span>Loyalty-Programm</span>
-              </label>
+            <!-- Kein Shopify -->
+            <div class="wizard__step" data-step="stop">
+              <div class="wizard__stop">
+                <h2>Vielen Dank für Ihr Interesse</h2>
+                <p>Tut uns leid — wir bauen aktuell Apps nur für Shopify-Stores.</p>
+                <a class="btn" href="index.html">Zur Startseite</a>
+              </div>
             </div>
-            <label class="wizard__field wizard__field--full">
-              <span>Extra-Wünsche</span>
-              <textarea name="Extra-Wünsche" rows="3" placeholder="Optional — weitere Anforderungen"></textarea>
-            </label>
-            <div class="wizard__nav">
-              <button type="button" class="btn btn--ghost-dark" data-wizard-back>Zurück</button>
-              <button type="button" class="btn btn--solid" data-wizard-next>Weiter</button>
-            </div>
-          </section>
 
-          <!-- Step 4: Company -->
-          <section class="wizard__panel" data-wizard-step="3" hidden>
-            <h2 class="wizard__question">Unternehmen &amp; Rahmen</h2>
-            <div class="wizard__fields">
-              <label class="wizard__field wizard__field--full">
-                <span>Website</span>
-                <input type="url" name="Website" placeholder="https://" autocomplete="url" required />
-              </label>
-              <label class="wizard__field wizard__field--full">
-                <span>Instagram <em>(optional)</em></span>
-                <input type="text" name="Instagram" placeholder="@ihrshop" autocomplete="off" />
-              </label>
-              <label class="wizard__field wizard__field--full">
-                <span>Geschätzter monatlicher Umsatz</span>
-                <input type="text" name="Geschätzter monatlicher Umsatz" placeholder="z. B. 20.000 €" required />
-              </label>
-              <label class="wizard__field wizard__field--full">
-                <span>Budget für die App</span>
-                <input type="text" name="Budget für die App" placeholder="Ihr Budget" required />
-              </label>
+            <!-- Schritt 2 -->
+            <div class="wizard__step" data-step="2">
+              <span class="wizard__count">Schritt 2 von 4</span>
+              <h2>Ihre Kontaktdaten</h2>
+              <p>Damit wir Ihnen das Angebot schicken können.</p>
+              <div class="wizard__fields wizard__fields--2">
+                <div class="field">
+                  <label for="f-vorname">Vorname</label>
+                  <input id="f-vorname" name="Vorname" type="text" autocomplete="given-name" enterkeyhint="next" required>
+                  <span class="field__error">Bitte geben Sie Ihren Vornamen ein.</span>
+                </div>
+                <div class="field">
+                  <label for="f-nachname">Nachname</label>
+                  <input id="f-nachname" name="Nachname" type="text" autocomplete="family-name" enterkeyhint="next" required>
+                  <span class="field__error">Bitte geben Sie Ihren Nachnamen ein.</span>
+                </div>
+              </div>
+              <div class="wizard__fields" style="margin-top: 16px;">
+                <div class="field">
+                  <label for="f-email">E-Mail-Adresse</label>
+                  <input id="f-email" name="E-Mail" type="email" autocomplete="email" autocapitalize="off" spellcheck="false" enterkeyhint="next" required>
+                  <span class="field__error">Bitte geben Sie eine gültige E-Mail-Adresse ein.</span>
+                </div>
+              </div>
             </div>
-            <div class="wizard__nav">
-              <button type="button" class="btn btn--ghost-dark" data-wizard-back>Zurück</button>
-              <button type="submit" class="btn btn--solid">Anfrage abschicken</button>
+
+            <!-- Schritt 3 -->
+            <div class="wizard__step" data-step="3">
+              <span class="wizard__count">Schritt 3 von 4</span>
+              <h2>Welche Funktionen soll die App haben?</h2>
+              <p>Mehrfachauswahl möglich.</p>
+              <div class="wizard__fields choice-grid">
+                <label class="choice"><input type="checkbox" name="Funktionen" value="Alle" data-all><span>Alle</span></label>
+                <label class="choice"><input type="checkbox" name="Funktionen" value="Shop spiegeln (Warenkorb und ähnlich)"><span>Shop spiegeln — Warenkorb &amp; Co.</span></label>
+                <label class="choice"><input type="checkbox" name="Funktionen" value="Benachrichtigungen"><span>Benachrichtigungen</span></label>
+                <label class="choice"><input type="checkbox" name="Funktionen" value="Drop Countdowns"><span>Drop Countdowns</span></label>
+                <label class="choice"><input type="checkbox" name="Funktionen" value="Loyalty-Programm"><span>Loyalty-Programm</span></label>
+              </div>
+              <div class="wizard__fields">
+                <div class="field">
+                  <label for="f-extra">Extra-Wünsche <small>(optional)</small></label>
+                  <textarea id="f-extra" name="Extra-Wünsche" placeholder="Weitere Anforderungen"></textarea>
+                </div>
+              </div>
             </div>
-          </section>
+
+            <!-- Schritt 4 -->
+            <div class="wizard__step" data-step="4">
+              <span class="wizard__count">Schritt 4 von 4</span>
+              <h2>Unternehmen &amp; Rahmen</h2>
+              <p>Hilft uns, das Angebot realistisch einzuschätzen.</p>
+              <div class="wizard__fields wizard__fields--2">
+                <div class="field">
+                  <label for="f-web">Website</label>
+                  <input id="f-web" name="Website" type="text" inputmode="url" autocomplete="url" autocapitalize="off" spellcheck="false" enterkeyhint="next" placeholder="https://" required>
+                  <span class="field__error">Bitte geben Sie Ihre Shop-Adresse ein.</span>
+                </div>
+                <div class="field">
+                  <label for="f-insta">Instagram <small>(optional)</small></label>
+                  <input id="f-insta" name="Instagram" type="text" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="next" placeholder="@ihrshop">
+                </div>
+                <div class="field">
+                  <label for="f-umsatz">Geschätzter monatlicher Umsatz</label>
+                  <input id="f-umsatz" name="Geschätzter monatlicher Umsatz" type="text" enterkeyhint="next" placeholder="z. B. 20.000 €" required>
+                  <span class="field__error">Bitte geben Sie eine Schätzung an.</span>
+                </div>
+                <div class="field">
+                  <label for="f-budget">Budget für die App</label>
+                  <input id="f-budget" name="Budget für die App" type="text" enterkeyhint="send" placeholder="Ihr Budget" required>
+                  <span class="field__error">Bitte geben Sie Ihr Budget an.</span>
+                </div>
+              </div>
+              <p class="wizard__note">Mit dem Absenden werden Ihre Angaben zur Bearbeitung der Anfrage verarbeitet. Mehr dazu in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+            </div>
+
+            <div class="wizard__nav" data-nav>
+              <button class="btn btn--ghost" type="button" data-back hidden>← Zurück</button>
+              <span class="spacer"></span>
+              <button class="btn btn--accent" type="button" data-next-btn>Weiter <span class="arrow">→</span></button>
+              <button class="btn btn--accent" type="submit" data-submit hidden>Anfrage abschicken <span class="arrow">→</span></button>
+            </div>
+          </div>
         </form>
       </div>
-    </main>
+    </section>
+  </main>
 
-    <footer class="site-footer">
-      <nav class="site-footer__nav" aria-label="Rechtliches">
-        <a href="impressum.html">Impressum</a>
-        <a href="agb.html">AGB</a>
-        <a href="datenschutz.html">Datenschutz</a>
-      </nav>
-    </footer>
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__bottom" style="padding-top: 0;">
+        <span>© <span data-year>2026</span> App aus Onlineshop</span>
+        <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a> · <a href="agb.html">AGB</a></span>
+      </div>
+    </div>
+  </footer>
 
-    <script src="main.js?v=20261019a" defer></script>
-    <script src="angebot.js?v=20261019a" defer></script>
-  </body>
+  <script src="main.js"></script>
+  <script>
+    (function () {
+      var form = document.querySelector("[data-wizard]");
+      var steps = form.querySelectorAll(".wizard__step");
+      var bar = form.querySelector("[data-progress]");
+      var back = form.querySelector("[data-back]");
+      var next = form.querySelector("[data-next-btn]");
+      var submit = form.querySelector("[data-submit]");
+      var nav = form.querySelector("[data-nav]");
+      var current = 1;
+
+      /* Weiterleitung nach dem Absenden auf die Danke-Seite derselben Domain */
+      form.querySelector("[data-next]").value = new URL("danke.html", location.href).href;
+
+      function show(step) {
+        steps.forEach(function (s) { s.classList.toggle("is-active", s.dataset.step === String(step)); });
+        var isStop = step === "stop";
+        nav.style.display = isStop ? "none" : "";
+        if (!isStop) {
+          current = step;
+          bar.style.width = (step / 4) * 100 + "%";
+          back.hidden = step === 1;
+          next.hidden = step === 4;
+          submit.hidden = step !== 4;
+        }
+        var top = form.getBoundingClientRect().top + window.scrollY - 110;
+        if (window.scrollY > top) window.scrollTo({ top: top, behavior: "smooth" });
+      }
+
+      function validate(step) {
+        var ok = true;
+        var box = form.querySelector('[data-step="' + step + '"]');
+        box.querySelectorAll(".field").forEach(function (f) {
+          var input = f.querySelector("input[required]");
+          if (!input) return;
+          var valid = input.value.trim() !== "" && (input.type !== "email" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim()));
+          f.classList.toggle("is-invalid", !valid);
+          if (!valid && ok) { input.focus(); ok = false; }
+        });
+        return ok;
+      }
+
+      form.querySelectorAll("input").forEach(function (i) {
+        i.addEventListener("input", function () {
+          var f = i.closest(".field");
+          if (f) f.classList.remove("is-invalid");
+        });
+      });
+
+      /* Schritt 1: Shopify ja/nein */
+      form.querySelectorAll('input[name="shopify-choice"]').forEach(function (r) {
+        r.addEventListener("change", function () {
+          form.querySelector("[data-shopify]").value = r.value;
+          if (r.value === "Nein") show("stop");
+          else show(2);
+        });
+      });
+
+      next.addEventListener("click", function () {
+        if (current === 1) {
+          var chosen = form.querySelector('input[name="shopify-choice"]:checked');
+          if (!chosen) return;
+          return chosen.value === "Ja" ? show(2) : show("stop");
+        }
+        if (validate(current)) show(current + 1);
+      });
+      back.addEventListener("click", function () { show(Math.max(1, current - 1)); });
+
+      /* "Alle" wählt alle Funktionen aus */
+      var all = form.querySelector("[data-all]");
+      var feats = form.querySelectorAll('input[name="Funktionen"]:not([data-all])');
+      all.addEventListener("change", function () { feats.forEach(function (c) { c.checked = all.checked; }); });
+      feats.forEach(function (c) {
+        c.addEventListener("change", function () { all.checked = Array.prototype.every.call(feats, function (x) { return x.checked; }); });
+      });
+
+      form.addEventListener("submit", function (e) {
+        if (!validate(4)) { e.preventDefault(); return; }
+        form.querySelector("[data-replyto]").value = form.querySelector("#f-email").value.trim();
+        submit.disabled = true;
+        submit.textContent = "Wird gesendet …";
+      });
+
+      /* Enter springt zum nächsten Schritt statt das Formular abzuschicken */
+      form.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" && e.target.tagName === "INPUT" && current < 4) {
+          e.preventDefault();
+          next.click();
+        }
+      });
+    })();
+  </script>
+</body>
 </html>

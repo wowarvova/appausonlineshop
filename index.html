@@ -1,196 +1,490 @@
-<!DOCTYPE html>
-<html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>App aus Onlineshop — Native Shopping Apps aus Shopify</title>
-    <meta
-      name="description"
-      content="Website verliert Kunden — die App bringt sie zurück. Premium Shopping Apps aus Ihrem Shopify-Shop."
-    />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://appausonlineshop.de/" />
-    <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32" />
-    <link rel="preconnect" href="https://fonts.bunny.net" />
-    <link
-      href="https://fonts.bunny.net/css?family=syne:500,600,700,800|outfit:400,500,600,700"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css?v=20261019b" />
-  </head>
-  <body class="home">
-    <main>
-      <section class="hero">
-        <div class="hero__atmosphere" aria-hidden="true"></div>
-        <p class="hero__brand reveal reveal--in">App aus Onlineshop</p>
-        <h1 class="hero__title reveal reveal--in" style="--d: 90ms">
-          Die Shopping App für Ihren Shopify Shop.
-        </h1>
-        <p class="hero__lead reveal reveal--in" style="--d: 160ms">
-          Damit Kunden bleiben — statt nur einmal vorbeizuschauen.
-        </p>
-        <div class="hero__cta reveal reveal--in" style="--d: 220ms">
-          <a class="btn btn--solid" href="angebot.html">Angebot anfragen</a>
-          <a class="btn btn--line" href="#problem">Das Problem</a>
+<!doctype html>
+<html lang="de" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>App aus Onlineshop — Native Shopping Apps aus Shopify</title>
+  <meta name="description" content="Wir verwandeln Ihren Shopify-Shop in eine native App für den App Store. Live mit Shopify synchronisiert, Checkout über Shopify, Push-Benachrichtigungen inklusive.">
+  <meta name="theme-color" content="#f4f0fb">
+  <meta property="og:title" content="App aus Onlineshop — Ihr Shopify-Shop als App">
+  <meta property="og:description" content="Native Shopping Apps für Shopify-Shops. Damit Kunden bleiben — statt nur einmal vorbeizuschauen.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="assets/favicon-32.png">
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link rel="stylesheet" href="https://fonts.bunny.net/css?family=syne:500,600,700,800|outfit:400,500,600,700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="nav">
+    <div class="wrap">
+      <nav class="nav__bar" aria-label="Hauptnavigation">
+        <a class="logo" href="index.html" aria-label="App aus Onlineshop — Startseite">
+          <span class="logo__mark"><span></span></span>
+          App aus Onlineshop
+        </a>
+        <ul class="nav__links">
+          <li><a href="#vorteile">Vorteile</a></li>
+          <li><a href="#funktionen">Funktionen</a></li>
+          <li><a href="#ablauf">Ablauf</a></li>
+          <li><a href="projekte.html">Projekte</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li class="nav__mobile-cta"><a class="btn btn--accent" href="angebot.html">Angebot anfragen <span class="arrow">→</span></a></li>
+        </ul>
+        <div class="nav__cta">
+          <a class="btn btn--sm" href="angebot.html">Angebot anfragen <span class="arrow">→</span></a>
+          <button class="nav__toggle" type="button" aria-label="Menü öffnen" aria-expanded="false"><span></span></button>
         </div>
-      </section>
-
-      <!-- Pain -->
-      <section class="story story--pain" id="problem" data-home-pain>
-        <div class="story__inner">
-          <p class="story__eyebrow reveal">Das Problem</p>
-          <h2 class="story__title reveal">Die Website verliert Kunden — schnell.</h2>
-          <p class="story__lead reveal">
-            Suchen. Tippen. Schließen. Vergessen. So endet der Weg in den Shop oft, bevor er beginnt.
-          </p>
-
-          <div class="pain" aria-hidden="true">
-            <div class="pain__track">
-              <div class="pain__node is-on" data-pain-step="0">
-                <span class="pain__icon">
-                  <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="14" r="6" stroke="currentColor" stroke-width="1.8"/><path d="M8 32c2.5-6 7-9 12-9s9.5 3 12 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                </span>
-                <em>Kunde kommt</em>
-              </div>
-              <span class="pain__dash"></span>
-              <div class="pain__node" data-pain-step="1">
-                <span class="pain__icon">
-                  <svg viewBox="0 0 40 40" fill="none"><rect x="8" y="8" width="24" height="24" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M14 16h12M14 21h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                </span>
-                <em>Website öffnen</em>
-              </div>
-              <span class="pain__dash"></span>
-              <div class="pain__node" data-pain-step="2">
-                <span class="pain__icon pain__icon--warn">
-                  <svg viewBox="0 0 40 40" fill="none"><path d="M20 8l14 24H6L20 8z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M20 18v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="20" cy="28" r="1.2" fill="currentColor"/></svg>
-                </span>
-                <em>Reibung</em>
-              </div>
-              <span class="pain__dash"></span>
-              <div class="pain__node" data-pain-step="3">
-                <span class="pain__icon pain__icon--lost">
-                  <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="14" r="6" stroke="currentColor" stroke-width="1.8"/><path d="M8 32c2.5-6 7-9 12-9s9.5 3 12 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M28 10l6 6M34 10l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                </span>
-                <em>Kunde weg</em>
-              </div>
-            </div>
-            <p class="pain__caption" data-pain-caption>Kunde kommt</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Solution -->
-      <section class="story story--solve" id="loesung">
-        <div class="story__inner">
-          <p class="story__eyebrow reveal">Die Lösung</p>
-          <h2 class="story__title reveal">Eine App auf dem Homescreen.</h2>
-          <p class="story__lead reveal">
-            Ein Tippen — und Kunden sind im Shop. Sichtbar. Erreichbar. Immer wieder.
-          </p>
-
-          <div class="solve reveal" aria-hidden="true">
-            <div class="solve__side">
-              <span class="solve__badge">Website</span>
-              <strong>Viele Schritte</strong>
-              <small>suchen → tippen → laden</small>
-            </div>
-            <div class="solve__arrow">
-              <svg viewBox="0 0 48 24" fill="none"><path d="M4 12h34" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M32 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="solve__side solve__side--app">
-              <span class="solve__badge">App</span>
-              <strong>Ein Tippen</strong>
-              <small>sofort im Shop</small>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- USPs early -->
-      <section class="usps" id="vorteile" aria-label="Vorteile">
-        <div class="usps__head">
-          <p class="story__eyebrow reveal">Vorteile</p>
-          <h2 class="story__title reveal">Warum sich die App lohnt</h2>
-        </div>
-        <div class="usps__grid">
-          <article class="usp reveal">
-            <div class="usp__icon" aria-hidden="true">
-              <svg viewBox="0 0 40 40" fill="none"><rect x="12" y="6" width="16" height="28" rx="3" stroke="currentColor" stroke-width="1.7"/><circle cx="20" cy="29" r="1.2" fill="currentColor"/><path d="M16 14h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-            </div>
-            <h3 class="usp__title">Sofort im Shop</h3>
-            <p class="usp__text">Kein Suchen, kein Tippen der URL.</p>
-          </article>
-          <article class="usp reveal" style="--d: 70ms">
-            <div class="usp__icon" aria-hidden="true">
-              <svg viewBox="0 0 40 40" fill="none"><rect x="8" y="10" width="24" height="20" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M14 10V9a6 6 0 0 1 12 0v1" stroke="currentColor" stroke-width="1.7"/><path d="M20 16v8M16 20h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-            </div>
-            <h3 class="usp__title">Bleibt sichtbar</h3>
-            <p class="usp__text">Ihr Shop bleibt auf dem Homescreen.</p>
-          </article>
-          <article class="usp reveal" style="--d: 140ms">
-            <div class="usp__icon" aria-hidden="true">
-              <svg viewBox="0 0 40 40" fill="none"><path d="M12 18c0-4.4 3.6-8 8-8s8 3.6 8 8c0 6-8 12-8 12s-8-6-8-12z" stroke="currentColor" stroke-width="1.7"/><circle cx="20" cy="18" r="2.5" fill="currentColor"/></svg>
-            </div>
-            <h3 class="usp__title">Push statt Spam</h3>
-            <p class="usp__text">Klare Hinweise — nicht im Posteingang verloren.</p>
-          </article>
-          <article class="usp reveal" style="--d: 210ms">
-            <div class="usp__icon" aria-hidden="true">
-              <svg viewBox="0 0 40 40" fill="none"><path d="M10 20h20" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M24 13l7 7-7 7M16 27l-7-7 7-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3 class="usp__title">Live mit Shopify</h3>
-            <p class="usp__text">Lager &amp; Preise synchron — ohne Mehrarbeit.</p>
-          </article>
-        </div>
-        <div class="usps__more reveal">
-          <a class="btn btn--line" href="vorteile.html">Alle Vorteile im Detail</a>
-          <a class="btn btn--line" href="wie-es-funktioniert.html">Wie es funktioniert</a>
-        </div>
-      </section>
-
-      <section class="path-grid" aria-label="Weiterführende Seiten">
-        <article class="path-block reveal">
-          <div class="path-block__meta">
-            <span class="path-block__step" aria-hidden="true">01</span>
-            <span class="path-block__meta-line" aria-hidden="true"></span>
-            <span class="path-block__tag">Projekte</span>
-          </div>
-          <h2 class="path-block__title">Referenzen</h2>
-          <p class="path-block__text">
-            Shopify-Shops, die wir in native Apps für den App Store verwandelt haben.
-          </p>
-          <a class="btn" href="projekte.html">Unsere Projekte</a>
-        </article>
-
-        <article class="path-block path-block--alt reveal" style="--d: 100ms">
-          <div class="path-block__meta">
-            <span class="path-block__step" aria-hidden="true">02</span>
-            <span class="path-block__meta-line" aria-hidden="true"></span>
-            <span class="path-block__tag">Anfrage</span>
-          </div>
-          <h2 class="path-block__title">Nächster Schritt</h2>
-          <p class="path-block__text">
-            Kurz beschreiben, was Sie brauchen — wir melden uns mit einem konkreten Angebot.
-          </p>
-          <a class="btn btn--ghost" href="angebot.html">Angebot anfragen</a>
-        </article>
-      </section>
-
-      <section class="offer reveal">
-        <p class="offer__eyebrow">Starten</p>
-        <h2 class="offer__title">Lassen Sie uns über Ihre App sprechen.</h2>
-        <a class="btn btn--solid" href="angebot.html">Angebot anfragen</a>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <nav class="site-footer__nav" aria-label="Rechtliches">
-        <a href="impressum.html">Impressum</a>
-        <a href="agb.html">AGB</a>
-        <a href="datenschutz.html">Datenschutz</a>
       </nav>
-    </footer>
+    </div>
+  </header>
 
-    <script src="main.js?v=20261019b" defer></script>
-  </body>
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="wrap hero__grid">
+        <div>
+          <span class="pill reveal"><span class="pill__dot"></span>Native Apps für Shopify-Shops</span>
+          <h1 class="reveal" data-delay="1">
+            <span class="line">Ihr Shop.</span>
+            <span class="line">Als <span class="accent">App</span></span>
+            <span class="line">im App Store.</span>
+          </h1>
+          <p class="hero__lead reveal" data-delay="2">Wir verwandeln Ihren Shopify-Shop in eine echte Shopping-App. Damit Kunden bleiben — statt nur einmal vorbeizuschauen.</p>
+          <div class="hero__actions reveal" data-delay="3" data-cta-hide>
+            <a class="btn btn--accent" href="angebot.html">Angebot anfragen <span class="arrow">→</span></a>
+            <a class="btn btn--ghost" href="projekte.html">Projekte ansehen</a>
+          </div>
+          <ul class="hero__facts reveal" data-delay="4">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Live-Sync mit Shopify</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Checkout über Shopify</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Keine Mehrarbeit</li>
+          </ul>
+        </div>
+
+        <div class="phone-stage reveal" data-delay="2" aria-hidden="true">
+          <div class="float-card float-card--push">
+            <span class="float-card__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+            </span>
+            <span><b>Dein Shop</b> · jetzt<small>Neue Artikel jetzt online</small></span>
+          </div>
+
+          <div class="phone">
+            <div class="phone__screen">
+              <div class="phone__island"></div>
+              <div class="phone__status"><span>9:41</span><i></i></div>
+              <div class="app-head">
+                <strong>Dein Shop</strong>
+                <span class="bag">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                  <b>2</b>
+                </span>
+              </div>
+              <div class="app-chips"><span>Neu</span><span>Bestseller</span><span>Jacken</span><span>Sale</span></div>
+              <div class="app-banner">
+                <small>Drop</small>
+                <strong>Herbst-Kollektion<br>startet in</strong>
+                <div class="countdown" data-countdown><span>02h</span><span>14m</span><span>38s</span></div>
+              </div>
+              <div class="app-grid">
+                <div class="product"><div class="product__img"></div><b>Wolljacke</b><span>129,00 €</span></div>
+                <div class="product"><div class="product__img"></div><b>Basic Shirt</b><span>39,00 €</span></div>
+                <div class="product"><div class="product__img"></div><b>Ledertasche</b><span>189,00 €</span></div>
+                <div class="product"><div class="product__img"></div><b>Strickpulli</b><span>89,00 €</span></div>
+              </div>
+              <div class="app-tabbar"><span></span><span></span><span></span><span></span></div>
+            </div>
+          </div>
+
+          <div class="float-card float-card--sync">
+            <span class="float-card__icon float-card__icon--ok">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg>
+            </span>
+            <span><b>Mit Shopify synchron</b><small>Bestand &amp; Preise live</small></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAUFBAND -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <div class="marquee__group">
+          <span>Shop als App</span><span>Push-Benachrichtigungen</span><span>Drop Countdowns</span><span>Loyalty-Programm</span><span>Live-Sync mit Shopify</span><span>Checkout über Shopify</span>
+        </div>
+        <div class="marquee__group">
+          <span>Shop als App</span><span>Push-Benachrichtigungen</span><span>Drop Countdowns</span><span>Loyalty-Programm</span><span>Live-Sync mit Shopify</span><span>Checkout über Shopify</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROBLEM / LÖSUNG -->
+    <section class="section" id="problem">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Das Problem</span>
+          <h2>Die Website verliert Kunden — <span class="accent">schnell.</span></h2>
+          <p>Kunden sehen eine Ad. Klicken auf die Website. Kaufen nichts und sind weg. Eine App auf dem Homescreen dreht das um.</p>
+        </div>
+
+        <div class="compare">
+          <div class="compare__card reveal">
+            <div class="compare__label">Website <span class="compare__tag">Einmal und weg</span></div>
+            <h3>Ad → Klick → weg</h3>
+            <ol class="steps-flow">
+              <li><em>1</em>Kunde sieht eine Ad</li>
+              <li><em>2</em>Klickt auf die Website</li>
+              <li><em>3</em>Schaut sich um, kauft nichts</li>
+              <li class="is-lost"><em>4</em>Tab zu — Kunde weg</li>
+            </ol>
+          </div>
+          <div class="compare__card compare__card--app reveal" data-delay="1">
+            <div class="compare__label">App <span class="compare__tag">Ein Tippen</span></div>
+            <h3>Sofort im Shop</h3>
+            <div class="one-tap">
+              <div class="one-tap__icon">S</div>
+              <p><b>Ein Tippen auf dem Homescreen</b>Sichtbar. Erreichbar. Immer wieder.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VORTEILE -->
+    <section class="section dark" id="vorteile">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Vorteile</span>
+          <h2>Warum sich die App lohnt</h2>
+          <p>Weniger Reibung, mehr Wiederkehr. Die Unterschiede, die sich im Alltag Ihres Shops bemerkbar machen.</p>
+        </div>
+
+        <div class="bento" data-swipe>
+          <article class="bento__item bento__item--wide bento__item--accent reveal">
+            <span class="bento__num">01</span>
+            <div class="bento__visual">
+              <div class="homescreen" aria-hidden="true">
+                <span></span><span></span><span class="is-shop"></span><span></span>
+                <span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <h3>Bleibt sichtbar</h3>
+            <p>Ihr Shop liegt auf dem Homescreen — jeden Tag im Blick, statt in einem geschlossenen Browser-Tab zu verschwinden.</p>
+          </article>
+
+          <article class="bento__item bento__item--wide reveal" data-delay="1">
+            <span class="bento__num">02</span>
+            <div class="bento__visual" aria-hidden="true">
+              <div class="push"><span class="push__icon"></span><span><b>Dein Shop</b><small>Neue Artikel jetzt online</small></span><time>jetzt</time></div>
+              <div class="push"><span class="push__icon"></span><span><b>Dein Shop</b><small>Der Drop startet in 1 Stunde</small></span><time>9:00</time></div>
+            </div>
+            <h3>Push statt Spam</h3>
+            <p>Eine klare Nachricht direkt auf den Sperrbildschirm — nicht verloren zwischen hunderten Mails im Posteingang.</p>
+          </article>
+
+          <article class="bento__item reveal">
+            <span class="bento__num">03</span>
+            <h3>Sofort im Shop</h3>
+            <p>Kein Suchen, kein Eintippen der URL. Ein Tippen, und Kunden sind da.</p>
+          </article>
+
+          <article class="bento__item reveal" data-delay="1">
+            <span class="bento__num">04</span>
+            <div class="bento__visual" aria-hidden="true">
+              <div class="sync">
+                <div class="sync__node"><small>Shopify</small><b>24</b> Stk.</div>
+                <div class="sync__line"></div>
+                <div class="sync__node"><small>App</small><b>24</b> Stk.</div>
+              </div>
+            </div>
+            <h3>Live mit Shopify</h3>
+            <p>Lager &amp; Preise synchron — ohne Mehrarbeit.</p>
+          </article>
+
+          <article class="bento__item reveal" data-delay="2">
+            <span class="bento__num">05</span>
+            <div class="bento__visual" aria-hidden="true">
+              <div class="checkout-row"><span>Checkout</span><b>Shopify</b></div>
+              <div class="checkout-row"><span>Apple-Gebühren</span><b class="ok">Keine</b></div>
+            </div>
+            <h3>Checkout über Shopify</h3>
+            <p>Bezahlt wird wie gewohnt über Ihren Shopify-Checkout.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUNKTIONEN -->
+    <section class="section" id="funktionen">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Funktionen</span>
+          <h2>Alles, was eine Shopping-App braucht.</h2>
+          <p>Wir bauen genau die Funktionen, die zu Ihrem Shop passen — vom kompletten Shop bis zu Extras für Drops und Stammkunden.</p>
+        </div>
+
+        <div class="features reveal">
+          <div class="feature">
+            <div class="feature__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M12 18h.01"/></svg></div>
+            <h3>Shop spiegeln</h3>
+            <p>Produkte, Kollektionen, Suche und Warenkorb — Ihr kompletter Shop als native App.</p>
+          </div>
+          <div class="feature">
+            <div class="feature__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
+            <h3>Benach&shy;richtigungen</h3>
+            <p>Neue Artikel, Sales oder Erinnerungen direkt aufs Handy Ihrer Kunden.</p>
+          </div>
+          <div class="feature">
+            <div class="feature__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3 2 6"/><path d="m22 6-3-3"/></svg></div>
+            <h3>Drop Countdowns</h3>
+            <p>Spannung vor jedem Release — mit Countdown und Benachrichtigung zum Start.</p>
+          </div>
+          <div class="feature">
+            <div class="feature__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
+            <h3>Loyalty-Programm</h3>
+            <p>Punkte und Vorteile, die Stammkunden belohnen und zurückbringen.</p>
+          </div>
+          <div class="feature">
+            <div class="feature__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg></div>
+            <h3>Live-Sync</h3>
+            <p>Alles bleibt in Shopify. Bestand und Preise sind in der App sofort aktuell.</p>
+          </div>
+          <div class="feature">
+            <div class="feature__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3"/><path d="M12 18v3"/><path d="m4.6 4.6 2.1 2.1"/><path d="m17.3 17.3 2.1 2.1"/><path d="M3 12h3"/><path d="M18 12h3"/><path d="m4.6 19.4 2.1-2.1"/><path d="m17.3 6.7 2.1-2.1"/></svg></div>
+            <h3>Extra-Wünsche</h3>
+            <p>Sie haben eine eigene Idee? Wir bauen individuelle Funktionen für Ihren Shop.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WIESO NICHT SELBST MIT KI? -->
+    <section class="section" id="ki" style="padding-top: 0;">
+      <div class="wrap">
+        <div class="ki">
+          <div class="ki__head reveal">
+            <span class="eyebrow">Ehrliche Frage</span>
+            <h2>Wieso nicht einfach selbst mit KI machen?</h2>
+            <p>KI schreibt heute in Minuten Code. Eine App, die im App Store landet, mit Ihrem Shop verbunden ist und auch in einem Jahr noch läuft, ist aber mehr als Code.</p>
+            <div class="ki__compare" aria-label="Vergleich">
+              <div class="ki__col">
+                <small>Selbst mit KI</small>
+                <ul>
+                  <li>Wochen an Ausprobieren</li>
+                  <li>Risiko: Ablehnung durch Apple</li>
+                  <li>Bei Fehlern auf sich allein gestellt</li>
+                </ul>
+              </div>
+              <div class="ki__col ki__col--us">
+                <small>Mit uns</small>
+                <ul>
+                  <li>Fertige App, Sie testen nur</li>
+                  <li>Wir bringen sie in den Store</li>
+                  <li>Fester Ansprechpartner</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <ol class="ki__list">
+            <li class="reveal">
+              <details open>
+                <summary><h3>Apple lehnt einfache Web-Apps ab</h3></summary>
+                <p>Eine App, die nur Ihre Website in einen Rahmen packt, wird bei der App-Store-Prüfung oft abgelehnt. Genau das liefert KI meistens. Eine echte, native App muss anders gebaut sein.</p>
+              </details>
+            </li>
+            <li class="reveal" data-delay="1">
+              <details open>
+                <summary><h3>Die Shopify-Anbindung muss sitzen</h3></summary>
+                <p>Produkte, Bestand, Preise, Warenkorb und Checkout müssen live und sicher mit Shopify sprechen. Ein kleiner Fehler heißt: falsche Preise oder Bestellungen, die nie ankommen.</p>
+              </details>
+            </li>
+            <li class="reveal" data-delay="2">
+              <details open>
+                <summary><h3>Der Weg in den App Store ist ein Projekt für sich</h3></summary>
+                <p>Entwickler-Konto, Zertifikate, Push-Einrichtung, Testversionen, Screenshots, Datenschutz-Angaben, Prüfung durch Apple. Das erklärt Ihnen keine KI Schritt für Schritt bis zum Ende.</p>
+              </details>
+            </li>
+            <li class="reveal" data-delay="3">
+              <details open>
+                <summary><h3>Nach dem Launch ist vor dem Update</h3></summary>
+                <p>Neue iOS-Versionen und Änderungen bei Shopify können eine App jederzeit stören. Dann braucht es jemanden, der den Code kennt und das Problem schnell behebt.</p>
+              </details>
+            </li>
+            <li class="reveal" data-delay="4">
+              <details open>
+                <summary><h3>Ihre Zeit gehört Ihrem Shop</h3></summary>
+                <p>Jede Stunde, die Sie mit Code und Fehlermeldungen verbringen, fehlt bei Produkten, Marketing und Kunden. Wir übernehmen die Technik, Sie verkaufen.</p>
+              </details>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABLAUF -->
+    <section class="section" id="ablauf" style="padding-top: 0;">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Ablauf</span>
+          <h2>In vier Schritten zur eigenen App.</h2>
+          <p>Sie kümmern sich um Ihren Shop — wir um den Rest.</p>
+        </div>
+        <ol class="process" data-swipe>
+          <li class="process__step reveal">
+            <h3>Anfrage</h3>
+            <p>Sie beschreiben kurz Ihren Shop und Ihre Wünsche. Wir melden uns mit einem konkreten Angebot.</p>
+          </li>
+          <li class="process__step reveal" data-delay="1">
+            <h3>Konzept &amp; Design</h3>
+            <p>Wir planen die App passend zu Ihrer Marke — Farben, Aufbau und Funktionen.</p>
+          </li>
+          <li class="process__step reveal" data-delay="2">
+            <h3>Entwicklung</h3>
+            <p>Wir bauen die App und verbinden sie mit Ihrem Shopify-Shop. Sie testen vorab.</p>
+          </li>
+          <li class="process__step reveal" data-delay="3">
+            <h3>Launch</h3>
+            <p>Ihre App geht in den App Store — und Ihre Kunden können sie herunterladen.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PROJEKTE -->
+    <section class="section" id="projekte" style="padding-top: 0;">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Projekte</span>
+          <h2>Schon im App Store.</h2>
+        </div>
+        <article class="project reveal">
+          <div class="project__visual">
+            <img class="project__icon" src="assets/recalled/icon-256.png" alt="App-Icon von Recalled" width="148" height="148" loading="lazy">
+          </div>
+          <div class="project__body">
+            <div class="project__meta"><span class="tag tag--live">● Live im App Store</span><span class="tag">Shopify</span><span class="tag">Vintage Fashion</span></div>
+            <h3>Recalled</h3>
+            <p>Der Shopify-Shop von Recalled als native iOS-App — mit Live-Sync und Checkout über Shopify.</p>
+            <div class="project__links">
+              <a class="btn" href="https://apps.apple.com/app/apple-store/id6768467161?pt=128892928&amp;ct=website&amp;mt=8" target="_blank" rel="noopener">Zum App Store <span class="arrow">↗</span></a>
+              <a class="btn btn--ghost" href="https://www.instagram.com/recalled.vintage/" target="_blank" rel="noopener">@recalled.vintage</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ÜBER UNS -->
+    <section class="section" id="ueber-uns" style="padding-top: 0;">
+      <div class="wrap founder">
+        <div class="founder__photo reveal">
+          <!-- Foto einfügen: Datei als assets/vladimir.jpg ablegen und die nächste Zeile einkommentieren -->
+          <!-- <img src="assets/vladimir.jpg" alt="Vladimir Sentishchev"> -->
+          <span class="founder__initials" aria-hidden="true">VS</span>
+          <div class="founder__badge"><b>Vladimir Sentishchev</b>Gründer, App aus Onlineshop</div>
+        </div>
+        <div class="reveal" data-delay="1">
+          <span class="eyebrow">Über uns</span>
+          <blockquote>Ein Shop sollte nicht nach einem Besuch vergessen sein.</blockquote>
+          <p class="founder__text">Hinter App aus Onlineshop steht Vladimir Sentishchev. Mit Recalled hat er die erste eigene Shopify-App gebaut und in den App Store gebracht — heute bringt er andere Shopify-Shops genauso aufs Handy ihrer Kunden. Persönlich, direkt und ohne Agentur-Umwege.</p>
+          <div class="founder__sign"><span></span><div><b>Vladimir Sentishchev</b><small>Ihr direkter Ansprechpartner</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq" style="padding-top: 0;">
+      <div class="wrap faq-grid">
+        <div class="section-head reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2>Häufige Fragen</h2>
+          <p>Ihre Frage ist nicht dabei? Schreiben Sie uns einfach über die Anfrage.</p>
+        </div>
+        <div class="faq reveal" data-delay="1">
+          <details>
+            <summary>Für welche Shops bauen Sie Apps?</summary>
+            <p>Aktuell ausschließlich für Shops, die mit Shopify arbeiten. So können wir die App direkt und sauber an Ihren bestehenden Shop anbinden.</p>
+          </details>
+          <details>
+            <summary>Muss ich meine Produkte doppelt pflegen?</summary>
+            <p>Nein. Alles bleibt in Shopify. Produkte, Bestand und Preise werden live in die App übernommen — ohne Mehrarbeit für Sie.</p>
+          </details>
+          <details>
+            <summary>Wie bezahlen meine Kunden in der App?</summary>
+            <p>Der Checkout läuft über Shopify — so wie Ihre Kunden es aus Ihrem Shop kennen. Für Ihre Verkäufe fallen keine Apple-Gebühren an.</p>
+          </details>
+          <details>
+            <summary>Welche Funktionen kann die App haben?</summary>
+            <p>Vom kompletten Shop mit Warenkorb über Push-Benachrichtigungen und Drop Countdowns bis zum Loyalty-Programm. Extra-Wünsche besprechen wir gerne individuell.</p>
+          </details>
+          <details>
+            <summary>Was kostet eine App?</summary>
+            <p>Das hängt von Ihrem Shop und den gewünschten Funktionen ab. Nach Ihrer Anfrage erhalten Sie ein konkretes, unverbindliches Angebot.</p>
+          </details>
+          <details>
+            <summary>Wie starte ich?</summary>
+            <p>Füllen Sie die kurze Anfrage aus — das dauert etwa zwei Minuten. Wir melden uns danach persönlich bei Ihnen.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" style="padding-top: 0;">
+      <div class="wrap">
+        <div class="cta reveal" data-cta-hide>
+          <span class="eyebrow">Starten</span>
+          <h2>Lassen Sie uns über Ihre App sprechen.</h2>
+          <p>Wenige Angaben — wir melden uns mit einer klaren Einschätzung und einem konkreten Angebot.</p>
+          <a class="btn btn--light" href="angebot.html">Angebot anfragen <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" data-cta-hide>
+    <div class="wrap">
+      <div class="footer__top">
+        <div>
+          <a class="logo" href="index.html"><span class="logo__mark"><span></span></span>App aus Onlineshop</a>
+          <p>Native Shopping Apps für Shopify-Shops — damit Kunden bleiben.</p>
+        </div>
+        <div class="footer__cols">
+          <div>
+            <h4>Seiten</h4>
+            <ul>
+              <li><a href="index.html#vorteile">Vorteile</a></li>
+              <li><a href="index.html#funktionen">Funktionen</a></li>
+              <li><a href="projekte.html">Projekte</a></li>
+              <li><a href="angebot.html">Angebot anfragen</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Rechtliches</h4>
+            <ul>
+              <li><a href="impressum.html">Impressum</a></li>
+              <li><a href="datenschutz.html">Datenschutz</a></li>
+              <li><a href="agb.html">AGB</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span data-year>2026</span> App aus Onlineshop</span>
+        <span>Gemacht für Shopify-Shops</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-cta">
+    <a class="btn btn--accent" href="angebot.html">Angebot anfragen <span class="arrow">→</span></a>
+  </div>
+
+  <script src="main.js"></script>
+</body>
 </html>

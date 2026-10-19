@@ -1,0 +1,32 @@
+App aus Onlineshop — Website
+============================
+
+Online stellen
+--------------
+Den kompletten Ordner (ohne diese Datei, wenn gewünscht) auf den Webspace
+hochladen. Es ist eine reine HTML/CSS/JS-Seite: kein Build, keine Installation.
+Startseite ist index.html.
+
+Inhalt
+------
+index.html        Startseite
+projekte.html     Projekte (Recalled)
+angebot.html      Anfrage-Formular (4 Schritte)
+danke.html        Seite nach dem Absenden
+impressum.html, datenschutz.html, agb.html
+style.css         Gesamtes Design (Farben oben unter :root)
+main.js           Animationen, Mobilmenü, Countdown
+assets/           Favicon und Recalled-Icon
+
+Anpassen
+--------
+- Foto Gründer: Bild als assets/vladimir.jpg ablegen und in index.html die
+  markierte Zeile im Abschnitt "ÜBER UNS" einkommentieren.
+- Formular: Anfragen gehen über FormSubmit an recalled.info@gmail.com
+  (wie bisher). Andere Adresse: in angebot.html im <form action="...">
+  austauschen. Nach dem Absenden leitet das Formular automatisch auf
+  danke.html der eigenen Domain weiter.
+- Datenschutz: Abschnitt 3 nennt als Hosting "Render" — bei anderem
+  Hoster bitte anpassen.
+- Neues Projekt: in projekte.html den <article class="project">-Block
+  kopieren und Texte, Icon und Links tauschen.
