@@ -47,6 +47,51 @@
     }
   }
 
+  /* —— Home: Pain-Point Story —— */
+  const painRoot = document.querySelector("[data-home-pain]");
+  if (painRoot) {
+    const steps = [...painRoot.querySelectorAll("[data-pain-step]")];
+    const caption = painRoot.querySelector("[data-pain-caption]");
+    const labels = ["Kunde kommt", "Website öffnen", "Reibung entsteht", "Kunde ist weg"];
+    let timer = null;
+    let i = 0;
+
+    const paint = (index) => {
+      steps.forEach((el, idx) => {
+        el.classList.toggle("is-on", idx === index);
+        el.classList.toggle("is-done", idx < index);
+        el.classList.toggle("is-lost", index === 3 && idx === 3);
+      });
+      if (caption) caption.textContent = labels[index] || "";
+    };
+
+    const start = () => {
+      if (timer || reduceMotion) {
+        paint(3);
+        return;
+      }
+      paint(0);
+      timer = window.setInterval(() => {
+        i = (i + 1) % labels.length;
+        paint(i);
+      }, 1400);
+    };
+
+    if (!("IntersectionObserver" in window)) {
+      start();
+    } else {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) start();
+          });
+        },
+        { threshold: 0.35 }
+      );
+      io.observe(painRoot);
+    }
+  }
+
   /* —— Vorteil 1: Zugang —— */
   const setupAccess = (stage) => {
     const progressBar = stage.querySelector("[data-why-progress]");
